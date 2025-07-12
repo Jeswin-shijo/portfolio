@@ -1,5 +1,6 @@
 import React from "react";
 import bgVideo from "../../../assets/background/back.mp4";
+import AnimatedParagraph from "../../animated-paragraph";
 
 const navLinks = [
   "About Us",
@@ -95,6 +96,7 @@ const HomePage: React.FC = () => {
           <i className="bi bi-chevron-up text-warning mt-2"></i>
           <i className="bi bi-chevron-down text-warning"></i>
         </div>
+        <AnimatedParagraph/>
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import React from "react";
 import bgVideo from "../../../assets/background/back.mp4";
-import AnimatedParagraph from "../../animated-paragraph";
 
 const navLinks = [
   "About Us",
@@ -39,7 +38,7 @@ const HomePage: React.FC = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-3">
               {navLinks.map((link) => (
                 <li className="nav-item" key={link}>
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href={`#${link}`}>
                     {link}
                   </a>
                 </li>
@@ -96,7 +95,6 @@ const HomePage: React.FC = () => {
           <i className="bi bi-chevron-up text-warning mt-2"></i>
           <i className="bi bi-chevron-down text-warning"></i>
         </div>
-        <AnimatedParagraph/>
       </div>
     </div>
   );

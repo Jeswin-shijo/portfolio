@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-3">
               {navLinks.map((link) => (
                 <li className="nav-item" key={link}>
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href={`#${link}`}>
                     {link}
                   </a>
                 </li>

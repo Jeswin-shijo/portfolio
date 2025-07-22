@@ -1,0 +1,46 @@
+.hover-button {
+  background-color: #fcd307;
+  transition: background-color 0.3s ease;
+}
+
+.hover-button:hover {
+  background-color: #ffffff;
+}
+
+.default-layer {
+  transition: all 0.3s ease;
+}
+
+.hover-layer {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.hover-button:hover .default-layer {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.hover-button:hover .hover-layer {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes blink {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.5);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+.arrow {
+  font-size: 1.1rem;
+  font-weight: bold;
+}

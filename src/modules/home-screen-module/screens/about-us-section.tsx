@@ -1,35 +1,21 @@
 import React from "react";
+import AnimatedParagraph from "../../animated-paragraph";
+import Accordion from "../../../shared/components/sy-accordion";
 
 const AboutUsSection: React.FC = () => {
   return (
     <section className="container py-5">
       {/* About Button */}
+      <div className="d-flex justify-content-between">
       <div className="mb-4">
-        <button className="btn btn-outline-secondary rounded-pill px-4">About us</button>
+        <button className="btn btn-outline-secondary rounded-3 px-4">About us</button>
       </div>
 
       {/* Description */}
       <div className="mb-5" style={{ maxWidth: "900px" }}>
-        <p style={{
-          fontSize: "2rem",
-          fontFamily: "'Playfair Display', serif",
-          color: "#0c2d57",
-          fontWeight: 500,
-          lineHeight: 1.5
-        }}>
-          Popup Tours and Travels is your trusted travel companion, offering tailor-made holiday experiences across India and abroad.
-        </p>
-        <p style={{
-          fontSize: "2rem",
-          fontFamily: "'Playfair Display', serif",
-          color: "#c2cbd6",
-          fontWeight: 400,
-          lineHeight: 1.5
-        }}>
-          With years of expertise, local partnerships, and 24/7 customer support, we ensure your journey is smooth, safe, and unforgettable.
-        </p>
+        <AnimatedParagraph text={"Popup Tours and Travels is your trusted travel companion, offering tailor-made holiday experiences across India and abroad.With years of expertise, local partnerships, and 24/7 customer support, we ensure your journey is smooth, safe, and unforgettable."}/>
       </div>
-
+      </div>
       {/* Stats */}
       <div className="row text-center">
         <div className="col-md-3 mb-4">

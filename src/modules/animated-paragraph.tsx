@@ -35,6 +35,13 @@ const AnimatedParagraph: React.FC<AnimatedParagraphProps> = ({ text = "This is t
         <span
           key={i}
           className={`word ${i < revealedWords ? 'visible' : ''}`}
+          style={{
+          fontSize: "2rem",
+          fontFamily: "IvyMode, serif",
+          color: "#0c2d57",
+          fontWeight: 500,
+          lineHeight: 1.5
+        }}
         >
           {word}&nbsp;
         </span>

@@ -4,12 +4,10 @@
 
 .word {
   display: inline-block;
-  opacity: 0;
-  filter: blur(4px);
-  transition: all 0.5s ease;
+  opacity: 0.2;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .word.visible {
   opacity: 1;
-  filter: blur(0);
 }

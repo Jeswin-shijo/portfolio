@@ -1,31 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './AnimatedParagraph.scss';
 
-const AnimatedParagraph = () => {
-  const [revealedWords, setRevealedWords] = useState<number>(0);
+interface AnimatedParagraphProps {
+  text?: string;
+}
 
-  const words = "This is a test paragraph thngvhnghnghnghnghdnrftgpohiurthjprio uhbrfptgihfrgt[oirf thub[fosgibfsgt oihlfsgb;ofst gb;ofgn bfg;olokbfgn'b lkgfnb;lgfkn bfg;lknfg;lkfgn;lbfgnblgf;knfg;lkbnfg;lbkfgn ;lkfgnb;lfgnbfgl';k bnfg;'lbnfg;lbnfg;lbfgnb;lfkgnb;lfgbnf;glkbnfg;'lkbnfg;lbknfg;blkfgnb;lfkgnb;flgkbnfg;lkat reveals itself like loading.".split(' ');
- 
+const AnimatedParagraph: React.FC<AnimatedParagraphProps> = ({ text = "This is the default animated paragraph" }) => {
+  const [revealedWords, setRevealedWords] = useState<number>(0);
   const hasAnimated = useRef(false);
 
-useEffect(() => {
-  const animate = () => {
-    if (hasAnimated.current) return;
-    hasAnimated.current = true;
+  const words = text.split(" ");
 
-    words.forEach((_, index) => {
-      setTimeout(() => {
-        setRevealedWords(i => Math.min(i + 1, words.length));
-      }, index * 300);
-    });
-  };
+  useEffect(() => {
+    const animate = () => {
+      if (hasAnimated.current) return;
+      hasAnimated.current = true;
 
-  animate(); // on mount
-  window.addEventListener('focus', animate);
+      words.forEach((_, index) => {
+        setTimeout(() => {
+          setRevealedWords(i => Math.min(i + 1, words.length));
+        }, index * 300);
+      });
+    };
 
-  return () => window.removeEventListener('focus', animate);
-}, []);
+    animate(); // run once on mount
+    window.addEventListener('focus', animate);
 
+    return () => window.removeEventListener('focus', animate);
+  }, [words]);
 
   return (
     <p className="animated-paragraph">

@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedParagraph from "../../animated-paragraph";
 
 const AboutUsSection: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const AboutUsSection: React.FC = () => {
         }}>
           With years of expertise, local partnerships, and 24/7 customer support, we ensure your journey is smooth, safe, and unforgettable.
         </p>
+        <AnimatedParagraph text={"Popup Tours and Travels is your trusted travel companion, offering tailor-made holiday experiences across India and abroad.With years of expertise, local partnerships, and 24/7 customer support, we ensure your journey is smooth, safe, and unforgettable."}/>
       </div>
 
       {/* Stats */}

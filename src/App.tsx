@@ -5,6 +5,7 @@ import HomePage from './modules/screens/home-screen';
 import AboutUsSection from './modules/screens/about-us-screen/about-us-section';
 import DestinationScreen from './modules/screens/destination-screen';
 import PopularPlacesScreen from './modules/screens/popular-places-screen';
+import TourPackagesScreen from './modules/screens/tour-packages-screen';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
      
      <>
       {/* // <div className="App"> */}
-      <HomePage /><AboutUsSection /><DestinationScreen/><PopularPlacesScreen/></>
+      <HomePage /><AboutUsSection /><DestinationScreen/><PopularPlacesScreen/><TourPackagesScreen/></>
 
     // </div>
   );

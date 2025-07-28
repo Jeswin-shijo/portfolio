@@ -7,7 +7,7 @@ interface LocationCardProps {
 
 const LocationCard = ({ imageSrc, locationName }: LocationCardProps) => {
   return (
-    <div className="card border-0 shadow rounded overflow-hidden w-25 h-25">
+    <div className="card border-0 shadow rounded overflow-hidden">
       <div className="position-relative">
         <img
           src={imageSrc}

@@ -4,16 +4,12 @@ import ExpandableCard from "../../../shared/components/expand-card";
 const DestinationScreen = () => {
   return (
     <>
-      {/* Top Section: Label, Heading, Content */}
       <section className="container py-5">
-        {/* Label */}
         <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
           Destination
         </span>
 
-        {/* Two-column layout */}
         <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-5">
-          {/* Left Side: Heading */}
           <div className="text-start">
             <h2 className="display-5 fw-medium text-dark">
               Explore Our Popular <br />
@@ -21,7 +17,6 @@ const DestinationScreen = () => {
             </h2>
           </div>
 
-          {/* Right Side: Paragraph, Button, Arrows */}
           <div
             className="d-flex flex-column gap-3"
             style={{ maxWidth: "500px" }}
@@ -52,10 +47,9 @@ const DestinationScreen = () => {
         </div>
       </section>
 
-      {/* Card Section: Positioned Below */}
       <section className="container pb-5">
         <div className="row g-4">
-          <div className="col-12 col-sm-6 col-lg-3">
+          <div className="col-12 col-sm-6 col-lg-4">
             <ExpandableCard
               image="https://picsum.photos/200/300"
               location="Alanchi"
@@ -64,7 +58,7 @@ const DestinationScreen = () => {
               description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
             />
           </div>
-          <div className="col-12 col-sm-6 col-lg-3">
+          <div className="col-12 col-sm-6 col-lg-4">
             <ExpandableCard
               image="https://picsum.photos/200/300"
               location="Alanchi"
@@ -73,16 +67,7 @@ const DestinationScreen = () => {
               description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
             />
           </div>
-          <div className="col-12 col-sm-6 col-lg-3">
-            <ExpandableCard
-              image="https://picsum.photos/200/300"
-              location="Alanchi"
-              title="Beach Paradise"
-              price="₹56,567"
-              description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
-            />
-          </div>
-          <div className="col-12 col-sm-6 col-lg-3">
+          <div className="col-12 col-sm-6 col-lg-4">
             <ExpandableCard
               image="https://picsum.photos/200/300"
               location="Alanchi"

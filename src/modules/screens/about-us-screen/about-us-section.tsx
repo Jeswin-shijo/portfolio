@@ -1,6 +1,5 @@
 import React from "react";
-import AnimatedParagraph from "../../animated-paragraph";
-import Accordion from "../../../shared/components/sy-accordion";
+import AnimatedParagraph from "../components/animated-paragraph";
 
 const AboutUsSection: React.FC = () => {
   return (

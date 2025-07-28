@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import "./ExpandableCard.css";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardActions from "@mui/material/CardActions";
+import Collapse from "@mui/material/Collapse";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
 
 interface ExpandableCardProps {
   image: string;
@@ -16,32 +25,61 @@ const ExpandableCard = ({
   price,
   description,
 }: ExpandableCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <div
-      className={`card-container ${isHovered ? "expanded" : ""}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <Card
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      sx={{
+        maxWidth: 345,
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        transform: hovered ? "scale(1.05)" : "scale(1)",
+        boxShadow: hovered ? 6 : 1,
+        zIndex: hovered ? 10 : 1,
+        borderRadius: 2,
+        overflow: "hidden",
+      }}
     >
-      <div className={`image-wrapper ${isHovered ? "expanded" : ""}`}>
-        <img
-          src={image}
-          alt="Destination"
-          className="card-image"
-        />
-        <div className="location-badge">{location}</div>
-      </div>
+      <CardActionArea>
+        <Box sx={{ position: "relative" }}>
+          <CardMedia component="img" height="180" image={image} alt={title} />
+          <Paper
+            elevation={3}
+            sx={{
+              position: "absolute",
+              top: 12,
+              right: 12,
+              bgcolor: "white",
+              px: 1.5,
+              py: 0.5,
+              borderRadius: 2,
+              fontWeight: 500,
+              fontSize: "0.875rem",
+              opacity: 0.5,
+            }}
+          >
+            {location}
+          </Paper>
+        </Box>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
 
-      <div className={`card-content ${isHovered ? "show" : ""}`}>
-        <h3 className="text-dark">{title}</h3>
-        <p>{description}</p>
-        <div className="price-button">
-          <span className="text-dark">${price}</span>
-          <button className="action-button">→</button>
-        </div>
-      </div>
-    </div>
+      <Collapse in={hovered} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" sx={{ color: "text.secondary" }}>
+            {description}
+          </Typography>
+          <Typography variant="h6" sx={{ mt: 2 }}>
+            {price}
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
   );
 };
 

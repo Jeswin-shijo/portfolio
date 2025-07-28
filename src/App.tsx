@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import HomePage from './modules/home-screen-module/screens';
-import AboutUsSection from './modules/home-screen-module/screens/about-us-section';
+import HomePage from './modules/screens/home-screen';
+import AboutUsSection from './modules/screens/about-us-screen/about-us-section';
+import DestinationScreen from './modules/screens/destination-screen';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
      
      <>
       {/* // <div className="App"> */}
-      <HomePage /><AboutUsSection /></>
+      <HomePage /><AboutUsSection /><DestinationScreen/></>
 
     // </div>
   );

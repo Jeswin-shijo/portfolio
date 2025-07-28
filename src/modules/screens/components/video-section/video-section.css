@@ -1,0 +1,32 @@
+.video-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.play-btn-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+}
+
+.play-btn-circle:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-icon {
+  font-size: 2rem;
+  color: #fbbf24; /* Bootstrap's warning color */
+  z-index: 3;
+}

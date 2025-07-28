@@ -1,172 +1,113 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  Container,
-  Typography,
-  Card,
-  CardMedia,
-} from "@mui/material";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import Grid from "@mui/material/Grid";
+
 const places = [
   {
     title: "Sri Lanka Packages",
     description:
-      "Sri Lanka, historically known as Ceylon and officially the Democratic Socialist Republic of Sri Lanka, is an island country in South Asia. It lies in the Indian Ocean, southwest of the Bay of Bengal, separated from the Indian peninsula by the Gulf of Mannar and the Palk Strait. It shares a maritime border with the Maldives in the southwest and India in the northwest.",
+      "Sri Lanka, historically known as Ceylon and officially the Democratic Socialist Republic of Sri Lanka, is an island country in South Asia...",
     image: "https://picsum.photos/200/300?grayscale",
   },
   {
     title: "Bali Packages",
-    description: "Explore the exotic temples, beaches, and nightlife of Bali.",
+    description:
+      "Explore the exotri Lanka, historically known as Ceylon and officially the Democratic Socialist Republic of Sri Lanka, is an island country in ic temples, beaches, and nightlife of Bali.",
     image: "https://picsum.photos/seed/picsum/200/300",
   },
   {
     title: "Wayanad Packages",
-    description: "Discover lush greenery, wildlife, and waterfalls in Wayanad.",
+    description:
+      "Discover lushri Lanka, historically known as Ceylon and officially the Democratic Socialist Republic of Sri Lanka, is an island country in  greenery, wildlife, and waterfalls in Wayanad.",
     image: "https://picsum.photos/200/300/?blur",
   },
   {
     title: "Munnar Package",
-    description: "Enjoy tea plantations and misty hills in Munnar.",
+    description:
+      "Enjoy teari Lanka, historically known as Ceylon and officially the Democratic Socialist Republic of Sri Lanka, is an island country in  plantations and misty hills in Munnar.",
     image: "https://source.unsplash.com/800x600/?munnar,tea",
   },
   {
     title: "Thailand Package",
-    description: "Experience vibrant markets, beaches, and Thai culture.",
+    description:
+      "Experience vri Lanka, historically known as Ceylon and officially the Democratic Socialist Republic of Sri Lanka, is an island country in ibrant markets, beaches, and Thai culture.",
     image: "https://source.unsplash.com/800x600/?thailand",
   },
 ];
 
-const PopularPlacesScreen = () => {
+const PopularPlacesBootstrap = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <Box sx={{ backgroundColor: "#e9eff4", py: 8 }}>
-      <Container>
-        <Typography
-          variant="button"
-          sx={{
-            border: "1px solid #000",
-            px: 2,
-            py: 0.5,
-            borderRadius: "12px",
-            mb: 2,
-            display: "inline-block",
-            fontSize: 14,
-          }}
-        >
+    <div className="bg-light py-5">
+      <div className="container">
+        <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
           Popular Places
-        </Typography>
-        <div className="d-flex justify-content-between">
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: 500,
-              fontFamily: "'Playfair Display', serif",
-              mb: 2,
-            }}
+        </span>
+
+        <div className="d-flex justify-content-between flex-wrap align-items-center mb-4">
+          <h2
+            className="fw-semibold"
+            style={{ fontFamily: "'Playfair Display', serif", fontSize: 50 }}
           >
             Explore Our Popular <br /> Places
-          </Typography>
-
-          <Typography variant="body1" sx={{ mb: 4, maxWidth: 500 }}>
+          </h2>
+          <p className="text-muted" style={{ maxWidth: "500px" }}>
             Embark on a journey through our most sought-after destinations —
             from serene hill stations and sun-kissed beaches to vibrant cities
-            and cultural wonders,
-          </Typography>
+            and cultural wonders.
+          </p>
         </div>
-        <Grid container spacing={4}>
-          <Grid size={{ xs: 12, md: 4 }}>
+
+        <div className="row g-4">
+          <div className="col-md-4">
             {places.map((place, index) => (
-              <Box
+              <div
                 key={index}
+                className={`d-flex justify-content-between align-items-center mb-4 border-bottom py-2 px-2 ${
+                  activeIndex === index ? "text-dark fw-bold" : "text-secondary"
+                }`}
+                style={{ cursor: "pointer" }}
                 onClick={() => setActiveIndex(index)}
-                sx={{
-                  py: 2,
-                  px: 1,
-                  cursor: "pointer",
-                  borderBottom: "1px solid #ccc",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  color: activeIndex === index ? "#000" : "#aaa",
-                  fontWeight: activeIndex === index ? 600 : 400,
-                  transition: "0.3s",
-                }}
               >
                 {place.title}
-                <ArrowForwardIcon
-                  sx={{
-                    fontSize: 18,
-                    transform: "rotate(-45deg)",
-                  }}
-                />
-              </Box>
+                <i className="bi bi-arrow-up-right"></i>
+              </div>
             ))}
-          </Grid>
+          </div>
 
-          <Grid size={{ xs: 12, md: 8 }}>
-            <Grid container spacing={2}>
-              <Grid size={{ xs: 12, md: 6 }}>
-                <Card sx={{ borderRadius: 3, overflow: "hidden" }}>
-                  <CardMedia
-                    component="img"
-                    image={places[activeIndex].image}
+          <div className="col-md-8">
+            <div className="row g-3 align-items-center">
+              <div className="col-md-6">
+                <div className="card rounded-3 overflow-hidden">
+                  <img
+                    src={places[activeIndex].image}
                     alt={places[activeIndex].title}
-                    sx={{ height: "100%", maxHeight: 300, objectFit: "cover" }}
+                    className="img-fluid"
+                    style={{ height: "300px", objectFit: "cover" }}
                   />
-                </Card>
-              </Grid>
+                </div>
+              </div>
 
-              <Grid
-                size={{ xs: 12, md: 6 }}
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-              >
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontFamily: "'Playfair Display', serif",
-                    mb: 1,
-                  }}
-                >
+              <div className="col-md-6">
+                <h4 style={{ fontFamily: "'Playfair Display', serif" }}>
                   {places[activeIndex].title}
-                </Typography>
-
-                <Typography
-                  variant="body2"
-                  sx={{ mb: 2, lineHeight: 1.7, color: "#333" }}
-                >
+                </h4>
+                <p className="text-muted small" style={{ lineHeight: 1.6 }}>
                   {places[activeIndex].description}
-                </Typography>
-
-                <Button
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#FFD700",
-                    color: "#000",
-                    textTransform: "none",
-                    px: 3,
-                    borderRadius: "10px",
-                    fontWeight: 500,
-                    alignSelf: "flex-start",
-                    "&:hover": {
-                      backgroundColor: "#ffc400",
-                    },
-                  }}
-                  endIcon={<ArrowForwardIcon />}
+                </p>
+                <a
+                  href="#"
+                  className="btn p-2 btn-warning text-dark d-inline-flex align-items-center gap-2 rounded-3"
+                  style={{ maxWidth: "170px" }}
                 >
-                  Explore More
-                </Button>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+                  Explore More <i className="bi bi-box-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default PopularPlacesScreen;
+export default PopularPlacesBootstrap;

@@ -7,6 +7,7 @@ import DestinationScreen from './modules/screens/destination-screen';
 import PopularPlacesScreen from './modules/screens/popular-places-screen';
 import TourPackagesScreen from './modules/screens/tour-packages-screen';
 import AdvertiseScreen from './modules/screens/advertise-screen';
+import ReviewScreen from './modules/screens/reviews-screen/review-screen';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
      
      <>
       {/* // <div className="App"> */}
-      <HomePage /><AboutUsSection /><DestinationScreen/><PopularPlacesScreen/><TourPackagesScreen/><AdvertiseScreen/></>
+      <HomePage /><AboutUsSection /><DestinationScreen/><PopularPlacesScreen/><TourPackagesScreen/><AdvertiseScreen/><ReviewScreen/></>
 
     // </div>
   );

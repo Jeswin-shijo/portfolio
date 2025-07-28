@@ -1,5 +1,5 @@
 import React from "react";
-import AnimatedParagraph from "../components/animated-paragraph";
+import AnimatedParagraph from "../components/animated-paragraph/animated-paragraph";
 
 const AboutUsSection: React.FC = () => {
   return (

@@ -10,7 +10,7 @@ const ContactCard = () => {
         we ensure a quick response
       </p>
       <button className={Stylesheet.button}>
-        {/* Contact Us <ArrowRight size={16} /> */}
+        Contact Us <i className="bi bi-arrow-up-right"></i>
       </button>
     </div>
   );

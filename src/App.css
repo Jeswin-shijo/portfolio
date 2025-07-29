@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.title-font {
+  font-family: 'ivy mode', serif;
+  font-weight: 500;
+}
+
+.sub-font {
+  font-family: 'Inter', sans-serif;
+}
+
+
+.blu-txt {
+  color: #0d4068;
+}
+
+.pwdr-blu {
+  color: #bfcdd8;
+}
+
+.bg-blu {
+  background-color: #e7ecf0;
+}

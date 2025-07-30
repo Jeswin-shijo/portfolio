@@ -1,103 +1,60 @@
 import React from "react";
-import bgVideo from "../../../assets/background/back.mp4";
+import "./home-screen.css";
+import bgImage from "../../../assets/background/view-beautiful-rainbow-appearing-end-road.jpg"; // Replace with actual path
+import FilterSection from "../components/filter-section/filter-section";
+import logo from "../../../assets/logo/popup-logo-light.svg";
 
-const navLinks = [
-  "About Us",
-  "International",
-  "Domestic",
-  "Honeymoon",
-  "Gallery",
-  "Contact Us",
-];
-
-const formFields = ["Destination", "Tour Type", "Date", "Travel Duration"];
-
-const HomePage: React.FC = () => {
+const HomeScreen = () => {
   return (
-    <div className="position-relative vh-100 text-white font-sans overflow-hidden">
-      {/* Background Video */}
-      <video
-        src={bgVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
-        style={{ zIndex: -1 }}
-      />
-
-      {/* Content Wrapper */}
-      <div className="position-relative z-1">
-        {/* Navbar */}
-        <nav className="navbar navbar-expand-lg navbar-dark bg-transparent px-4 py-3">
-          <a className="navbar-brand d-flex align-items-center gap-2" href="#">
-            <img src="/logo.png" alt="logo" height="32" />
-            <strong>Pop Up Tours</strong>
-          </a>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-3">
-              {navLinks.map((link) => (
-                <li className="nav-item" key={link}>
-                  <a className="nav-link" href={`#${link}`}>
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <button className="btn btn-warning fw-semibold">Get in Touch</button>
-          </div>
-        </nav>
-
-        {/* Hero Section */}
-        <div className="d-flex flex-column justify-content-center align-items-center text-center h-100 px-3">
-          <h1
-            className="display-4 fw-light"
-            style={{ fontFamily: "Playfair Display, serif" }}
-          >
-            Start your unforgettable <br /> journey with us.
-          </h1>
-          <p className="lead mt-3">The best travel for your journey begins now</p>
-
-          {/* Search Box */}
-          <div
-            className="bg-white bg-opacity-25 rounded p-4 mt-5 w-100"
-            style={{ maxWidth: "1100px" }}
-          >
-            <div className="row g-3">
-              {formFields.map((label, idx) => (
-                <div className="col-6 col-md" key={idx}>
-                  <label className="form-label text-dark">{label}</label>
-                  <select className="form-select bg-white bg-opacity-25 text-dark">
-                    <option>Select</option>
-                  </select>
-                </div>
-              ))}
-              <div className="col-12 col-md">
-                <button className="btn btn-dark w-100 mt-4 mt-md-0">
-                  🔍 Search
-                </button>
-              </div>
-            </div>
-          </div>
+    <div className="container home-screen bg-danger" style={{ backgroundImage: `url(${bgImage})` }}>
+      <nav className="navbar px-5 py-3 d-flex align-items-center justify-content-between">
+        <img
+          src={logo}
+          alt="Pop Up Tours"
+          style={{ height: 100, width: 270, marginBottom: 20 }}
+        />{" "}
+        <div className="nav-links d-flex gap-4 text-white">
+          <a href="#">About Us</a>
+          <a href="#">International</a>
+          <a href="#">Domestic</a>
+          <a href="#">Honeymoon</a>
+          <a href="#">Gallery</a>
+          <a href="#">Contact Us</a>
         </div>
+        <button className="btn btn-warning fw-semibold px-4">
+          Get in Touch
+        </button>
+      </nav>
 
-        {/* Dots Slider Indicator */}
-        <div className="position-absolute top-50 end-0 translate-middle-y me-3 d-flex flex-column align-items-center gap-2">
-          {[...Array(5)].map((_, i) => (
-            <div
-              key={i}
-              className={`rounded-circle ${
-                i === 0 ? "bg-warning" : "bg-white opacity-50"
-              } border border-light`}
-              style={{ width: "12px", height: "12px", cursor: "pointer" }}
-            />
-          ))}
-          <i className="bi bi-chevron-up text-warning mt-2"></i>
-          <i className="bi bi-chevron-down text-warning"></i>
+      <div className="hero-content text-white text-start d-flex flex-column align-items-start justify-content-start ">
+        <h1
+          className="fw-semibold"
+          style={{ fontFamily: "'Playfair Display', serif", fontSize: 60 }}
+        >
+          Start your unforgettable
+          <br />
+          journey with us.
+        </h1>
+        <p className="lead ">The best travel for your journey begins now</p>
+
+        <div className="d-flex justify-content-start mt-5">
+          <FilterSection />
+        </div>
+      </div>
+
+      <div className="dot-navigation position-absolute end-0 top-50 translate-middle-y pe-3">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div
+            key={i}
+            className={`dot mb-2 rounded-circle ${i === 1 ? "active" : ""}`}
+          ></div>
+        ))}
+        <div className="arrow-down text-warning mt-2">
+          <i className="bi bi-chevron-down"></i>
         </div>
       </div>
     </div>
   );
 };
 
-export default HomePage;
+export default HomeScreen;

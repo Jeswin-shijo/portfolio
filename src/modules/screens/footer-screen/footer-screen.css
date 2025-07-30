@@ -1,0 +1,8 @@
+footer ul li:hover {
+  color: #ffc107;
+  cursor: pointer;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

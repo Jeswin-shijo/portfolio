@@ -1,3 +1,3 @@
-import HomePage from "./home-screen";
+import HomeScreen from "./home-screen";
 
-export default HomePage;
+export default HomeScreen;

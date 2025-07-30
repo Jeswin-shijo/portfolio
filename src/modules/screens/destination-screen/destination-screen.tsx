@@ -11,9 +11,11 @@ const DestinationScreen = () => {
 
         <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-5">
           <div className="text-start">
-            <h2 className="display-5 fw-medium text-dark">
-              Explore Our Popular <br />
-              destination
+            <h2
+              className="fw-semibold"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: 50 }}
+            >
+              Explore Our Popular <br /> destination
             </h2>
           </div>
 

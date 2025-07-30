@@ -1,0 +1,49 @@
+.home-screen {
+  height: 65vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hero-content {
+  position: absolute;
+  top: 60%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+.search-panel {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid #ffffff60;
+  backdrop-filter: blur(8px);
+}
+
+.search-panel select {
+  color: white;
+}
+
+.search-panel select option {
+  color: black;
+}
+
+.dot-navigation .dot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  opacity: 0.5;
+}
+
+.dot-navigation .dot.active {
+  background-color: orange;
+  opacity: 1;
+}
+
+.arrow-down {
+  font-size: 1.2rem;
+}

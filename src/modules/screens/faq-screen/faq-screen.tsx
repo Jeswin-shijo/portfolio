@@ -32,7 +32,7 @@ function FAQScreen() {
   ];
 
   return (
-    <div className="container py-5">
+    <div className="container pt-5">
       <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
         FAQ
       </span>
@@ -55,7 +55,7 @@ function FAQScreen() {
         </div>
       </div>
 
-      <div className="container my-5">
+      <div className="container my-2">
         <div className="row">
           <div className="col-lg-8 mb-4">
             {tourFAQs.map((item: any, index: any) => (

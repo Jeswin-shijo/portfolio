@@ -11,6 +11,7 @@ import ReviewScreen from './modules/screens/reviews-screen/review-screen';
 import FAQScreen from './modules/screens/faq-screen';
 import TravelBlogScreen from './modules/screens/travel-blog-screen';
 import LandingScreen from './modules/screens/landing-screen';
+import StickyWhatsApp from './common/sticky-whatsapp';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
      
      <>
       {/* // <div className="App"> */}
-      <HomeScreen /><AboutUsSection /><DestinationScreen/><PopularPlacesScreen/><TourPackagesScreen/><AdvertiseScreen/><ReviewScreen/><FAQScreen/><TravelBlogScreen/><LandingScreen/></>
+      <HomeScreen /><AboutUsSection /><DestinationScreen/><PopularPlacesScreen/><TourPackagesScreen/><AdvertiseScreen/><ReviewScreen/><FAQScreen/><TravelBlogScreen/><LandingScreen/><StickyWhatsApp/></>
 
     // </div>
   );

@@ -11,12 +11,12 @@ const ReviewScreen = (props: Props) => {
         </span>
 
         <div className="d-flex justify-content-between flex-wrap align-items-center mb-4">
-          <h1
-            className="fw-lighter blu-txt"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+          <h2
+            className="fw-semibold"
+            style={{ fontFamily: "'Playfair Display', serif", fontSize: 50 }}
           >
             Regards From <br /> Travelers
-          </h1>
+          </h2>
           <p className="text-muted" style={{ maxWidth: "50%" }}>
             Embark on a journey through our most sought-after destinations -
             from serene hill stations and sun-kissed beaches to vibrant cities

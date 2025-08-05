@@ -99,7 +99,7 @@ const FooterScreen = () => {
             <br />
             United Arab Emirates
           </div>
-          <div className="col-md-3 d-flex flex-column align-items-start align-items-md-end">
+          <div className="col-md-3 d-flex flex-column align-items-start align-items-md-center">
             <strong>SOCIAL NETWORK</strong>
             <div className="d-flex gap-2 mt-2">
               <i className="fab fa-facebook-f"></i>

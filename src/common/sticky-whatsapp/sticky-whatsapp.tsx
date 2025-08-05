@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./sticky-whatsapp.css";
 import logo from "../../assets/logo/popup-logo-light.svg";
+import bgImage from "../../assets/whatsapp background/logo.jpg"
 
 const StickyWhatsApp = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -38,18 +39,18 @@ const StickyWhatsApp = () => {
             <img
               src={logo}
               alt="whatsapp"
-              width={50}
-              height={50}
               className="popup-icon"
             />
             <div>
-              <strong>PopUp Tours</strong>
-              <p>Typically replies within a day</p>
+              <strong style={{ color: "white"}}>PopUp Tours</strong>
+              <p style={{color:"white"}}>Typically replies within a day</p>
             </div>
           </div>
-          <div className="popup-message">
+          <div className="popup-message" style={{backgroundImage:`url(${bgImage})`}}>
+           <div className="chat-bubble">
             <strong>PopUp Tours</strong>
             <p>Hi there!<br />How can I help you?</p>
+            </div>
           </div>
           <a
             href="https://wa.me/9791244717"

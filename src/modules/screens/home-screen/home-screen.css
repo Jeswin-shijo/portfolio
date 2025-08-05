@@ -33,14 +33,17 @@
 }
 
 .dot-navigation .dot {
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   background-color: white;
-  opacity: 0.5;
+   transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .dot-navigation .dot.active {
   background-color: orange;
+  transform: scale(1.5);
   opacity: 1;
 }
 

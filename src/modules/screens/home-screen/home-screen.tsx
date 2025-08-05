@@ -1,12 +1,50 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./home-screen.css";
-import bgImage from "../../../assets/background/view-beautiful-rainbow-appearing-end-road.jpg"; // Replace with actual path
+import bgImage1 from "../../../assets/background/view-beautiful-rainbow-appearing-end-road.jpg"; // Replace with actual path
+import bgImage2 from "../../../assets/background/0ZUBmNNVLRCfn3NdU55nQ00UF64m2ObtcDS0grx02fA.avif"; // Replace with actual path
+import bgImage3 from "../../../assets/background/360_F_270350073_WO6yQAdptEnAhYKM5GuA9035wbRnVJSr.jpg"; // Replace with actual path
+import bgImage4 from "../../../assets/background/images (1).jpeg"; // Replace with actual path
+import bgImage5 from "../../../assets/background/images.jpeg"; // Replace with actual path
 import FilterSection from "../components/filter-section/filter-section";
 import logo from "../../../assets/logo/popup-logo-light.svg";
 
 const HomeScreen = () => {
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const backgroundImages = [bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
+
+  const startAutoSlide = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // 5 seconds
+  };
+
+  useEffect(() => {
+    startAutoSlide();
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  const onSliderDotClick = (index: number) => {
+    setCurrentIndex(index);
+    startAutoSlide(); // Reset timer
+  };
+
   return (
-    <div className="container home-screen bg-danger" style={{ backgroundImage: `url(${bgImage})` }}>
+    <div
+      className="container home-screen"
+      style={{
+        backgroundImage: `url(${backgroundImages[currentIndex]})`,
+        transition: "background-image 1s ease-in-out",
+      }}
+    >
+      {" "}
       <nav className="navbar px-5 py-3 d-flex align-items-center justify-content-between">
         <img
           src={logo}
@@ -25,7 +63,6 @@ const HomeScreen = () => {
           Get in Touch
         </button>
       </nav>
-
       <div className="hero-content text-white text-start d-flex flex-column align-items-start justify-content-start ">
         <h1
           className="fw-semibold"
@@ -41,17 +78,19 @@ const HomeScreen = () => {
           <FilterSection />
         </div>
       </div>
-
-      <div className="dot-navigation position-absolute end-0 top-50 translate-middle-y pe-3">
+      <div className="d-flex dot-navigation position-absolute bottom-0 start-50">
         {Array.from({ length: 5 }).map((_, i) => (
           <div
             key={i}
-            className={`dot mb-2 rounded-circle ${i === 1 ? "active" : ""}`}
+            onClick={() => onSliderDotClick(i)}
+            className={`dot mb-3 me-3 rounded-circle ${
+              i === currentIndex ? "active" : ""
+            }`}
           ></div>
         ))}
-        <div className="arrow-down text-warning mt-2">
+        {/* <div className="arrow-down text-warning mt-2">
           <i className="bi bi-chevron-down"></i>
-        </div>
+        </div> */}
       </div>
     </div>
   );

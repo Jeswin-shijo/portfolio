@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpandableCard from "../../../shared/components/expand-card";
 
 const DestinationScreen = () => {
+  const [activeBtn, setActiveBtn] = useState<"left" | "right" | null>("right");
+
   return (
     <>
       <section className="container py-5">
@@ -37,12 +39,27 @@ const DestinationScreen = () => {
               Explore More <i className="bi bi-box-arrow-up-right"></i>
             </a>
 
-            <div className="d-flex gap-3 justify-content-end">
-              <button className="btn btn-light rounded">
-                <i className="bi bi-arrow-left text-primary"></i>
+            <div className="d-flex justify-content-end gap-2">
+              <button
+                className={`btn rounded-3 ${
+                  activeBtn === "left"
+                    ? "btn-warning text-white"
+                    : "btn-outline-secondary"
+                }`}
+                onClick={() => setActiveBtn("left")}
+              >
+                <i className="bi bi-arrow-left"></i>
               </button>
-              <button className="btn btn-warning rounded">
-                <i className="bi bi-arrow-right text-primary"></i>
+
+              <button
+                className={`btn rounded-3 ${
+                  activeBtn === "right"
+                    ? "btn-warning text-white"
+                    : "btn-outline-secondary"
+                }`}
+                onClick={() => setActiveBtn("right")}
+              >
+                <i className="bi bi-arrow-right"></i>
               </button>
             </div>
           </div>

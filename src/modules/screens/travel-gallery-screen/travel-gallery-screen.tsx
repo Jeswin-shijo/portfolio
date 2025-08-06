@@ -43,7 +43,10 @@ const TravelGalleryScreen = () => {
         </span>
 
         <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center mb-5 gap-4">
-          <h2 className="gallery-title">
+          <h2
+              className="fw-semibold"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color:"#0c2d57" }}
+            >
             Captured Moments <br /> from Our Tours
           </h2>
           <p className="gallery-subtext">

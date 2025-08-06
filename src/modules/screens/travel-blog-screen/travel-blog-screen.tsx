@@ -32,7 +32,7 @@ const TravelBlogScreen = () => {
           <div className="col-md-6">
             <h2
               className="fw-semibold"
-              style={{ fontFamily: "'Playfair Display', serif", fontSize: 50 }}
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color:"#0c2d57" }}
             >
               Inspiration for Your <br /> Next Adventure
             </h2>

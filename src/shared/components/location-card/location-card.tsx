@@ -3,11 +3,12 @@ import React from "react";
 interface LocationCardProps {
   imageSrc: string;
   locationName: string;
+  style?: Record<string, string>;
 }
 
-const LocationCard = ({ imageSrc, locationName }: LocationCardProps) => {
+const LocationCard = ({ imageSrc, locationName, style = {} }: LocationCardProps) => {
   return (
-    <div className="card border-0 shadow rounded overflow-hidden">
+    <div className="card border-0 shadow rounded overflow-hidden" style={style}>
       <div className="position-relative">
         <img
           src={imageSrc}

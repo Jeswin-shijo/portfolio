@@ -1,0 +1,43 @@
+.travel-gallery-section {
+  background-color: #fff;
+}
+
+.tag-label {
+  border: 1px solid #ccc;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: #555;
+}
+
+.gallery-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3;
+}
+
+.gallery-subtext {
+  max-width: 500px;
+  color: #666;
+  font-size: 1rem;
+}
+
+
+/* Remove your existing .image-grid and .image-card styles */
+/* Bootstrap classes will handle most of it */
+
+/* Add this if you need custom adjustments */
+.image-card {
+  transition: transform 0.3s ease; /* Optional: adds hover effect */
+}
+
+.image-card:hover {
+  transform: scale(1.02); /* Optional: slight zoom on hover */
+}
+
+.image-tag {
+  backdrop-filter: blur(4px); /* Optional: glass effect */
+  background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+}

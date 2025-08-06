@@ -1,3 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar-scrolled {
+  background-color: black !important;
+  transition: background-color 0.5s ease;
+}
+
 .home-screen {
   height: 65vh;
   background-size: cover;
@@ -49,4 +58,12 @@
 
 .arrow-down {
   font-size: 1.2rem;
+}
+
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* keep it above other content */
+  width: 100%;
+  transition: background-color 0.3s ease;
 }

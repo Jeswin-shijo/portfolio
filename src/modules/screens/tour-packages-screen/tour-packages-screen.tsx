@@ -62,7 +62,7 @@ const TourPackagesScreen = () => {
         <div className="col-md-6">
           <h2
             className="fw-semibold"
-            style={{ fontFamily: "'Playfair Display', serif", fontSize: 50 }}
+            style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color:"#0c2d57" }}
           >
             Explore Our Popular <br /> Places
           </h2>

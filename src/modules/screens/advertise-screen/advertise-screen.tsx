@@ -13,7 +13,7 @@ const AdvertiseScreen = () => {
             
             <h2
               className="fw-semibold"
-              style={{ fontFamily: "'Playfair Display', serif", fontSize: 50 }}
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color:"#0c2d57" }}
             >
               Travel made easy, with <br /> experts you can trust
             </h2>
@@ -26,7 +26,7 @@ const AdvertiseScreen = () => {
             <div className="row g-4">
               <div className="col-md-6">
                 <div className="d-flex align-items-start gap-3">
-                  <i className="bi bi-person-badge fs-2 text-primary"></i>
+                  <i className="bi bi-person-badge fs-2" style={{color:"#0c2d57"}}></i>
                   <div>
                     <h5 className="fw-semibold mb-1">Expert Local Knowledge</h5>
                     <p className="mb-0 text-muted">
@@ -38,7 +38,7 @@ const AdvertiseScreen = () => {
               </div>
               <div className="col-md-6">
                 <div className="d-flex align-items-start gap-3">
-                  <i className="bi bi-house-check fs-2 text-primary"></i>
+                  <i className="bi bi-house-check fs-2" style={{color:"#0c2d57"}}></i>
                   <div>
                     <h5 className="fw-semibold mb-1">Personalized Service</h5>
                     <p className="mb-0 text-muted">
@@ -50,7 +50,7 @@ const AdvertiseScreen = () => {
               </div>
               <div className="col-md-6">
                 <div className="d-flex align-items-start gap-3">
-                  <i className="bi bi-shield-check fs-2 text-primary"></i>
+                  <i className="bi bi-shield-check fs-2" style={{color:"#0c2d57"}}></i>
                   <div>
                     <h5 className="fw-semibold mb-1">
                       Transparent & Trustworthy
@@ -64,7 +64,7 @@ const AdvertiseScreen = () => {
               </div>
               <div className="col-md-6">
                 <div className="d-flex align-items-start gap-3">
-                  <i className="bi bi-award fs-2 text-primary"></i>
+                  <i className="bi bi-award fs-2" style={{color:"#0c2d57"}}></i>
                   <div>
                     <h5 className="fw-semibold mb-1">Proven Track Record</h5>
                     <p className="mb-0 text-muted">
@@ -76,19 +76,6 @@ const AdvertiseScreen = () => {
               </div>
             </div>
           </div>
-{/* 
-          <div className="col-lg-5 text-center">
-            <div className="play-btn-wrapper">
-              <img
-                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
-                className="img-fluid rounded-4"
-                alt="Video"
-              />
-              <div className="play-btn-circle">
-                <i className="bi bi-play-fill play-icon"></i>
-              </div>
-            </div>
-          </div> */}
           <VideoSection/>
         </div>
       </div>

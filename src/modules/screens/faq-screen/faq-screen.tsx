@@ -41,7 +41,7 @@ function FAQScreen() {
         <div className="col-md-6">
           <h2
             className="fw-semibold"
-            style={{ fontFamily: "'Playfair Display', serif", fontSize: 50 }}
+            style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color:"#0c2d57" }}
           >
             Simple answers to <br /> your travel doubts
           </h2>

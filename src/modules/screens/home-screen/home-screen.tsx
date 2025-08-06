@@ -10,7 +10,7 @@ import logo from "../../../assets/logo/popup-logo-light.svg";
 
 const HomeScreen = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
+ const [navScrolled, setNavScrolled] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const backgroundImages = [bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
 
@@ -36,6 +36,14 @@ const HomeScreen = () => {
     startAutoSlide(); // Reset timer
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setNavScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div
       className="container home-screen"
@@ -44,20 +52,23 @@ const HomeScreen = () => {
         transition: "background-image 1s ease-in-out",
       }}
     >
-      {" "}
-      <nav className="navbar px-5 py-3 d-flex align-items-center justify-content-between">
+      <nav
+        className={`navbar px-5 py-3 d-flex align-items-center justify-content-between top-0 w-100 z-3 ${
+          navScrolled ? "navbar-scrolled" : "bg-transparent"
+        }`}
+      >
         <img
           src={logo}
           alt="Pop Up Tours"
           style={{ height: 100, width: 270, marginBottom: 20 }}
-        />{" "}
+        />
         <div className="nav-links d-flex gap-4 text-white">
-          <a href="#">About Us</a>
-          <a href="#">International</a>
-          <a href="#">Domestic</a>
-          <a href="#">Honeymoon</a>
-          <a href="#">Gallery</a>
-          <a href="#">Contact Us</a>
+          <a href="#about">About Us</a>
+          <a href="#domestic">International</a>
+          <a href="#domestic">Domestic</a>
+          <a href="#tours">Honeymoon</a>
+          <a href="#reviews">Gallery</a>
+          <a href="#faq">Contact Us</a>
         </div>
         <button className="btn btn-warning fw-semibold px-4">
           Get in Touch

@@ -68,7 +68,7 @@ const HomeScreen = () => {
           <a href="#domestic">Domestic</a>
           <a href="#tours">Honeymoon</a>
           <a href="#reviews">Gallery</a>
-          <a href="#faq">Contact Us</a>
+          <a href="#landing">Contact Us</a>
         </div>
         <button className="btn btn-warning fw-semibold px-4">
           Get in Touch

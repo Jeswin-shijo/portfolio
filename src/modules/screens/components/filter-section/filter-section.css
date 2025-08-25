@@ -2,7 +2,11 @@
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(2px);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  width: fit-content;
+  min-width: 900px;
+}
+
+.filter-item {
+  min-width: 180px;
 }
 
 .filter-item select {

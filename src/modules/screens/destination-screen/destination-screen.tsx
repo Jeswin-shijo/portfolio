@@ -6,13 +6,12 @@ const DestinationScreen = () => {
 
   return (
     <>
-      <section className="container py-5">
-        <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
+      <section className="py-5">
+        <div className="d-flex flex-column flex-lg-row justify-content-around align-items-start gap-5">
+          <div className="text-start">
+              <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
           Destination
         </span>
-
-        <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-5">
-          <div className="text-start">
             <h2
               className="fw-semibold"
               style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color:"#0c2d57" }}
@@ -68,7 +67,7 @@ const DestinationScreen = () => {
 
       <section className="container pb-5">
         <div className="row g-4">
-          <div className="col-12 col-sm-6 col-lg-4">
+          <div className="col-12 col-sm-6 col-lg-3">
             <ExpandableCard
               image="https://picsum.photos/200/300"
               location="Alanchi"
@@ -77,7 +76,7 @@ const DestinationScreen = () => {
               description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
             />
           </div>
-          <div className="col-12 col-sm-6 col-lg-4">
+          <div className="col-12 col-sm-6 col-lg-3">
             <ExpandableCard
               image="https://picsum.photos/200/300"
               location="Alanchi"
@@ -86,7 +85,16 @@ const DestinationScreen = () => {
               description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
             />
           </div>
-          <div className="col-12 col-sm-6 col-lg-4">
+          <div className="col-12 col-sm-6 col-lg-3">
+            <ExpandableCard
+              image="https://picsum.photos/200/300"
+              location="Alanchi"
+              title="Beach Paradise"
+              price="₹56,567"
+              description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
+            />
+          </div>
+          <div className="col-12 col-sm-6 col-lg-3">
             <ExpandableCard
               image="https://picsum.photos/200/300"
               location="Alanchi"

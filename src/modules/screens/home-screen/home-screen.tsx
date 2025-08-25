@@ -46,7 +46,7 @@ const HomeScreen = () => {
 
   return (
     <div
-      className="container home-screen"
+      className="home-screen"
       style={{
         backgroundImage: `url(${backgroundImages[currentIndex]})`,
         transition: "background-image 1s ease-in-out",

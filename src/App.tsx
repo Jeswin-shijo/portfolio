@@ -14,7 +14,7 @@ import TravelGalleryScreen from "./modules/screens/travel-gallery-screen";
 
 function App() {
   return (
-    <>
+    <div>
       <HomeScreen />
       <div id="about">
         <AboutUsSection />
@@ -47,7 +47,7 @@ function App() {
         <LandingScreen />
       </div>
       <StickyWhatsApp />
-    </>
+    </div>
   );
 }
 

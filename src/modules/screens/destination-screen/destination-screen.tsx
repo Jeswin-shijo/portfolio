@@ -6,15 +6,19 @@ const DestinationScreen = () => {
 
   return (
     <>
-      <section className="py-5">
-        <div className="d-flex flex-column flex-lg-row justify-content-around align-items-start gap-5">
+      <section className="py-5 p-5">
+        <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-5">
           <div className="text-start">
-              <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
-          Destination
-        </span>
+            <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
+              Destination
+            </span>
             <h2
               className="fw-semibold"
-              style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color:"#0c2d57" }}
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: 50,
+                color: "#0c2d57",
+              }}
             >
               Explore Our Popular <br /> destination
             </h2>
@@ -65,44 +69,21 @@ const DestinationScreen = () => {
         </div>
       </section>
 
-      <section className="container pb-5">
-        <div className="row g-4">
-          <div className="col-12 col-sm-6 col-lg-3">
-            <ExpandableCard
-              image="https://picsum.photos/200/300"
-              location="Alanchi"
-              title="Beach Paradise"
-              price="₹56,567"
-              description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
-            />
-          </div>
-          <div className="col-12 col-sm-6 col-lg-3">
-            <ExpandableCard
-              image="https://picsum.photos/200/300"
-              location="Alanchi"
-              title="Beach Paradise"
-              price="₹56,567"
-              description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
-            />
-          </div>
-          <div className="col-12 col-sm-6 col-lg-3">
-            <ExpandableCard
-              image="https://picsum.photos/200/300"
-              location="Alanchi"
-              title="Beach Paradise"
-              price="₹56,567"
-              description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
-            />
-          </div>
-          <div className="col-12 col-sm-6 col-lg-3">
-            <ExpandableCard
-              image="https://picsum.photos/200/300"
-              location="Alanchi"
-              title="Beach Paradise"
-              price="₹56,567"
-              description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
-            />
-          </div>
+      <section className="container-fluid pb-5">
+        <div className="row g-4 justify-content-center">
+          {Array(4)
+            .fill(0)
+            .map((_, i) => (
+              <div key={i} className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center">
+                <ExpandableCard
+                  image="https://picsum.photos/200/300"
+                  location="Alanchi"
+                  title="Beach Paradise"
+                  price="₹56,567"
+                  description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
+                />
+              </div>
+            ))}
         </div>
       </section>
     </>

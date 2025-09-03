@@ -3,9 +3,9 @@ import AnimatedParagraph from "../components/animated-paragraph/animated-paragra
 
 const AboutUsSection: React.FC = () => {
   return (
-    <section className="py-5">
+    <section className="py-5 p-5">
       {/* About Button */}
-      <div className="d-flex justify-content-around">
+      <div className="d-flex justify-content-between">
         <div className="mb-4">
           <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
             About us
@@ -22,7 +22,7 @@ const AboutUsSection: React.FC = () => {
         </div>
       </div>
       {/* Stats */}
-      <div className="row text-center justify-content-center">
+      <div className="row text-center justify-content-around">
         <div className="col-lg-2 col-md-3 mb-4">
           <h3 style={{ color: "#f4c200", fontWeight: 600, fontSize: "2rem" }}>
             10K+

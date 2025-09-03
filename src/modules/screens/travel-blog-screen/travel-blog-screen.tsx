@@ -22,8 +22,8 @@ const blogPosts = [
 ];
 const TravelBlogScreen = () => {
   return (
-    <section className="py-5 bg-light">
-      <div className="container">
+    <section className="py-5 p-5 bg-light">
+      <div className="">
         <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
           Our Travel Blog
         </span>

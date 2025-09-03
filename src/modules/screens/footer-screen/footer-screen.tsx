@@ -4,15 +4,16 @@ import logo from "../../../assets/logo/popup-logo-light.svg";
 
 const FooterScreen = () => {
   return (
-    <footer className="bg-dark text-light pt-5 pb-3">
-      <div className="container">
-        <div className="row g-4">
+    <footer className="bg-dark text-light pt-5 p-5 pb-3">
+      <div className="container-fluid">
+        <div className="row g-4 justify-content-center">
           {/* Logo and About */}
-          <div className="col-md-3">
+          <div className="col-md-2 col-sm-2 col-lg-2">
             <img
               src={logo}
+              className="col-md-12 col-sm-12 col-12 col-lg-12"
               alt="Pop Up Tours"
-              style={{ height: 100, width: 270, marginBottom: 20 }}
+              style={{ height: 100, marginBottom: 20 }}
             />
             <p className=" small">
               Casa View is your trusted partner in modern living – delivering
@@ -22,7 +23,7 @@ const FooterScreen = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="col-md-2">
+          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
             <h6 className="text-uppercase fw-semibold mb-3">Quick Link</h6>
             <ul className="list-unstyled small ">
               <li>Home</li>
@@ -37,7 +38,7 @@ const FooterScreen = () => {
           </div>
 
           {/* Packages */}
-          <div className="col-md-2">
+          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
             <h6 className="text-uppercase fw-semibold mb-3">Packages</h6>
             <ul className="list-unstyled small ">
               <li>Domestic Tours</li>
@@ -50,7 +51,7 @@ const FooterScreen = () => {
           </div>
 
           {/* Cities */}
-          <div className="col-md-2">
+          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
             <h6 className="text-uppercase fw-semibold mb-3">Cities</h6>
             <ul className="list-unstyled small ">
               <li>Thailand</li>
@@ -63,7 +64,7 @@ const FooterScreen = () => {
           </div>
 
           {/* Destinations */}
-          <div className="col-md-3">
+          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
             <h6 className="text-uppercase fw-semibold mb-3">Destination</h6>
             <ul className="list-unstyled small">
               <li>Alleppey Backwaters</li>
@@ -79,18 +80,18 @@ const FooterScreen = () => {
         <hr className="text-secondary mt-5" />
 
         {/* Bottom Section */}
-        <div className="row  small">
-          <div className="col-md-3">
+        <div className="row justify-content-center small">
+          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
             <strong>MOBILE</strong>
             <br />
             +971 18 919891 | +971 18 946281
           </div>
-          <div className="col-md-3">
+          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
             <strong>EMAIL</strong>
             <br />
             info@popup.com
           </div>
-          <div className="col-md-3">
+          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
             <strong>ADDRESS</strong>
             <br />
             61, 14d Street
@@ -99,7 +100,7 @@ const FooterScreen = () => {
             <br />
             United Arab Emirates
           </div>
-          <div className="col-md-3 d-flex flex-column align-items-start align-items-md-center">
+          <div className="col-md-2 col-sm-2 col-6 col-lg-2 d-flex flex-column align-items-start align-items-md-center">
             <strong>SOCIAL NETWORK</strong>
             <div className="d-flex gap-2 mt-2">
               <i className="fab fa-facebook-f"></i>

@@ -37,28 +37,27 @@ const PopularPlacesBootstrap = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="bg-light py-5">
-      <div className="container">
+    <div className="d-flex justify-content-between bg-light py-5 p-5">
+      <div>
         <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
           Popular Places
         </span>
 
-        <div className="d-flex justify-content-between flex-wrap align-items-center mb-4">
+        <div className="d-flex flex-wrap align-items-center mb-4">
           <h2
             className="fw-semibold"
-            style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color:"#0c2d57" }}
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: 50,
+              color: "#0c2d57",
+            }}
           >
             Explore Our Popular <br /> Places
           </h2>
-          <p className="text-muted" style={{ maxWidth: "500px" }}>
-            Embark on a journey through our most sought-after destinations —
-            from serene hill stations and sun-kissed beaches to vibrant cities
-            and cultural wonders.
-          </p>
         </div>
 
-        <div className="row g-4">
-          <div className="col-md-4">
+        <div className="row">
+          <div className="">
             {places.map((place, index) => (
               <div
                 key={index}
@@ -73,39 +72,44 @@ const PopularPlacesBootstrap = () => {
               </div>
             ))}
           </div>
+      </div>
 
-          <div className="col-md-8">
-            <div className="row g-3 align-items-center">
-              <div className="col-md-6">
-                <div className="card rounded-3 overflow-hidden">
-                  <img
-                    src={places[activeIndex].image}
-                    alt={places[activeIndex].title}
-                    className="img-fluid"
-                    style={{ height: "300px", objectFit: "cover" }}
-                  />
-                </div>
+        </div>
+        <div className="col-md-8 col-lg-6 align-items-center">
+          <p className="text-muted" style={{ maxWidth: "900px" }}>
+            Embark on a journey through our most sought-after destinations —
+            from serene hill stations and sun-kissed beaches to vibrant cities
+            and cultural wonders.
+          </p>
+          <div className="row g-3 align-items-center">
+            <div className="col-md-6">
+              <div className="card rounded-3 overflow-hidden">
+                <img
+                  src={places[activeIndex].image}
+                  alt={places[activeIndex].title}
+                  className="img-fluid"
+                  style={{ height: "300px", objectFit: "cover" }}
+                />
               </div>
+            </div>
 
-              <div className="col-md-6">
-                <h4 style={{ fontFamily: "'Playfair Display', serif" }}>
-                  {places[activeIndex].title}
-                </h4>
-                <p className="text-muted small" style={{ lineHeight: 1.6 }}>
-                  {places[activeIndex].description}
-                </p>
-                <a
-                  href="#"
-                  className="btn p-2 btn-warning text-dark d-inline-flex align-items-center gap-2 rounded-3"
-                  style={{ maxWidth: "170px" }}
-                >
-                  Explore More <i className="bi bi-box-arrow-up-right"></i>
-                </a>
-              </div>
+            <div className="col-md-6">
+              <h4 style={{ fontFamily: "'Playfair Display', serif" }}>
+                {places[activeIndex].title}
+              </h4>
+              <p className="text-muted small" style={{ lineHeight: 1.6 }}>
+                {places[activeIndex].description}
+              </p>
+              <a
+                href="#"
+                className="btn p-2 btn-warning text-dark d-inline-flex align-items-center gap-2 rounded-3"
+                style={{ maxWidth: "170px" }}
+              >
+                Explore More <i className="bi bi-box-arrow-up-right"></i>
+              </a>
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };

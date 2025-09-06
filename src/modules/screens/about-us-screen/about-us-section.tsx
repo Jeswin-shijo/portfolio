@@ -4,6 +4,7 @@ import AnimatedParagraph from "../components/animated-paragraph/animated-paragra
 const AboutUsSection: React.FC = () => {
   return (
     <section className="py-5 p-5">
+      <div className="p-5">
       {/* About Button */}
       <div className="d-flex justify-content-between">
         <div className="mb-4">
@@ -47,6 +48,7 @@ const AboutUsSection: React.FC = () => {
           </h3>
           <p className="text-dark">Customer Rating</p>
         </div>
+      </div>
       </div>
     </section>
   );

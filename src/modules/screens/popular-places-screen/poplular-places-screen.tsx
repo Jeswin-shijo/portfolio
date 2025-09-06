@@ -37,43 +37,45 @@ const PopularPlacesBootstrap = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="d-flex justify-content-between bg-light py-5 p-5">
-      <div>
-        <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
-          Popular Places
-        </span>
+    <div className="bg-light py-5 p-5">
+      <div className="d-flex justify-content-between p-5">
+        <div>
+          <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
+            Popular Places
+          </span>
 
-        <div className="d-flex flex-wrap align-items-center mb-4">
-          <h2
-            className="fw-semibold"
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 50,
-              color: "#0c2d57",
-            }}
-          >
-            Explore Our Popular <br /> Places
-          </h2>
-        </div>
-
-        <div className="row">
-          <div className="">
-            {places.map((place, index) => (
-              <div
-                key={index}
-                className={`d-flex justify-content-between align-items-center mb-4 border-bottom py-2 px-2 ${
-                  activeIndex === index ? "text-dark fw-bold" : "text-secondary"
-                }`}
-                style={{ cursor: "pointer" }}
-                onClick={() => setActiveIndex(index)}
-              >
-                {place.title}
-                <i className="bi bi-arrow-up-right"></i>
-              </div>
-            ))}
+          <div className="d-flex flex-wrap align-items-center mb-4">
+            <h2
+              className="fw-semibold"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: 50,
+                color: "#0c2d57",
+              }}
+            >
+              Explore Our Popular <br /> Places
+            </h2>
           </div>
-      </div>
 
+          <div className="row">
+            <div className="">
+              {places.map((place, index) => (
+                <div
+                  key={index}
+                  className={`d-flex justify-content-between align-items-center mb-4 border-bottom py-2 px-2 ${
+                    activeIndex === index
+                      ? "text-dark fw-bold"
+                      : "text-secondary"
+                  }`}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setActiveIndex(index)}
+                >
+                  {place.title}
+                  <i className="bi bi-arrow-up-right"></i>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="col-md-8 col-lg-6 align-items-center">
           <p className="text-muted" style={{ maxWidth: "900px" }}>
@@ -110,6 +112,7 @@ const PopularPlacesBootstrap = () => {
             </div>
           </div>
         </div>
+      </div>
     </div>
   );
 };

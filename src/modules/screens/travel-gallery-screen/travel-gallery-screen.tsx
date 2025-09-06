@@ -5,48 +5,52 @@ const places = [
   {
     title: "Munnar",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-     height: "280px",
   },
   {
     title: "Thailand",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-     height: "350px",
+    image: "https://picsum.photos/400/500?random=2",
   },
   {
     title: "Munnar",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-     height: "280px",
+    image: "https://picsum.photos/400/500?random=3",
   },
   {
     title: "Srilanka",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-     height: "350px",
+    image: "https://picsum.photos/400/450?random=4",
   },
   {
     title: "Varkala",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-     height: "280px",
+    image: "https://picsum.photos/400/350?random=5",
+  },
+  {
+    title: "Munnar",
+    image: "https://picsum.photos/400/480?random=6",
   },
   {
     title: "Munnar",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-     height: "350px",
   },
 ];
 
 const TravelGalleryScreen = () => {
   return (
-    <div className="travel-gallery-section py-5">
-      <div className="container">
+    <div className="travel-gallery-section py-5 p-5">
+      <div className="p-5">
+        {/* Section label */}
         <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
           Travel Gallery
         </span>
 
-        <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center mb-5 gap-4">
+        {/* Heading + subtext */}
+        <div className="d-flex justify-content-between ">
           <h2
-              className="fw-semibold"
-              style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color:"#0c2d57" }}
-            >
+            className="fw-semibold"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: 50,
+              color: "#0c2d57",
+            }}
+          >
             Captured Moments <br /> from Our Tours
           </h2>
           <p className="gallery-subtext">
@@ -56,27 +60,20 @@ const TravelGalleryScreen = () => {
           </p>
         </div>
 
-        <div className="row g-4">
-          {" "}
-          {/* Changed from gy-4 to g-4 for equal gap all around */}
+        {/* Masonry grid */}
+        <div className="masonry">
           {places.map((place, index) => (
-            <div key={index} className="col-12 col-sm-6 col-lg-4">
-              <div
-                className="image-card position-relative overflow-hidden rounded-4"
-                style={{ height: place.height }}
-              >
-                {" "}
-                {/* Fixed height */}
-                <img
-                  src={place.image}
-                  alt={place.title}
-                  className="img-fluid w-100 h-100 object-fit-cover"
-                />
-                <div className="image-tag position-absolute top-0 end-0 m-3 px-3 py-1 rounded-pill bg-white text-dark fw-medium small shadow-sm">
-                  {" "}
-                  {/* Added shadow-sm */}
-                  {place.title}
-                </div>
+            <div
+              key={index}
+              className="masonry-item position-relative overflow-hidden rounded-4 mb-4"
+            >
+              <img
+                src={place.image}
+                alt={place.title}
+                className="image-card img-fluid w-100 rounded-4"
+              />
+              <div className="image-tag position-absolute top-0 end-0 m-2 px-3 py-1 rounded-pill bg-white text-dark fw-medium small shadow-sm">
+                {place.title}
               </div>
             </div>
           ))}

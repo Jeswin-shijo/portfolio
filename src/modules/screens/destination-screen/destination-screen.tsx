@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ExpandableCard from "../../../shared/components/expand-card";
+import TourCard from "./tourcard";
 
 const DestinationScreen = () => {
   const [activeBtn, setActiveBtn] = useState<"left" | "right" | null>("right");
@@ -7,7 +8,7 @@ const DestinationScreen = () => {
   return (
     <>
       <section className="py-5 p-5">
-        <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-5">
+        <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-5 p-5">
           <div className="text-start">
             <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
               Destination
@@ -70,20 +71,46 @@ const DestinationScreen = () => {
       </section>
 
       <section className="container-fluid pb-5">
-        <div className="row g-4 justify-content-center">
-          {Array(4)
-            .fill(0)
-            .map((_, i) => (
-              <div key={i} className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center">
-                <ExpandableCard
-                  image="https://picsum.photos/200/300"
-                  location="Alanchi"
-                  title="Beach Paradise"
-                  price="₹56,567"
-                  description="Escape to the tranquil shores of Alanchi, where sun-kissed sands meet vibrant culture and seaside serenity."
-                />
-              </div>
-            ))}
+        <div className="d-flex gap-4 flex-wrap justify-content-center">
+          <TourCard
+            image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+            tag="Munnar"
+            title="Kerala Backwater Escape"
+            description="Experience the serene beauty of Kerala’s canals, coconut groves, and floating dreams."
+            price="500"
+          />
+
+          <TourCard
+            image="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+            tag="Alleppey"
+            title="Sunset Beach Retreat"
+            description="Relax by the sea with breathtaking sunsets and peaceful surroundings."
+            price="650"
+          />
+
+          <TourCard
+            image="https://images.unsplash.com/photo-1473625247510-8ceb1760943f"
+            tag="Thailand"
+            title="Tropical Island Adventure"
+            description="Discover pristine beaches, coral reefs, and vibrant island culture."
+            price="750"
+          />
+
+          <TourCard
+            image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+            tag="Srilanka"
+            title="Cultural Wonders Tour"
+            description="Explore ancient temples, tea plantations, and scenic mountain vistas."
+            price="600"
+          />
+
+          <TourCard
+            image="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+            tag="Bali"
+            title="Sacred Temples Journey"
+            description="Immerse yourself in the spirituality and beauty of Bali’s temples."
+            price="900"
+          />
         </div>
       </section>
     </>

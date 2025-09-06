@@ -4,8 +4,8 @@ type Props = {};
 
 const ReviewScreen = (props: Props) => {
   return (
-    <div className="bg-blu py-5">
-      <div className="container">
+    <div className="bg-blu py-5 p-5">
+      <div className="p-5">
         <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
           Testimonial
         </span>
@@ -24,6 +24,8 @@ const ReviewScreen = (props: Props) => {
           </p>
         </div>
         <div className="d-flex w-100 justify-content-around">
+          <ReviewCard />
+          <ReviewCard />
           <ReviewCard />
           <ReviewCard />
           <ReviewCard />

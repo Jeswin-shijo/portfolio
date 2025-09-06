@@ -19,11 +19,23 @@ const blogPosts = [
     title: "7 Simple Ways to Keep Your Kids’ Toys From Taking Over Your Home",
     date: "2025-07-27",
   },
+  {
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    category: "Villa",
+    title: "Diamond Manor Apartment in the New York and Service",
+    date: "2025-07-27",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4",
+    category: "Townhome",
+    title: "Unveils the Best Canadian Cities for Biking and Walk",
+    date: "2025-07-27",
+  },
 ];
 const TravelBlogScreen = () => {
   return (
     <section className="py-5 p-5 bg-light">
-      <div className="">
+      <div className="p-5">
         <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
           Our Travel Blog
         </span>

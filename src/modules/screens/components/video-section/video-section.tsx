@@ -13,7 +13,7 @@ const VideoSection = () => {
   };
 
   return (
-    <div className="col-lg-5 text-center position-relative">
+    <div className="col-lg-12 col-md-12 col-12 col-xl-12 col-xxl-6 text-center position-relative">
       <div className="video-wrapper">
         <video
           ref={videoRef}

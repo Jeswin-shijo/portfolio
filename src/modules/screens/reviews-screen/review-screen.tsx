@@ -13,7 +13,7 @@ const ReviewScreen = (props: Props) => {
         <div className="d-flex justify-content-between flex-wrap align-items-center mb-4">
           <h2
             className="fw-semibold"
-            style={{ fontFamily: "'Playfair Display', serif", fontSize: 50, color:"#0c2d57" }}
+            style={{ fontFamily: "Ivy Mode", fontSize: 50, color:"#0c2d57" }}
           >
             Regards From <br /> Travelers
           </h2>

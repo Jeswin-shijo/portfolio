@@ -13,8 +13,8 @@ const TourCard = ({ image, tag, title, description, price }: any) => {
         <p className="text-muted small">{description}</p>
         <div className="d-flex justify-content-between align-items-center mt-3">
           <span className="fw-bold">${price}</span>
-          <button className="btn btn-warning rounded-circle p-2">
-            <i className="bi bi-arrow-right"></i>
+          <button className="btn btn-warning rounded-circle">
+            <i className="bi bi-arrow-right fs-4"></i>
           </button>
         </div>
       </div>

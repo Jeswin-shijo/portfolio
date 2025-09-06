@@ -48,7 +48,7 @@ const PopularPlacesBootstrap = () => {
             <h2
               className="fw-semibold"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Ivy Mode",
                 fontSize: 50,
                 color: "#0c2d57",
               }}
@@ -96,7 +96,7 @@ const PopularPlacesBootstrap = () => {
             </div>
 
             <div className="col-md-6">
-              <h4 style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h4 style={{ fontFamily: "Ivy Mode" }}>
                 {places[activeIndex].title}
               </h4>
               <p className="text-muted small" style={{ lineHeight: 1.6 }}>

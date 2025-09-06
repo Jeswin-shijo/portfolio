@@ -24,7 +24,7 @@ const FooterScreen = () => {
 
           {/* Quick Links */}
           <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <h6 className="text-uppercase fw-semibold mb-3">Quick Link</h6>
+            <h6 className="text-uppercase fw-semibold mb-3" style={{ fontFamily: "Ivy Mode" }}>Quick Link</h6>
             <ul className="list-unstyled small ">
               <li>Home</li>
               <li>About Us</li>
@@ -39,7 +39,7 @@ const FooterScreen = () => {
 
           {/* Packages */}
           <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <h6 className="text-uppercase fw-semibold mb-3">Packages</h6>
+            <h6 className="text-uppercase fw-semibold mb-3" style={{ fontFamily: "Ivy Mode" }}>Packages</h6>
             <ul className="list-unstyled small ">
               <li>Domestic Tours</li>
               <li>International Tours</li>
@@ -52,7 +52,7 @@ const FooterScreen = () => {
 
           {/* Cities */}
           <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <h6 className="text-uppercase fw-semibold mb-3">Cities</h6>
+            <h6 className="text-uppercase fw-semibold mb-3" style={{ fontFamily: "Ivy Mode" }}>Cities</h6>
             <ul className="list-unstyled small ">
               <li>Thailand</li>
               <li>Bali</li>
@@ -65,7 +65,7 @@ const FooterScreen = () => {
 
           {/* Destinations */}
           <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <h6 className="text-uppercase fw-semibold mb-3">Destination</h6>
+            <h6 className="text-uppercase fw-semibold mb-3" style={{ fontFamily: "Ivy Mode" }}>Destination</h6>
             <ul className="list-unstyled small">
               <li>Alleppey Backwaters</li>
               <li>Fort Aguada</li>
@@ -82,17 +82,17 @@ const FooterScreen = () => {
         {/* Bottom Section */}
         <div className="row justify-content-center small">
           <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <strong>MOBILE</strong>
+            <strong style={{ fontFamily: "Ivy Mode" }}>MOBILE</strong>
             <br />
             +971 18 919891 | +971 18 946281
           </div>
           <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <strong>EMAIL</strong>
+            <strong style={{ fontFamily: "Ivy Mode" }}>EMAIL</strong>
             <br />
             info@popup.com
           </div>
           <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <strong>ADDRESS</strong>
+            <strong style={{ fontFamily: "Ivy Mode" }}>ADDRESS</strong>
             <br />
             61, 14d Street
             <br />
@@ -101,7 +101,7 @@ const FooterScreen = () => {
             United Arab Emirates
           </div>
           <div className="col-md-2 col-sm-2 col-6 col-lg-2 d-flex flex-column align-items-start align-items-md-center">
-            <strong>SOCIAL NETWORK</strong>
+            <strong style={{ fontFamily: "Ivy Mode" }}>SOCIAL NETWORK</strong>
             <div className="d-flex gap-2 mt-2">
               <i className="fab fa-facebook-f"></i>
               <i className="fab fa-instagram"></i>

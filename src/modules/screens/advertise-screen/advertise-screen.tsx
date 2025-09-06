@@ -13,7 +13,7 @@ const AdvertiseScreen = () => {
             <h2
               className="fw-semibold"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Ivy Mode",
                 fontSize: 50,
                 color: "#0c2d57",
               }}
@@ -36,7 +36,7 @@ const AdvertiseScreen = () => {
                     style={{ color: "#0c2d57" }}
                   ></i>
                   <div>
-                    <h3 className="fw-semibold mb-3">Expert Local Knowledge</h3>
+                    <h3 className="mb-3" style={{ fontFamily: "Ivy Mode" }}>Expert Local Knowledge</h3>
                     <p className="mb-0 text-muted">
                       The first use of Lorem ipsum is uncertain, though some
                       have suggested the 1500s, when sections of Classical works
@@ -58,7 +58,7 @@ const AdvertiseScreen = () => {
                     style={{ color: "#0c2d57" }}
                   ></i>
                   <div>
-                    <h3 className="fw-semibold mb-3">Personalized Service</h3>
+                    <h3 className="mb-3" style={{ fontFamily: "Ivy Mode" }}>Personalized Service</h3>
                     <p className="mb-0 text-muted">
                       The first use of Lorem ipsum is uncertain, though some
                       have suggested the 1500s, when sections of Classical works
@@ -80,7 +80,7 @@ const AdvertiseScreen = () => {
                     style={{ color: "#0c2d57" }}
                   ></i>
                   <div>
-                    <h3 className="fw-semibold mb-3">
+                    <h3 className="mb-3" style={{ fontFamily: "Ivy Mode" }}>
                       Transparent & Trustworthy
                     </h3>
                     <p className="mb-0 text-muted">
@@ -103,7 +103,7 @@ const AdvertiseScreen = () => {
                     style={{ color: "#0c2d57" }}
                   ></i>
                   <div>
-                    <h3 className="fw-semibold mb-3">Proven Track Record</h3>
+                    <h3 className="mb-3" style={{ fontFamily: "Ivy Mode" }}>Proven Track Record</h3>
                     <p className="mb-0 text-muted">
                       The first use of Lorem ipsum is uncertain, though some
                       have suggested the 1500s, when sections of Classical works

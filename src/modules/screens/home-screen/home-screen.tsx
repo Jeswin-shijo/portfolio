@@ -77,13 +77,13 @@ const HomeScreen = () => {
       <div className="hero-content text-white text-start d-flex flex-column align-items-start justify-content-start ">
         <h1
           className="fw-semibold"
-          style={{ fontFamily: "'Playfair Display', serif", fontSize: 60 }}
+          style={{ fontFamily: "Ivy Mode", fontSize: 60 }}
         >
           Start your unforgettable
           <br />
           journey with us.
         </h1>
-        <p className="lead ">The best travel for your journey begins now</p>
+        <p className="lead " style={{ fontFamily: "Manrope", fontSize: 30 }}>The best travel for your journey begins now</p>
 
         <div className="d-flex justify-content-start mt-5">
           <FilterSection />

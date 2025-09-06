@@ -25,25 +25,25 @@ const AboutUsSection: React.FC = () => {
       {/* Stats */}
       <div className="row text-center justify-content-around">
         <div className="col-lg-2 col-md-3 mb-4">
-          <h3 style={{ color: "#f4c200", fontWeight: 600, fontSize: "2rem" }}>
+          <h3 style={{ color: "#f4c200", fontWeight: 400, fontSize: 50, fontFamily: "Ivy Mode" }}>
             10K+
           </h3>
           <p className="text-dark">Happy Travelers</p>
         </div>
         <div className="col-lg-2 col-md-3 mb-4">
-          <h3 style={{ color: "#f4c200", fontWeight: 600, fontSize: "2rem" }}>
+          <h3 style={{ color: "#f4c200", fontWeight: 400, fontSize: 50, fontFamily: "Ivy Mode" }}>
             1,200+
           </h3>
           <p className="text-dark">Customized Trips Completed</p>
         </div>
         <div className="col-lg-2 col-md-3 mb-4">
-          <h3 style={{ color: "#f4c200", fontWeight: 600, fontSize: "2rem" }}>
+          <h3 style={{ color: "#f4c200", fontWeight: 400, fontSize: 50, fontFamily: "Ivy Mode" }}>
             7+ Years
           </h3>
           <p className="text-dark">In Travel & Tourism</p>
         </div>
         <div className="col-lg-2 col-md-3 mb-4">
-          <h3 style={{ color: "#f4c200", fontWeight: 600, fontSize: "2rem" }}>
+          <h3 style={{ color: "#f4c200", fontWeight: 400, fontSize: 50, fontFamily: "Ivy Mode" }}>
             4.9/5
           </h3>
           <p className="text-dark">Customer Rating</p>

@@ -16,7 +16,7 @@ const DestinationScreen = () => {
             <h2
               className="fw-semibold"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Ivy Mode",
                 fontSize: 50,
                 color: "#0c2d57",
               }}
@@ -27,7 +27,6 @@ const DestinationScreen = () => {
 
           <div
             className="d-flex flex-column gap-3"
-            style={{ maxWidth: "500px" }}
           >
             <p className="text-muted">
               Embark on a journey through our most sought-after destinations —
@@ -43,7 +42,7 @@ const DestinationScreen = () => {
               Explore More <i className="bi bi-box-arrow-up-right"></i>
             </a>
 
-            <div className="d-flex justify-content-end gap-2">
+            <div className="d-flex justify-content-end gap-3">
               <button
                 className={`btn rounded-3 ${
                   activeBtn === "left"
@@ -70,8 +69,8 @@ const DestinationScreen = () => {
         </div>
       </section>
 
-      <section className="container-fluid pb-5">
-        <div className="d-flex gap-4 flex-wrap justify-content-center">
+      <section className="pb-5 p-5 pt-0">
+        <div className="d-flex gap-4 flex-wrap justify-content-between p-5 pt-0">
           <TourCard
             image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
             tag="Munnar"
@@ -102,14 +101,6 @@ const DestinationScreen = () => {
             title="Cultural Wonders Tour"
             description="Explore ancient temples, tea plantations, and scenic mountain vistas."
             price="600"
-          />
-
-          <TourCard
-            image="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
-            tag="Bali"
-            title="Sacred Temples Journey"
-            description="Immerse yourself in the spirituality and beauty of Bali’s temples."
-            price="900"
           />
         </div>
       </section>

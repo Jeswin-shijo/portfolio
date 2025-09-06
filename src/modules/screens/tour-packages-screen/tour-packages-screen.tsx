@@ -64,7 +64,7 @@ const TourPackagesScreen = () => {
             <h2
               className="fw-semibold"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Ivy Mode",
                 fontSize: 50,
                 color: "#0c2d57",
               }}
@@ -97,7 +97,7 @@ const TourPackagesScreen = () => {
                 ...(activeTab === tab && { color: "#0c2d57" }),
               }}
             >
-              <h3>{tab}</h3>
+              <h3 style={{ fontFamily: "Ivy Mode" }}>{tab}</h3>
             </div>
           ))}
         </div>

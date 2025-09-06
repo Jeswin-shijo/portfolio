@@ -12,7 +12,7 @@ const ReviewCard = (props: Props) => {
           &ldquo;
         </span>
       </h1>
-      <h4 className="title-font blu-txt pt-4">Great Work</h4>
+      <h4 className="title-font blu-txt pt-4" style={{ fontFamily: "Ivy Mode" }}>Great Work</h4>
 
       <p className="sub-font overflow-hidden" style={{ height: "37%" }}>
         &ldquo;
@@ -27,7 +27,7 @@ const ReviewCard = (props: Props) => {
       <div className="d-flex pb-3">
         <Avatar file={"https://picsum.photos/id/64/200/300"} />
         <div>
-          <h5 className="title-font blu-txt ps-2 w-100 py-0 my-0">Ali Tufan</h5>
+          <h5 className="title-font blu-txt ps-2 w-100 py-0 my-0" style={{ fontFamily: "Ivy Mode" }}>Ali Tufan</h5>
           <p className="sub-font fw-lighter text-muted ps-2 w-100 py-0 my-0">
             Marketing
           </p>

@@ -43,7 +43,7 @@ function FAQScreen() {
             <h2
               className="fw-semibold"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Ivy Mode",
                 fontSize: 50,
                 color: "#0c2d57",
               }}

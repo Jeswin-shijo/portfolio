@@ -23,7 +23,7 @@ const LandingScreen = () => {
         <div className="z-1 position-relative px-3">
           <h1
             className="fw-semibold"
-            style={{ fontFamily: "'Playfair Display', serif", fontSize: 60 }}
+            style={{ fontFamily: "Ivy Mode", fontSize: 60 }}
           >
             Ready to Start Your Journey?
           </h1>

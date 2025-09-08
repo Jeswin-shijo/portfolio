@@ -114,11 +114,11 @@ const FooterScreen = () => {
         <hr className="text-secondary mt-4" />
         <div className="text-center small ">
           &copy; Copyright © popuptours &nbsp; | &nbsp;
-          <a href="#" className=" text-decoration-none">
+          <a href="terms" className=" text-decoration-none">
             Terms and Conditions
           </a>{" "}
           &nbsp;|&nbsp;
-          <a href="#" className=" text-decoration-none">
+          <a href="policy" className=" text-decoration-none">
             Privacy Policy
           </a>
         </div>

@@ -29,7 +29,7 @@ const HomeScreen = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []);
+  });
 
   const onSliderDotClick = (index: number) => {
     setCurrentIndex(index);

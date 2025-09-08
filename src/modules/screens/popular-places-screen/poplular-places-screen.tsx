@@ -103,7 +103,7 @@ const PopularPlacesBootstrap = () => {
                 {places[activeIndex].description}
               </p>
               <a
-                href="#"
+                href="explore more"
                 className="btn p-2 btn-warning text-dark d-inline-flex align-items-center gap-2 rounded-3"
                 style={{ maxWidth: "170px" }}
               >

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ExpandableCard from "../../../shared/components/expand-card";
 import TourCard from "./tourcard";
 
 const DestinationScreen = () => {
@@ -35,7 +34,7 @@ const DestinationScreen = () => {
             </p>
 
             <a
-              href="#"
+              href="explore more"
               className="btn btn-warning text-dark d-inline-flex align-items-center gap-2 rounded-3"
               style={{ maxWidth: "170px" }}
             >

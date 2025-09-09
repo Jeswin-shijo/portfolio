@@ -20,6 +20,7 @@
     "masonic": "^4.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-fast-marquee": "^1.6.5",
     "react-scripts": "5.0.1",
     "sass": "^1.89.2",
     "sass-loader": "^16.0.5",

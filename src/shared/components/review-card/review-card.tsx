@@ -2,11 +2,13 @@ import Avatar from "../avatar";
 import Stylesheet from "./style.module.scss";
 import { Rating } from "@mui/material";
 
-type Props = {};
+type Props = {
+  cardStyle?: any;
+};
 
-const ReviewCard = (props: Props) => {
+const ReviewCard = ({cardStyle}: Props) => {
   return (
-    <div className={`${Stylesheet.card} px-4`}>
+    <div className={`${Stylesheet.card} px-4`} style={cardStyle}>
       <h1 className="title-font pwdr-blu p-0 m-0">
         <span style={{ fontSize: "5rem", float: "right" }}>
           &ldquo;

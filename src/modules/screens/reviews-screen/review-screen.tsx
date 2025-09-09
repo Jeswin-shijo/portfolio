@@ -1,4 +1,7 @@
 import ReviewCard from "../../../shared/components/review-card";
+import { Height } from "@mui/icons-material";
+import { padding } from "@mui/system";
+import Marquee from "../../../shared/components/marquee";
 
 type Props = {};
 
@@ -24,11 +27,14 @@ const ReviewScreen = (props: Props) => {
           </p>
         </div>
         <div className="d-flex w-100 justify-content-around">
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
+          <Marquee speed={50} pauseOnClick>
+            <ReviewCard cardStyle={{width: '390px', margin: '10px'}}/>
+            <ReviewCard cardStyle={{width: '390px', margin: '10px'}}/>
+            <ReviewCard cardStyle={{width: '390px', margin: '10px'}}/>
+            <ReviewCard cardStyle={{width: '390px', margin: '10px'}}/>
+            <ReviewCard cardStyle={{width: '390px', margin: '10px'}}/>
+            <ReviewCard cardStyle={{width: '390px', margin: '10px'}}/>
+          </Marquee>
         </div>
       </div>
     </div>

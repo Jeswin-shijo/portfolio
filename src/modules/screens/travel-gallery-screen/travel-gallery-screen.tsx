@@ -1,5 +1,6 @@
 import React from "react";
 import "./travel-gallery-screen.css";
+import ScreenName from "../../../shared/components/screen-name";
 
 const places = [
   {
@@ -36,24 +37,16 @@ const TravelGalleryScreen = () => {
   return (
     <div className="travel-gallery-section py-5 p-5">
       <div className="p-5">
-        {/* Section label */}
-        <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
-          Travel Gallery
-        </span>
+        <ScreenName name={"Travel gallery"}/>
 
         {/* Heading + subtext */}
         <div className="d-flex justify-content-between ">
           <h2
-            className="fw-semibold"
-            style={{
-              fontFamily: "Ivy Mode",
-              fontSize: 50,
-              color: "#0c2d57",
-            }}
+           className="screen-title"
           >
             Captured Moments <br /> from Our Tours
           </h2>
-          <p className="gallery-subtext">
+          <p className="gallery-subtext secondary-text">
             Embark on a journey through our most sought-after destinations —
             from serene hill stations and sun-kissed beaches to vibrant cities
             and cultural wonders.

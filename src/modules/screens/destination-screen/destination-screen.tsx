@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TourCard from "./tourcard";
+import ScreenName from "../../../shared/components/screen-name";
 
 const DestinationScreen = () => {
   const [activeBtn, setActiveBtn] = useState<"left" | "right" | null>("right");
@@ -9,16 +10,9 @@ const DestinationScreen = () => {
       <section className="py-5 p-5">
         <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-5 p-5">
           <div className="text-start">
-            <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
-              Destination
-            </span>
+            <ScreenName name={"Destination"}/>
             <h2
-              className="fw-semibold"
-              style={{
-                fontFamily: "Ivy Mode",
-                fontSize: 50,
-                color: "#0c2d57",
-              }}
+              className="screen-title"
             >
               Explore Our Popular <br /> destination
             </h2>
@@ -27,7 +21,7 @@ const DestinationScreen = () => {
           <div
             className="d-flex flex-column gap-3"
           >
-            <p className="text-muted">
+            <p className="text-muted secondary-text">
               Embark on a journey through our most sought-after destinations —
               from serene hill stations and sun-kissed beaches to vibrant cities
               and cultural wonders, each

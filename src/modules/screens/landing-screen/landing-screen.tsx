@@ -22,12 +22,11 @@ const LandingScreen = () => {
 
         <div className="z-1 position-relative px-3">
           <h1
-            className="fw-semibold"
-            style={{ fontFamily: "Ivy Mode", fontSize: 60 }}
+            className="title-text"
           >
             Ready to Start Your Journey?
           </h1>
-          <p className="lead mt-3">
+          <p className="lead mt-3 secondary-text">
             Let’s plan your dream vacation — hassle-free and tailor-made just
             for you.
           </p>

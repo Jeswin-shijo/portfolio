@@ -1,6 +1,7 @@
 import React from "react";
 import Accordion from "../../../shared/components/accordion";
 import ContactCard from "../../../shared/contact-items";
+import ScreenName from "../../../shared/components/screen-name";
 
 function FAQScreen() {
   const tourFAQs = [
@@ -34,25 +35,18 @@ function FAQScreen() {
   return (
     <div className="pt-5 p-5">
       <div className="p-5">
-        <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
-          FAQ
-        </span>
+        <ScreenName name={"FAQ"}/>
 
         <div className="row align-items-center mb-4">
           <div className="col-md-6">
             <h2
-              className="fw-semibold"
-              style={{
-                fontFamily: "Ivy Mode",
-                fontSize: 50,
-                color: "#0c2d57",
-              }}
+             className="screen-title"
             >
               Simple answers to <br /> your travel doubts
             </h2>
           </div>
           <div className="col-md-6">
-            <p className="text-muted">
+            <p className="text-muted secondary-text">
               Embark on a journey through our most sought-after destinations —
               from serene hill stations and sun-kissed beaches to vibrant cities
               and cultural wonders.

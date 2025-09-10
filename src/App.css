@@ -60,3 +60,29 @@
 .bg-blu {
   background-color: #e7ecf0;
 }
+
+.title-text {
+   font-family: "Ivy Mode";
+   font-size: clamp(32px, 5vw, 60px);
+}
+
+.sub-title-text {
+   font-family: "Ivy Mode";
+   font-size: clamp(15px, 5vw, 28px);
+}
+
+.sub-text {
+  font-family: "Manrope"; 
+  font-size: clamp(15px, 2.5vw, 30px);
+}
+
+.secondary-text {
+  font-family: "Manrope";
+  font-size: clamp(10px, 2vw, 18px);
+}
+
+.screen-title {
+  font-family: "Ivy Mode";
+  font-size: clamp(30px, 5vw, 50px);
+  color: #0c2d57;
+}

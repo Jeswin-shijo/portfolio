@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ScreenName from "../../../shared/components/screen-name";
 
 const places = [
   {
@@ -40,18 +41,10 @@ const PopularPlacesBootstrap = () => {
     <div className="bg-light py-5 p-5">
       <div className="d-flex justify-content-between p-5">
         <div>
-          <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
-            Popular Places
-          </span>
-
+          <ScreenName name={"Popular Places"}/>
           <div className="d-flex flex-wrap align-items-center mb-4">
             <h2
-              className="fw-semibold"
-              style={{
-                fontFamily: "Ivy Mode",
-                fontSize: 50,
-                color: "#0c2d57",
-              }}
+             className="screen-title"
             >
               Explore Our Popular <br /> Places
             </h2>
@@ -78,7 +71,7 @@ const PopularPlacesBootstrap = () => {
           </div>
         </div>
         <div className="col-md-8 col-lg-6 align-items-center">
-          <p className="text-muted" style={{ maxWidth: "900px" }}>
+          <p className="text-muted secondary-text" style={{ maxWidth: "900px" }}>
             Embark on a journey through our most sought-after destinations —
             from serene hill stations and sun-kissed beaches to vibrant cities
             and cultural wonders.
@@ -99,7 +92,7 @@ const PopularPlacesBootstrap = () => {
               <h4 style={{ fontFamily: "Ivy Mode" }}>
                 {places[activeIndex].title}
               </h4>
-              <p className="text-muted small" style={{ lineHeight: 1.6 }}>
+              <p className="text-muted secondary-text" style={{ lineHeight: 1.6 }}>
                 {places[activeIndex].description}
               </p>
               <a

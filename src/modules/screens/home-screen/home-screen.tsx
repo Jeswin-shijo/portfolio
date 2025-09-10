@@ -7,6 +7,7 @@ import bgImage4 from "../../../assets/background/images (1).jpeg"; // Replace wi
 import bgImage5 from "../../../assets/background/images.jpeg"; // Replace with actual path
 import FilterSection from "../components/filter-section/filter-section";
 import logo from "../../../assets/logo/popup-logo-light.svg";
+import bgVideo from "../../../assets/background/back.mp4"
 
 const HomeScreen = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -76,14 +77,13 @@ const HomeScreen = () => {
       </nav>
       <div className="hero-content text-white text-start d-flex flex-column align-items-start justify-content-start ">
         <h1
-          className="fw-semibold"
-          style={{ fontFamily: "Ivy Mode", fontSize: 60 }}
+          className="title-text"
         >
           Start your unforgettable
           <br />
           journey with us.
         </h1>
-        <p className="lead " style={{ fontFamily: "Manrope", fontSize: 30 }}>The best travel for your journey begins now</p>
+        <p className="sub-text">The best travel for your journey begins now</p>
 
         <div className="d-flex justify-content-start mt-5">
           <FilterSection />

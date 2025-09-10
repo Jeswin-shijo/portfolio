@@ -30,7 +30,7 @@ const Accordion = ({ title, children }: Props) => {
         className={Stylesheet.accordionContent}
         style={{ maxHeight: height }}
       >
-        <div className={Stylesheet.contentInner}><span className={Stylesheet.children}>{children}</span></div>
+        <div className={Stylesheet.contentInner}><span className={`${Stylesheet.children} secondary-text`}>{children}</span></div>
       </div>
     </div>
   );

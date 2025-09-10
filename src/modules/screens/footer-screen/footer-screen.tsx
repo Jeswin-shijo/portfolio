@@ -3,81 +3,88 @@ import "./footer-screen.css";
 import logo from "../../../assets/logo/popup-logo-light.svg";
 
 const FooterScreen = () => {
+  const footerData = [
+    {
+      title: "Quick Link",
+      links: [
+        "Home",
+        "About Us",
+        "Projects",
+        "Properties",
+        "Location",
+        "Agent",
+        "Blogs",
+        "Contact Us",
+      ],
+    },
+    {
+      title: "Packages",
+      links: [
+        "Domestic Tours",
+        "International Tours",
+        "Honeymoon Packages",
+        "Family Holidays",
+        "Group Tours",
+        "Beach Holidays",
+      ],
+    },
+    {
+      title: "Cities",
+      links: ["Thailand", "Bali", "Srilanka", "Munnar", "Ooty", "Mali"],
+    },
+    {
+      title: "Destination",
+      links: [
+        "Alleppey Backwaters",
+        "Fort Aguada",
+        "Botanical Garden",
+        "Amber Fort",
+        "Radhanagar Beach",
+        "Srinagar, Pahalgam",
+      ],
+    },
+  ];
+
   return (
     <footer className="bg-dark text-light pt-5 p-5 pb-3">
       <div className="container-fluid">
         <div className="row g-4 justify-content-center">
           {/* Logo and About */}
-          <div className="col-md-2 col-sm-2 col-lg-2">
+          <div className="col-md-4 col-sm-4 col-lg-4">
             <img
               src={logo}
-              className="col-md-12 col-sm-12 col-12 col-lg-12"
+              className="ps-5 mb-5"
               alt="Pop Up Tours"
-              style={{ height: 100, marginBottom: 20 }}
+              style={{ height: 120, marginBottom: 20 }}
             />
-            <p className=" small">
+            <p className="ps-5 secondary-text">
               Casa View is your trusted partner in modern living – delivering
               premium homes, smart communities, and exceptional service for a
               better lifestyle.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <h6 className="text-uppercase fw-semibold mb-3" style={{ fontFamily: "Ivy Mode" }}>Quick Link</h6>
-            <ul className="list-unstyled small ">
-              <li>Home</li>
-              <li>About Us</li>
-              <li>Projects</li>
-              <li>Properties</li>
-              <li>Location</li>
-              <li>Agent</li>
-              <li>Blogs</li>
-              <li>Contact Us</li>
-            </ul>
-          </div>
-
-          {/* Packages */}
-          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <h6 className="text-uppercase fw-semibold mb-3" style={{ fontFamily: "Ivy Mode" }}>Packages</h6>
-            <ul className="list-unstyled small ">
-              <li>Domestic Tours</li>
-              <li>International Tours</li>
-              <li>Honeymoon Packages</li>
-              <li>Family Holidays</li>
-              <li>Group Tours</li>
-              <li>Beach Holidays</li>
-            </ul>
-          </div>
-
-          {/* Cities */}
-          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <h6 className="text-uppercase fw-semibold mb-3" style={{ fontFamily: "Ivy Mode" }}>Cities</h6>
-            <ul className="list-unstyled small ">
-              <li>Thailand</li>
-              <li>Bali</li>
-              <li>Srilanka</li>
-              <li>Munnar</li>
-              <li>Ooty</li>
-              <li>Mali</li>
-            </ul>
-          </div>
-
-          {/* Destinations */}
-          <div className="col-md-2 col-sm-2 col-lg-2 col-6">
-            <h6 className="text-uppercase fw-semibold mb-3" style={{ fontFamily: "Ivy Mode" }}>Destination</h6>
-            <ul className="list-unstyled small">
-              <li>Alleppey Backwaters</li>
-              <li>Fort Aguada</li>
-              <li>Botanical Garden</li>
-              <li>Amber Fort</li>
-              <li>Radhanagar Beach</li>
-              <li>Srinagar, Pahalgam</li>
-            </ul>
-          </div>
+          {/* <div className="d-flex"> */}
+          {footerData.map((section, index) => (
+            <div key={index} className={`col-md-2 col-sm-2 col-lg-2 col-6 p-0 ${index === 3 && "pe-2"}`}>
+              <h6
+                className="text-uppercase fw-semibold mb-3"
+                style={{ fontFamily: "Ivy Mode" }}
+              >
+                {section.title}
+              </h6>
+              <div className="border mb-3"></div>
+              <ul className="list-unstyled small footer-links">
+                {section.links.map((link, i) => (
+                  <li key={i}>{link}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          {/* </div> */}
         </div>
 
-        <hr className="text-secondary mt-5" />
+        <div className="border mt-5 mb-5" />
 
         {/* Bottom Section */}
         <div className="row justify-content-center small">
@@ -111,7 +118,7 @@ const FooterScreen = () => {
           </div>
         </div>
 
-        <hr className="text-secondary mt-4" />
+        <hr className="text-secondary mt-5 mb-3" />
         <div className="text-center small ">
           &copy; Copyright © popuptours &nbsp; | &nbsp;
           <a href="terms" className=" text-decoration-none">

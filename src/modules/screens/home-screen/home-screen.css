@@ -23,8 +23,17 @@ html {
 .hero-content {
   position: absolute;
   top: 60%;
-  left: 35%;
-  transform: translate(-50%, -50%);
+  left: 10%; /* fixed padding from left */
+  transform: translateY(-50%);
+  max-width: 700px; /* keeps text from stretching too wide */
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    left: 10%; 
+    top: 60%;
+    max-width: 90%; /* allow more room on small screens */
+  }
 }
 
 .search-panel {

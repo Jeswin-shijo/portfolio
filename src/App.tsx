@@ -16,34 +16,34 @@ function App() {
   return (
     <div>
       <HomeScreen />
-      <div id="about">
+      <div>
         <AboutUsSection />
       </div>
-      <div id="domestic">
+      <div>
         <DestinationScreen />
       </div>
-      <div id="popular">
+      <div>
         <PopularPlacesScreen />
       </div>
-      <div id="tours">
+      <div>
         <TourPackagesScreen />
       </div>
-      <div id="ads">
+      <div>
         <AdvertiseScreen />
       </div>
       <div>
         <TravelGalleryScreen/>
       </div>
-      <div id="reviews">
+      <div>
         <ReviewScreen />
       </div>
-      <div id="faq">
+      <div>
         <FAQScreen />
       </div>
-      <div id="blogs">
+      <div>
         <TravelBlogScreen />
       </div>
-      <div id="landing">
+      <div>
         <LandingScreen />
       </div>
       <StickyWhatsApp />

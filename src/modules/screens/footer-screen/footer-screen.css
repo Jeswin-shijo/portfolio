@@ -6,3 +6,8 @@ footer ul li:hover {
 footer a:hover {
   text-decoration: underline;
 }
+
+.footer-links li {
+  margin-bottom: 10px; /* spacing */
+  line-height: 1.8;    /* taller lines */
+}

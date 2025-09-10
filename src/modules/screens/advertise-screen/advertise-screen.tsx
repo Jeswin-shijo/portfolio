@@ -1,26 +1,20 @@
 import React from "react";
 import "./advertise-screen.css";
 import VideoSection from "../components/video-section/video-section";
+import ScreenName from "../../../shared/components/screen-name";
 const AdvertiseScreen = () => {
   return (
     <section className="section-bg py-5 p-5">
       <div className="p-5">
-        <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
-          Why Choose Us
-        </span>
+       <ScreenName name={"Why choose us"}/>
         <div className="row align-items-center g-5">
           <div className="d-flex justify-content-between">
             <h2
-              className="fw-semibold"
-              style={{
-                fontFamily: "Ivy Mode",
-                fontSize: 50,
-                color: "#0c2d57",
-              }}
+             className="screen-title"
             >
               Travel made easy, with <br /> experts you can trust
             </h2>
-            <p className="text-muted mb-5">
+            <p className="text-muted mb-5 secondary-text">
               Embark on a journey through our most sought-after destinations –
               from serene hill stations and sun-kissed beaches to vibrant cities
               and cultural wonders,
@@ -36,8 +30,8 @@ const AdvertiseScreen = () => {
                     style={{ color: "#0c2d57" }}
                   ></i>
                   <div>
-                    <h3 className="mb-3" style={{ fontFamily: "Ivy Mode" }}>Expert Local Knowledge</h3>
-                    <p className="mb-0 text-muted">
+                    <h3 className="mb-3 sub-title-text">Expert Local Knowledge</h3>
+                    <p className="mb-0 text-muted secondary-text">
                       The first use of Lorem ipsum is uncertain, though some
                       have suggested the 1500s, when sections of Classical works
                       were often used as dummy texts by printers to make type
@@ -59,7 +53,7 @@ const AdvertiseScreen = () => {
                   ></i>
                   <div>
                     <h3 className="mb-3" style={{ fontFamily: "Ivy Mode" }}>Personalized Service</h3>
-                    <p className="mb-0 text-muted">
+                    <p className="mb-0 text-muted secondary-text">
                       The first use of Lorem ipsum is uncertain, though some
                       have suggested the 1500s, when sections of Classical works
                       were often used as dummy texts by printers to make type
@@ -83,7 +77,7 @@ const AdvertiseScreen = () => {
                     <h3 className="mb-3" style={{ fontFamily: "Ivy Mode" }}>
                       Transparent & Trustworthy
                     </h3>
-                    <p className="mb-0 text-muted">
+                    <p className="mb-0 text-muted secondary-text">
                       The first use of Lorem ipsum is uncertain, though some
                       have suggested the 1500s, when sections of Classical works
                       were often used as dummy texts by printers to make type
@@ -104,7 +98,7 @@ const AdvertiseScreen = () => {
                   ></i>
                   <div>
                     <h3 className="mb-3" style={{ fontFamily: "Ivy Mode" }}>Proven Track Record</h3>
-                    <p className="mb-0 text-muted">
+                    <p className="mb-0 text-muted secondary-text">
                       The first use of Lorem ipsum is uncertain, though some
                       have suggested the 1500s, when sections of Classical works
                       were often used as dummy texts by printers to make type

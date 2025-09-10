@@ -1,5 +1,6 @@
 import React from "react";
 import AnimatedParagraph from "../components/animated-paragraph/animated-paragraph";
+import ScreenName from "../../../shared/components/screen-name";
 
 const AboutUsSection: React.FC = () => {
   return (
@@ -7,11 +8,7 @@ const AboutUsSection: React.FC = () => {
       <div className="p-5">
       {/* About Button */}
       <div className="d-flex justify-content-between">
-        <div className="mb-4">
-          <span className="border border-secondary text-secondary px-3 py-1 rounded-3 small d-inline-block mb-3">
-            About us
-          </span>
-        </div>
+        <ScreenName name={"About us"}/>
 
         {/* Description */}
         <div className="mb-5" style={{ maxWidth: "900px" }}>

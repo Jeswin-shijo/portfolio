@@ -11,6 +11,7 @@ import TravelBlogScreen from "./modules/screens/travel-blog-screen";
 import LandingScreen from "./modules/screens/landing-screen";
 import StickyWhatsApp from "./common/sticky-whatsapp";
 import TravelGalleryScreen from "./modules/screens/travel-gallery-screen";
+import ContactFormScreen from "./modules/screens/contact-form-screen";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
       </div>
       <div>
         <LandingScreen />
+        <ContactFormScreen/>
       </div>
       <StickyWhatsApp />
     </div>

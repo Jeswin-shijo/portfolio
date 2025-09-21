@@ -4,9 +4,10 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import GradientContainer from "../../../shared/components/gradient-container";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const ContactFormScreen = () => {
-
   return (
     <section className="py-5 bg-white p-5">
       <div className="row align-items-center ps-5 pe-5">
@@ -19,7 +20,7 @@ const ContactFormScreen = () => {
             form below and our travel experts will get back to you shortly."
           </p>
           <div className="my-4" style={{ maxWidth: "400px" }}>
-              <GradientContainer className="gradient-hover p-4 rounded">
+            <GradientContainer className="gradient-hover p-4 rounded-4">
               <h3 className="sub-title-text">Contact Details</h3>
               <div className="gradient-line-1"></div>
               <div className="gradient-line-2 mb-3"></div>
@@ -82,12 +83,18 @@ const ContactFormScreen = () => {
                       Whatsapp
                     </label>
                     <div className="input-group">
-                      <span className="input-group-text">🇮🇳 +91</span>
-                      <input
-                        type="text"
-                        className="form-control"
-                        style={{ height: 50, borderTopRightRadius: 8 }}
-                        inputMode="numeric"
+                      <PhoneInput
+                        country={"in"}
+                        value={"phone"}
+                        onChange={(phone) => console.log(phone)}
+                        containerStyle={{
+                          borderRadius: "8px",
+                        }}
+                        inputStyle={{
+                          height: "50px",
+                          borderRadius: "8px 8px 8px 8px",
+                          width: "100%",
+                        }}
                       />
                     </div>
                   </div>
@@ -97,12 +104,18 @@ const ContactFormScreen = () => {
                       Phone
                     </label>
                     <div className="input-group">
-                      <span className="input-group-text">🇮🇳 +91</span>
-                      <input
-                        type="text"
-                        className="form-control"
-                        style={{ height: 50, borderTopRightRadius: 8 }}
-                        inputMode="numeric"
+                      <PhoneInput
+                        country={"in"}
+                        value={"phone"}
+                        onChange={(phone) => console.log(phone)}
+                        containerStyle={{
+                          borderRadius: "8px",
+                        }}
+                        inputStyle={{
+                          height: "50px",
+                          borderRadius: "8px 0 0 8px",
+                          width: "100%",
+                        }}
                       />
                     </div>
                   </div>

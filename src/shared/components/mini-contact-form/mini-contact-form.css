@@ -1,0 +1,40 @@
+.submit-btn {
+  background-color: #facc15; 
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background-color: #fbbf24; 
+  }
+}
+
+.form-select,
+.form-control::placeholder,
+.form-select::placeholder {
+  font-family: "Manrope";
+  color: #999;
+}
+
+.input-group .form-control {
+  border: 1px solid #ced4da; /* default bootstrap border */
+  transition: border-color 0.2s ease;
+}
+
+.input-group .form-control:hover {
+  border-color: #495057; /* darker border on hover */
+}
+
+.input-group .form-control:focus {
+  border-color: #0c2d57; /* custom focus color (like MUI primary) */
+  box-shadow: 0 0 0 2px rgba(12, 45, 87, 0.2); /* subtle glow */
+}

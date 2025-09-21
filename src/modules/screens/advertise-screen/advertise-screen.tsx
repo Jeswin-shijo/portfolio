@@ -37,10 +37,6 @@ const AdvertiseScreen = () => {
                       were often used as dummy texts by printers to make type
                       specimen books demonstrating different fonts. According to
                       this account, the material was chosen based on Latin’s
-                      familiarity as a lingua franca across Europe and the
-                      popularity of Classical works during the Middle Ages.
-                      Whenever it was first created, Lorem ipsum did not gain
-                      widespread popularity until the 1960s, when Letraset
                     </p>
                   </div>
                 </div>
@@ -59,10 +55,6 @@ const AdvertiseScreen = () => {
                       were often used as dummy texts by printers to make type
                       specimen books demonstrating different fonts. According to
                       this account, the material was chosen based on Latin’s
-                      familiarity as a lingua franca across Europe and the
-                      popularity of Classical works during the Middle Ages.
-                      Whenever it was first created, Lorem ipsum did not gain
-                      widespread popularity until the 1960s, when Letraset
                       </p>
                   </div>
                 </div>
@@ -83,9 +75,7 @@ const AdvertiseScreen = () => {
                       were often used as dummy texts by printers to make type
                       specimen books demonstrating different fonts. According to
                       this account, the material was chosen based on Latin’s
-                      familiarity as a lingua franca across Europe and the
-                      popularity of Classical works during the Middle Ages.
-                      Whenever it was first created, Lorem ipsum did not gain
+      
                     </p>
                   </div>
                 </div>
@@ -103,9 +93,6 @@ const AdvertiseScreen = () => {
                       have suggested the 1500s, when sections of Classical works
                       were often used as dummy texts by printers to make type
                       specimen books demonstrating different fonts. According to
-                      this account, the material was chosen based on Latin’s
-                      familiarity as a lingua franca across Europe and the
-                      popularity of Classical works during the Middle Ages.
                       Whenever it was first created, Lorem ipsum did not gain
                     </p>
                   </div>

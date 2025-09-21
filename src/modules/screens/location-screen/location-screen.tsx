@@ -5,7 +5,6 @@ const LocationScreen = () => {
   return (
     <section className="py-5 bg-white p-5">
         <div className="row align-items-center ps-5 pe-5">
-          {/* Left Side */}
           <div className="col-md-6 mb-4 mb-md-0">
             <h2  className="screen-title mb-3">
               Our Office Location <br /> and Directions on Map

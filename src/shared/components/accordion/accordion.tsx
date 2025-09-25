@@ -23,7 +23,21 @@ const Accordion = ({ title, children }: Props) => {
     <div className={`${Stylesheet.accordionItem} ${isOpen ? Stylesheet.open : ""}`}>
       <button className={Stylesheet.accordionHeader} onClick={toggleAccordion}>
         <span style={{ fontFamily: "Ivy Mode" }}>{title}</span>
-        <span className={Stylesheet.icon}>{isOpen ? "–" : "+"}</span>
+        <span className={Stylesheet.icon}>
+          {/* Plus sign */}
+          <span
+            className={`${Stylesheet.plus} ${isOpen ? Stylesheet.gone : ""}`}
+          >
+            +
+          </span>
+
+          {/* Minus sign */}
+          <span
+            className={`${Stylesheet.minus} ${isOpen ? Stylesheet.show : ""}`}
+          >
+            –
+          </span>
+        </span>
       </button>
       <div
         ref={contentRef}

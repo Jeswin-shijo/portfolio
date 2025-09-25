@@ -47,3 +47,45 @@
 .children {
   font-optical-sizing: auto;
 }
+
+.icon {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.plus,
+.minus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 45px;
+  text-align: center;
+  line-height: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Plus rotates and fades away */
+.plus {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.gone {
+  opacity: 0;
+  transform: rotate(180deg) translateZ(0) scale(0.5);
+}
+
+/* Minus appears */
+.minus {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.show {
+  opacity: 1;
+  transform: scale(1);
+}

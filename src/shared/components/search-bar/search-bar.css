@@ -1,0 +1,22 @@
+.search-bar {
+  max-width: 400px;
+  margin: auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.search-bar .form-control {
+  background-color: #f2f2f2;
+  border: none;
+  box-shadow: none;
+  font-family: 'Manrope';
+}
+
+.search-bar .btn {
+  border: none;
+  border-radius: 0;
+}
+
+.search-bar .btn i {
+  color: #0a2c4d;
+}

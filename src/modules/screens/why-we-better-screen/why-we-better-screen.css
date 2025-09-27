@@ -1,0 +1,51 @@
+:root {
+  --number-color: #e49b31;   /* warm orange numbers */
+  --line-color: #5a7a91;     /* bluish divider */
+}
+
+.features-wrap {
+  padding: 40px 20px;
+  background: #fff;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  gap: 36px 60px; /* row-gap / col-gap */
+  margin: 0 auto;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.number {
+  font-size: 25px;
+  color: var(--number-color);
+  display: inline-block;
+  font-family: 'Manrope';
+}
+
+.text {
+  font-size: 25px;
+  font-weight: 400;
+  font-family: 'Manrope';
+  color: #222;
+}
+
+.line {
+  height: 2px;
+  width: 100%;
+  background-color: var(--line-color);
+  /* opacity: 0.6; */
+  margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

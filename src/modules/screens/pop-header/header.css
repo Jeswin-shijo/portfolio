@@ -1,0 +1,12 @@
+.navbar-scrolled {
+  background-color: black !important;
+  transition: background-color 0.5s ease !important;
+}
+
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000 !important; /* keep it above other content */
+  width: 100%;
+  transition: background-color 0.3s ease;
+}

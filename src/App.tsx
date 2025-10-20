@@ -18,10 +18,12 @@ import AboutWhoWeAreScreen from "./modules/screens/about-who-we-are-screen";
 import SearchBar from "./shared/components/search-bar/search-bar";
 import LocationScreen from "./modules/screens/location-screen";
 import ContactFormScreen from "./modules/screens/contact-form-screen";
+import PopHeader from "./modules/screens/pop-header";
 
 function App() {
   return (
     <div>
+      <PopHeader/>
       <HomeScreen />
       <div>
         <AboutUsSection />

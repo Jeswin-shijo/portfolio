@@ -1,0 +1,73 @@
+/* --- Accordion Transition Animation --- */
+.accordion-collapse {
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+  max-height: 0;
+  opacity: 0;
+}
+
+.accordion-collapse.show {
+  opacity: 1;
+  max-height: 800px; /* Adjust depending on expected content size */
+}
+
+/* --- Accordion Body Slide + Fade --- */
+.accordion-body {
+  transform: translateY(-10px);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.accordion-collapse.show .accordion-body {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* --- Accordion Button Smooth Interaction --- */
+.accordion-button {
+  background: transparent !important;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #0c2d57 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* --- Optional Arrow Icon Rotation --- */
+.accordion-button .material-symbols-outlined {
+  transition: transform 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+
+.tab-content {
+  position: relative;
+  min-height: 200px;
+}
+
+.tab-pane {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.tab-hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+
+.tab-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
+}
+

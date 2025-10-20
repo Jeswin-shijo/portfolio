@@ -11,6 +11,13 @@ import TravelBlogScreen from "./modules/screens/travel-blog-screen";
 import LandingScreen from "./modules/screens/landing-screen";
 import StickyWhatsApp from "./common/sticky-whatsapp";
 import TravelGalleryScreen from "./modules/screens/travel-gallery-screen";
+import InternationalPackageDetailScreen from "./modules/Details-screens/international-package-detail-screen/international-package-detail-screen";
+import MiniContactForm from "./shared/components/mini-contact-form";
+import WhyWeBetterScreen from "./modules/screens/why-we-better-screen";
+import AboutWhoWeAreScreen from "./modules/screens/about-who-we-are-screen";
+import SearchBar from "./shared/components/search-bar/search-bar";
+import LocationScreen from "./modules/screens/location-screen";
+import ContactFormScreen from "./modules/screens/contact-form-screen";
 
 function App() {
   return (
@@ -45,6 +52,14 @@ function App() {
       </div>
       <div>
         <LandingScreen />
+        <InternationalPackageDetailScreen/>
+        <div className="container"><MiniContactForm/></div>
+        
+        <WhyWeBetterScreen/>
+        <AboutWhoWeAreScreen/>
+        <SearchBar/>
+        <LocationScreen/>
+        <ContactFormScreen/>
       </div>
       <StickyWhatsApp />
     </div>

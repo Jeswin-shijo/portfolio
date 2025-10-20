@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./home-screen.css";
 import bgImage1 from "../../../assets/background/view-beautiful-rainbow-appearing-end-road.jpg"; // Replace with actual path
 import bgImage2 from "../../../assets/background/0ZUBmNNVLRCfn3NdU55nQ00UF64m2ObtcDS0grx02fA.avif"; // Replace with actual path
@@ -7,11 +7,9 @@ import bgImage4 from "../../../assets/background/images (1).jpeg"; // Replace wi
 import bgImage5 from "../../../assets/background/images.jpeg"; // Replace with actual path
 import FilterSection from "../components/filter-section/filter-section";
 import logo from "../../../assets/logo/popup-logo-light.svg";
-import bgVideo from "../../../assets/background/back.mp4"
 
 const HomeScreen = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
- const [navScrolled, setNavScrolled] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const backgroundImages = [bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
 
@@ -37,14 +35,6 @@ const HomeScreen = () => {
     startAutoSlide(); // Reset timer
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setNavScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div
       className="home-screen"
@@ -54,16 +44,14 @@ const HomeScreen = () => {
       }}
     >
       <nav
-        className={`navbar px-5 py-3 d-flex align-items-center justify-content-between top-0 w-100 z-3 ${
-          navScrolled ? "navbar-scrolled" : "bg-transparent"
-        }`}
+        className={`navbar px-5 pt-3 d-flex align-items-end justify-content-between top-0 w-100 z-3 bg-transparent`}
       >
         <img
           src={logo}
           alt="Pop Up Tours"
-          style={{ height: 100, width: 270, marginBottom: 20 }}
+          style={{ height: 100, width: 270 }}
         />
-        <div className="nav-links d-flex gap-4 text-white">
+        <div className="nav-links pb-3 d-flex gap-4 text-white">
           <a href="#about">About Us</a>
           <a href="#domestic">International</a>
           <a href="#domestic">Domestic</a>
@@ -71,10 +59,11 @@ const HomeScreen = () => {
           <a href="#reviews">Gallery</a>
           <a href="#faq">Contact Us</a>
         </div>
-        <button className="btn btn-warning fw-semibold px-4">
+        <button className="btn btn-warning fw-semibold px-4 mb-2">
           Get in Touch
         </button>
       </nav>
+      <hr style={{ color:"#fff", borderTop: '2px solid #fff' }}/>
       <div className="hero-content text-white text-start d-flex flex-column align-items-start justify-content-start ">
         <h1
           className="title-text"

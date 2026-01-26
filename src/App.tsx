@@ -19,6 +19,8 @@ import SearchBar from "./shared/components/search-bar/search-bar";
 import LocationScreen from "./modules/screens/location-screen";
 import ContactFormScreen from "./modules/screens/contact-form-screen";
 import PopHeader from "./modules/screens/pop-header";
+import GalleryPage from "./modules/screens/gallery-page-screen/gallery-man-screen";
+import GalleryViewPage from "./modules/screens/gallery-page-screen/sub-screen/gallery-view-page";
 
 function App() {
   return (
@@ -62,6 +64,8 @@ function App() {
         <SearchBar/>
         <LocationScreen/>
         <ContactFormScreen/>
+        <GalleryPage/>
+        <GalleryViewPage/>
       </div>
       <StickyWhatsApp />
     </div>

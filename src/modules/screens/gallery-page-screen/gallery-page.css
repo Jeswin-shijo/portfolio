@@ -2,6 +2,7 @@
 .gallery-page {
   background: #ffffff;
   color: #1d2a35;
+  font-family: "Manrope", sans-serif;
 }
 
 .gallery-container {
@@ -15,7 +16,7 @@
 }
 
 .gallery-heading {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-family: "Ivy Mode", serif;
   font-weight: 500;
   letter-spacing: -0.02em;
   color: #0f3554;
@@ -36,6 +37,19 @@
   width: 100%;
   cursor: pointer;
   transition: transform 160ms ease;
+}
+
+.album-card-btn {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+}
+
+.album-card-btn:focus-visible {
+  outline: 2px solid rgba(13, 110, 253, 0.45);
+  outline-offset: 6px;
+  border-radius: 10px;
 }
 
 .album-collage {
@@ -71,6 +85,7 @@
 }
 
 .album-title {
+  font-family: "Ivy Mode", serif;
   font-size: 1.05rem;
   font-weight: 500;
   color: #212529;

@@ -10,25 +10,40 @@ const IMG_TOP =
 const IMG_BOTTOM =
   "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=70";
 
-type Album = {
+export type Album = {
   title: string;
   count: number;
-  images: [string, string, string];
+  images: string[];
 };
 
+const createAlbumImages = (seed: string): string[] =>
+  [
+    IMG_MAIN,
+    IMG_TOP,
+    IMG_BOTTOM,
+    ...Array.from({ length: 9 }).map(
+      (_, index) =>
+        `https://picsum.photos/seed/${seed}-${index + 1}/1400/900`
+    ),
+  ];
+
 const albums: Album[] = [
-  { title: "Bali", count: 12, images: [IMG_MAIN, IMG_TOP, IMG_BOTTOM] },
-  { title: "Wayanad", count: 12, images: [IMG_MAIN, IMG_TOP, IMG_BOTTOM] },
-  { title: "Kodaikanal", count: 12, images: [IMG_MAIN, IMG_TOP, IMG_BOTTOM] },
-  { title: "Munnar", count: 12, images: [IMG_MAIN, IMG_TOP, IMG_BOTTOM] },
-  { title: "Sri Lanka", count: 12, images: [IMG_MAIN, IMG_TOP, IMG_BOTTOM] },
-  { title: "Thailand", count: 12, images: [IMG_MAIN, IMG_TOP, IMG_BOTTOM] },
-  { title: "Manali", count: 12, images: [IMG_MAIN, IMG_TOP, IMG_BOTTOM] },
-  { title: "Ooty", count: 12, images: [IMG_MAIN, IMG_TOP, IMG_BOTTOM] },
-  { title: "Alappuzha", count: 12, images: [IMG_MAIN, IMG_TOP, IMG_BOTTOM] },
+  { title: "Bali", count: 12, images: createAlbumImages("bali") },
+  { title: "Wayanad", count: 12, images: createAlbumImages("wayanad") },
+  { title: "Kodaikanal", count: 12, images: createAlbumImages("kodaikanal") },
+  { title: "Munnar", count: 12, images: createAlbumImages("munnar") },
+  { title: "Sri Lanka", count: 12, images: createAlbumImages("sri-lanka") },
+  { title: "Thailand", count: 12, images: createAlbumImages("thailand") },
+  { title: "Manali", count: 12, images: createAlbumImages("manali") },
+  { title: "Ooty", count: 12, images: createAlbumImages("ooty") },
+  { title: "Alappuzha", count: 12, images: createAlbumImages("alappuzha") },
 ];
 
-const GalleryPage: React.FC = () => {
+type GalleryPageProps = {
+  onAlbumSelect?: (album: Album) => void;
+};
+
+const GalleryPage: React.FC<GalleryPageProps> = ({ onAlbumSelect }) => {
   return (
     <main className="gallery-page">
       <div className="p-5 gallery-container">
@@ -44,7 +59,12 @@ const GalleryPage: React.FC = () => {
         <div className="row g-4 g-lg-5">
           {albums.map((a) => (
             <div className="col-12 col-sm-6 col-lg-4 col-xxl-3" key={a.title}>
-              <GalleryAlbumCard title={a.title} count={a.count} images={a.images} />
+              <GalleryAlbumCard
+                title={a.title}
+                count={a.count}
+                images={a.images.slice(0, 3)}
+                onClick={() => onAlbumSelect?.(a)}
+              />
             </div>
           ))}
         </div>

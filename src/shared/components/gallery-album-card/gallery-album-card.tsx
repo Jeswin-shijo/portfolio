@@ -1,10 +1,21 @@
 import React from "react";
 
-const GalleryAlbumCard = ({ title, count = 12, images = [] }: any) => {
-  const [main, top, bottom] = images;
+type GalleryAlbumCardProps = {
+  title: string;
+  count?: number;
+  images: string[];
+  onClick?: () => void;
+};
 
-  return (
-    <div className="album-card">
+const GalleryAlbumCard = ({
+  title,
+  count = 12,
+  images = [],
+  onClick,
+}: GalleryAlbumCardProps) => {
+  const [main, top, bottom] = images;
+  const content = (
+    <>
       <div className="album-collage" aria-label={`${title} album`}>
         <div className="album-img album-img--main">
           <img src={main} alt={`${title} cover`} loading="lazy" />
@@ -23,8 +34,23 @@ const GalleryAlbumCard = ({ title, count = 12, images = [] }: any) => {
         <div className="album-title">{title}</div>
         <div className="album-sub">{count} Photos</div>
       </div>
-    </div>
+    </>
   );
-}
+
+  if (!onClick) {
+    return <div className="album-card">{content}</div>;
+  }
+
+  return (
+    <button
+      type="button"
+      className="album-card album-card-btn"
+      onClick={onClick}
+      aria-label={`Open ${title} album`}
+    >
+      {content}
+    </button>
+  );
+};
 
 export default GalleryAlbumCard;

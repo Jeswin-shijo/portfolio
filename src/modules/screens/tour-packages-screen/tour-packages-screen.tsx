@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import LocationCard from "../../../shared/components/location-card";
 import ScreenName from "../../../shared/components/screen-name";
+import "./tour-packages-screen.css";
 
-const tourData: any = {
+const tabs = ["International", "Domestic", "Honeymoon"] as const;
+type TourTab = (typeof tabs)[number];
+
+const tourData: Record<TourTab, { title: string; image: string }[]> = {
   International: [
     {
       title: "Sri Lanka",
@@ -48,7 +52,7 @@ const tourData: any = {
 };
 
 const TourPackagesScreen = () => {
-  const [activeTab, setActiveTab] = useState("International");
+  const [activeTab, setActiveTab] = useState<TourTab>("International");
   const [activeBtn, setActiveBtn] = useState<"left" | "right" | null>("right");
 
   const places = tourData[activeTab];
@@ -77,19 +81,15 @@ const TourPackagesScreen = () => {
 
         {/* Tabs */}
         <div className="d-flex justify-content-between border-bottom mb-4 w-100">
-          {["International", "Domestic", "Honeymoon"].map((tab) => (
+          {tabs.map((tab) => (
             <div
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`flex-fill text-center pb-2 cursor-pointer ${
+              className={`flex-fill text-center pb-2 tour-packages-tab ${
                 activeTab === tab
-                  ? "border-bottom border-warning fw-bold"
+                  ? "active border-bottom border-warning fw-bold"
                   : "text-secondary"
               }`}
-              style={{
-                cursor: "pointer",
-                ...(activeTab === tab && { color: "#0c2d57" }),
-              }}
             >
               <h3 className="sub-title-text">{tab}</h3>
             </div>
@@ -97,8 +97,8 @@ const TourPackagesScreen = () => {
         </div>
 
         {/* Cards */}
-        <div className="row g-4">
-          {places.map((place: any, index: number) => (
+        <div key={activeTab} className="row g-4 tour-packages-cards">
+          {places.map((place, index) => (
             <div className="col-12 col-sm-6 col-md-4" key={index}>
               <LocationCard imageSrc={place.image} locationName={place.title} />
             </div>

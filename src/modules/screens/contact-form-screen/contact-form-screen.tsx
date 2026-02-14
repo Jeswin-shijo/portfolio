@@ -113,7 +113,7 @@ const ContactFormScreen = () => {
                         }}
                         inputStyle={{
                           height: "50px",
-                          borderRadius: "8px 0 0 8px",
+                          borderRadius: "8px 8px 8px 8px",
                           width: "100%",
                         }}
                       />

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import HomeScreen from "./modules/screens/home-screen";
 import AboutUsSection from "./modules/screens/about-us-screen/about-us-section";
@@ -19,24 +20,28 @@ import SearchBar from "./shared/components/search-bar/search-bar";
 import LocationScreen from "./modules/screens/location-screen";
 import ContactFormScreen from "./modules/screens/contact-form-screen";
 import PopHeader from "./modules/screens/pop-header";
-import GalleryPage from "./modules/screens/gallery-page-screen/gallery-man-screen";
+import GalleryPage, {
+  type Album as GalleryAlbum,
+} from "./modules/screens/gallery-page-screen/gallery-man-screen";
 import GalleryViewPage from "./modules/screens/gallery-page-screen/sub-screen/gallery-view-page";
 
 function App() {
+  const [selectedAlbum, setSelectedAlbum] = useState<GalleryAlbum | null>(null);
+
   return (
     <div>
       <PopHeader/>
       <HomeScreen />
-      <div>
+      <div id="about" className="header-scroll-target">
         <AboutUsSection />
       </div>
-      <div>
+      <div id="international" className="header-scroll-target">
         <DestinationScreen />
       </div>
-      <div>
+      <div id="domestic" className="header-scroll-target">
         <PopularPlacesScreen />
       </div>
-      <div>
+      <div id="honeymoon" className="header-scroll-target">
         <TourPackagesScreen />
       </div>
       <div>
@@ -57,15 +62,25 @@ function App() {
       <div>
         <LandingScreen />
         <InternationalPackageDetailScreen/>
-        <div className="container"><MiniContactForm/></div>
         
         <WhyWeBetterScreen/>
         <AboutWhoWeAreScreen/>
         <SearchBar/>
         <LocationScreen/>
-        <ContactFormScreen/>
-        <GalleryPage/>
-        <GalleryViewPage/>
+        <div id="contact" className="header-scroll-target">
+          <ContactFormScreen/>
+        </div>
+        <div id="gallery" className="header-scroll-target">
+          {!selectedAlbum ? (
+            <GalleryPage onAlbumSelect={setSelectedAlbum} />
+          ) : (
+            <GalleryViewPage
+              albumTitle={selectedAlbum.title}
+              images={selectedAlbum.images}
+              onBack={() => setSelectedAlbum(null)}
+            />
+          )}
+        </div>
       </div>
       <StickyWhatsApp />
     </div>

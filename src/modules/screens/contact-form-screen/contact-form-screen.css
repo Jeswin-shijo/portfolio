@@ -30,7 +30,7 @@
 .submit-btn {
   background-color: #facc15; 
   color: #1a1a1a;
-  font-family: 'Inter', sans-serif;
+  font-family: "Manrope";
   font-weight: 500;
   font-size: 0.95rem;
   padding: 0.6rem 1.25rem;
@@ -45,6 +45,33 @@
   &:hover {
     background-color: #fbbf24; 
   }
+}
+
+.submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.contact-submit-status {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.contact-submit-success {
+  color: #1d7b46;
+}
+
+.contact-submit-error {
+  color: #c92f2f;
+}
+
+.honeypot-field {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
 }
 
 .form-select,

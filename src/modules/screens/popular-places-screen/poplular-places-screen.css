@@ -1,7 +1,7 @@
 .popular-places-section {
   background: #e8ecf1;
   padding: clamp(2.5rem, 4vw, 4rem) 0;
-  font-family: "Manrope", sans-serif;
+  font-family: "Manrope";
 }
 
 .popular-places-inner {

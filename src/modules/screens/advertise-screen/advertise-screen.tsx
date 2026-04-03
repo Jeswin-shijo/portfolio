@@ -32,11 +32,9 @@ const AdvertiseScreen = () => {
                   <div>
                     <h3 className="mb-3 sub-title-text">Expert Local Knowledge</h3>
                     <p className="mb-0 text-muted secondary-text">
-                      The first use of Lorem ipsum is uncertain, though some
-                      have suggested the 1500s, when sections of Classical works
-                      were often used as dummy texts by printers to make type
-                      specimen books demonstrating different fonts. According to
-                      this account, the material was chosen based on Latin’s
+                      Our team knows the destinations beyond the brochure. We
+                      help travelers choose the right season, the right stays,
+                      and the right pace for each journey.
                     </p>
                   </div>
                 </div>
@@ -50,12 +48,10 @@ const AdvertiseScreen = () => {
                   <div>
                     <h3 className="mb-3" style={{ fontFamily: "Ivy Mode" }}>Personalized Service</h3>
                     <p className="mb-0 text-muted secondary-text">
-                      The first use of Lorem ipsum is uncertain, though some
-                      have suggested the 1500s, when sections of Classical works
-                      were often used as dummy texts by printers to make type
-                      specimen books demonstrating different fonts. According to
-                      this account, the material was chosen based on Latin’s
-                      </p>
+                      Every itinerary is shaped around your interests, travel
+                      dates, group size, and comfort level instead of forcing
+                      you into a one-size-fits-all package.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -70,12 +66,9 @@ const AdvertiseScreen = () => {
                       Transparent & Trustworthy
                     </h3>
                     <p className="mb-0 text-muted secondary-text">
-                      The first use of Lorem ipsum is uncertain, though some
-                      have suggested the 1500s, when sections of Classical works
-                      were often used as dummy texts by printers to make type
-                      specimen books demonstrating different fonts. According to
-                      this account, the material was chosen based on Latin’s
-      
+                      Clear communication, thoughtful guidance, and dependable
+                      coordination mean you always know what to expect before
+                      and during your trip.
                     </p>
                   </div>
                 </div>
@@ -89,11 +82,9 @@ const AdvertiseScreen = () => {
                   <div>
                     <h3 className="mb-3" style={{ fontFamily: "Ivy Mode" }}>Proven Track Record</h3>
                     <p className="mb-0 text-muted secondary-text">
-                      The first use of Lorem ipsum is uncertain, though some
-                      have suggested the 1500s, when sections of Classical works
-                      were often used as dummy texts by printers to make type
-                      specimen books demonstrating different fonts. According to
-                      Whenever it was first created, Lorem ipsum did not gain
+                      From quick weekend escapes to longer international plans,
+                      we focus on smooth execution, reliable support, and
+                      memorable experiences that bring travelers back.
                     </p>
                   </div>
                 </div>

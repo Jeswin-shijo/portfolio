@@ -5,9 +5,9 @@ const CategoryCard = () => {
   const categories = [
     'Adventure',
     'International',
-    'Manali',
+    'Maldives',
     'Bali',
-    'Product Category',
+    'Travel Tips',
     'FAQ',
   ];
 

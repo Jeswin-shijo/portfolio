@@ -3,6 +3,18 @@ footer ul li:hover {
   cursor: pointer;
 }
 
+.footer-link-btn {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  text-align: left;
+}
+
+.footer-link-btn:hover {
+  color: #ffc107;
+}
+
 footer a:hover {
   text-decoration: underline;
 }

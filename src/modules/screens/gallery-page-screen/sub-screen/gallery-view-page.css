@@ -26,7 +26,7 @@
   margin: 0;
   font-size: clamp(1.4rem, 2.2vw, 2rem);
   color: #123754;
-  font-family: "Ivy Mode", serif;
+  font-family: "Ivy Mode";
 }
 
 .galleryview-back-btn {

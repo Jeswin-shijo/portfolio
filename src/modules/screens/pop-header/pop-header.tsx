@@ -1,25 +1,14 @@
 import { useEffect, useState } from "react";
 import "./header.css";
 import logo from "../../../assets/logo/popup-logo-light.svg";
+import {
+  navigateTo,
+  siteNavItems,
+} from "../../../shared/navigation/site-navigation";
 const SHOW_AFTER_Y = 140;
-
-const navItems = [
-  { label: "About Us", targetId: "about" },
-  { label: "International", targetId: "international" },
-  { label: "Domestic", targetId: "domestic" },
-  { label: "Honeymoon", targetId: "honeymoon" },
-  { label: "Gallery", targetId: "gallery" },
-  { label: "Contact Us", targetId: "contact" },
-] as const;
 
 const PopHeader = () => {
   const [navScrolled, setNavScrolled] = useState(false);
-
-  const scrollToSection = (targetId: string) => {
-    const section = document.getElementById(targetId);
-    if (!section) return;
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   useEffect(() => {
     const handleScroll = () => setNavScrolled(window.scrollY > SHOW_AFTER_Y);
@@ -38,19 +27,25 @@ const PopHeader = () => {
       }`}
       aria-hidden={!navScrolled}
     >
-      <img
-        className="my-2"
-        src={logo}
-        alt="Pop Up Tours"
-        style={{ height: 70, width: 270 }}
-      />
+      <button
+        type="button"
+        className="pop-header-logo-btn"
+        onClick={() => navigateTo("/")}
+      >
+        <img
+          className="my-2"
+          src={logo}
+          alt="Pop Up Tours"
+          style={{ height: 70, width: 270 }}
+        />
+      </button>
       <div className="d-flex gap-4 text-white align-items-center">
-        {navItems.map((item) => (
+        {siteNavItems.map((item) => (
           <button
-            key={item.targetId}
+            key={item.key}
             type="button"
             className="header-nav-link"
-            onClick={() => scrollToSection(item.targetId)}
+            onClick={() => navigateTo(item.href)}
           >
             {item.label}
           </button>
@@ -58,7 +53,7 @@ const PopHeader = () => {
       </div>
       <button
         className="btn btn-warning fw-semibold px-4"
-        onClick={() => scrollToSection("contact")}
+        onClick={() => navigateTo("/contact")}
       >
         Get in Touch
       </button>

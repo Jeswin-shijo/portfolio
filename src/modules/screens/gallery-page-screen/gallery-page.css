@@ -2,7 +2,7 @@
 .gallery-page {
   background: #ffffff;
   color: #1d2a35;
-  font-family: "Manrope", sans-serif;
+  font-family: "Manrope";
 }
 
 .gallery-container {
@@ -16,7 +16,7 @@
 }
 
 .gallery-heading {
-  font-family: "Ivy Mode", serif;
+  font-family: "Ivy Mode";
   font-weight: 500;
   letter-spacing: -0.02em;
   color: #0f3554;
@@ -85,7 +85,7 @@
 }
 
 .album-title {
-  font-family: "Ivy Mode", serif;
+  font-family: "Ivy Mode";
   font-size: 1.05rem;
   font-weight: 500;
   color: #212529;

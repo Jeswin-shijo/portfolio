@@ -1,0 +1,117 @@
+.blog-detail-page {
+  padding: 4rem 0 5rem;
+}
+
+.blog-detail-page__container {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+  gap: 2rem;
+}
+
+.blog-detail-page__content h2,
+.blog-detail-page__content h3 {
+  font-family: "Ivy Mode";
+  color: #0c2d57;
+}
+
+.blog-detail-page__content p,
+.blog-detail-page__content li {
+  color: #586574;
+  font-family: "Manrope";
+  line-height: 1.9;
+}
+
+.blog-detail-page__lead {
+  margin-bottom: 2rem;
+}
+
+.blog-detail-page__checklist,
+.blog-detail-page__tips {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.blog-detail-page__checklist li,
+.blog-detail-page__tips li {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.blog-detail-page__checklist i {
+  color: #2ca24d;
+  margin-top: 0.35rem;
+}
+
+.blog-detail-page__tips i {
+  color: #0c2d57;
+  margin-top: 0.35rem;
+}
+
+.blog-detail-page__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.blog-detail-page__recent {
+  background: #eef3f7;
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.blog-detail-page__recent h3 {
+  font-family: "Ivy Mode";
+  color: #0c2d57;
+  margin-bottom: 1.25rem;
+}
+
+.blog-detail-page__recent-item {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-top: 1px solid rgba(12, 45, 87, 0.1);
+}
+
+.blog-detail-page__recent-item:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.blog-detail-page__recent-item img {
+  width: 84px;
+  height: 68px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.blog-detail-page__recent-date {
+  display: block;
+  font-size: 0.8rem;
+  color: #7b8794;
+}
+
+.blog-detail-page__recent-title {
+  margin: 0.2rem 0 0;
+  color: #0c2d57;
+  font-family: "Manrope";
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+  .blog-detail-page__container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .blog-detail-page__container {
+    width: min(100% - 32px, 1120px);
+  }
+}

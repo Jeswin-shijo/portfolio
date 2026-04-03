@@ -2,6 +2,10 @@ import "./home-screen.css";
 import FilterSection from "../components/filter-section/filter-section";
 import logo from "../../../assets/logo/popup-logo-light.svg";
 import heroVideo from "../../../assets/background/back.mp4";
+import {
+  navigateTo,
+  siteNavItems,
+} from "../../../shared/navigation/site-navigation";
 
 const HomeScreen = () => {
   return (
@@ -14,20 +18,32 @@ const HomeScreen = () => {
       <nav
         className={`navbar px-5 pt-3 d-flex align-items-end justify-content-between top-0 w-100 z-3 bg-transparent`}
       >
-        <img
-          src={logo}
-          alt="Pop Up Tours"
-          style={{ height: 100, width: 270 }}
-        />
+        <button
+          type="button"
+          className="home-hero-logo"
+          onClick={() => navigateTo("/")}
+        >
+          <img
+            src={logo}
+            alt="Pop Up Tours"
+            style={{ height: 100, width: 270 }}
+          />
+        </button>
         <div className="nav-links pb-3 d-flex gap-4 text-white">
-          <a href="#about">About Us</a>
-          <a href="#international">International</a>
-          <a href="#domestic">Domestic</a>
-          <a href="#honeymoon">Honeymoon</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#contact">Contact Us</a>
+          {siteNavItems.map((item) => (
+            <button
+              key={item.key}
+              type="button"
+              onClick={() => navigateTo(item.href)}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
-        <button className="btn btn-warning fw-semibold px-4 mb-2">
+        <button
+          className="btn btn-warning fw-semibold px-4 mb-2"
+          onClick={() => navigateTo("/contact")}
+        >
           Get in Touch
         </button>
       </nav>

@@ -1,61 +1,24 @@
 import React, { useState } from "react";
+import {
+  buildPackageHref,
+  getPackagesByCategory,
+  type PackageCategory,
+} from "../../../data/tour-packages";
 import LocationCard from "../../../shared/components/location-card";
 import ScreenName from "../../../shared/components/screen-name";
 import "./tour-packages-screen.css";
 
-const tabs = ["International", "Domestic", "Honeymoon"] as const;
-type TourTab = (typeof tabs)[number];
-
-const tourData: Record<TourTab, { title: string; image: string }[]> = {
-  International: [
-    {
-      title: "Sri Lanka",
-      image: "https://picsum.photos/id/77/450/300",
-    },
-    {
-      title: "Bali",
-      image: "https://picsum.photos/seed/picsum/450/300",
-    },
-    {
-      title: "Thailand",
-      image: "https://picsum.photos/id/10/2500/1667",
-    },
-  ],
-  Domestic: [
-    {
-      title: "Munnar",
-      image: "https://picsum.photos/id/10/2500/1667",
-    },
-    {
-      title: "Wayanad",
-      image: "https://picsum.photos/id/10/2500/1667",
-    },
-    {
-      title: "Coorg",
-      image: "https://picsum.photos/id/10/2500/1667",
-    },
-  ],
-  Honeymoon: [
-    {
-      title: "Maldives",
-      image: "https://picsum.photos/id/10/2500/1667",
-    },
-    {
-      title: "Kashmir",
-      image: "https://picsum.photos/id/10/2500/1667",
-    },
-    {
-      title: "Manali",
-      image: "https://picsum.photos/id/10/2500/1667",
-    },
-  ],
-};
+const tabs = [
+  { label: "International", value: "international" },
+  { label: "Domestic", value: "domestic" },
+  { label: "Honeymoon", value: "honeymoon" },
+] as const;
 
 const TourPackagesScreen = () => {
-  const [activeTab, setActiveTab] = useState<TourTab>("International");
+  const [activeTab, setActiveTab] = useState<PackageCategory>("international");
   const [activeBtn, setActiveBtn] = useState<"left" | "right" | null>("right");
 
-  const places = tourData[activeTab];
+  const places = getPackagesByCategory(activeTab);
 
   return (
     <div className="p-5 py-5">
@@ -83,24 +46,28 @@ const TourPackagesScreen = () => {
         <div className="d-flex justify-content-between border-bottom mb-4 w-100">
           {tabs.map((tab) => (
             <div
-              key={tab}
-              onClick={() => setActiveTab(tab)}
+              key={tab.value}
+              onClick={() => setActiveTab(tab.value)}
               className={`flex-fill text-center pb-2 tour-packages-tab ${
-                activeTab === tab
+                activeTab === tab.value
                   ? "active border-bottom border-warning fw-bold"
                   : "text-secondary"
               }`}
             >
-              <h3 className="sub-title-text">{tab}</h3>
+              <h3 className="sub-title-text">{tab.label}</h3>
             </div>
           ))}
         </div>
 
         {/* Cards */}
         <div key={activeTab} className="row g-4 tour-packages-cards">
-          {places.map((place, index) => (
-            <div className="col-12 col-sm-6 col-md-4" key={index}>
-              <LocationCard imageSrc={place.image} locationName={place.title} />
+          {places.map((place) => (
+            <div className="col-12 col-sm-6 col-md-4" key={place.slug}>
+              <LocationCard
+                imageSrc={place.cardImage}
+                locationName={place.title}
+                href={buildPackageHref(place.slug)}
+              />
             </div>
           ))}
         </div>

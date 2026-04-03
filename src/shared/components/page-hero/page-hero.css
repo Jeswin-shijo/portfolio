@@ -1,0 +1,128 @@
+.page-hero {
+  position: relative;
+  color: #fff;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 20, 41, 0.72) 0%,
+    rgba(6, 27, 52, 0.58) 40%,
+    rgba(8, 30, 58, 0.74) 100%
+  );
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+}
+
+.page-hero__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.page-hero__logo {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.page-hero__links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.page-hero__nav-link {
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  padding: 0;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.page-hero__nav-link:hover,
+.page-hero__nav-link.is-active {
+  color: #f5c400;
+}
+
+.page-hero__cta {
+  border: 0;
+  border-radius: 12px;
+  background: #f9cf02;
+  color: #0b2446;
+  padding: 0.85rem 1.5rem;
+  font-weight: 700;
+}
+
+.page-hero__content {
+  padding-top: 4.5rem;
+}
+
+.page-hero__title {
+  margin: 0;
+  font-family: "Ivy Mode";
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+  line-height: 1.06;
+}
+
+.page-hero__subtitle {
+  margin: 1rem 0 0;
+  max-width: 40rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.page-hero__meta {
+  margin-top: 1.5rem;
+}
+
+.page-hero__actions {
+  margin-top: 1.5rem;
+}
+
+.page-hero__body {
+  margin-top: 2rem;
+}
+
+@media (max-width: 991.98px) {
+  .page-hero__nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-hero__links {
+    gap: 1rem;
+  }
+
+  .page-hero__content {
+    padding-top: 3rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-hero__inner {
+    width: min(100% - 32px, 1120px);
+  }
+
+  .page-hero__links {
+    display: none;
+  }
+}

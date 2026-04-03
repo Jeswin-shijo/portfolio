@@ -39,6 +39,12 @@
   color: #f5c400;
 }
 
+.pop-header-logo-btn {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
 .header-scroll-target {
   scroll-margin-top: 96px;
 }

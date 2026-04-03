@@ -1,19 +1,32 @@
 import React from "react";
+import { navigateTo } from "../../../../shared/navigation/site-navigation";
 
 interface BlogCardProps {
   image: string;
   category: string;
   title: string;
   date: string;
+  href?: string;
 }
 
-const BlogCard = ({ image, category, title, date = "2025-07-27" }: BlogCardProps) => {
+const BlogCard = ({
+  image,
+  category,
+  title,
+  date = "2025-07-27",
+  href,
+}: BlogCardProps) => {
   const dateObj = new Date(date);
   const month = dateObj.toLocaleString("default", { month: "short" }); 
   const day = dateObj.getDate(); 
 
   return (
-    <div className="rounded-4 bg-light p-2 shadow-sm" style={{ maxWidth: 400 }}>
+    <button
+      type="button"
+      className="rounded-4 bg-light p-2 shadow-sm text-start border-0"
+      style={{ maxWidth: 400 }}
+      onClick={() => href && navigateTo(href)}
+    >
       <div className="position-relative">
         <img
           src={image}
@@ -39,7 +52,7 @@ const BlogCard = ({ image, category, title, date = "2025-07-27" }: BlogCardProps
         <div className="text-muted small">{category}</div>
         <div className="fw-semibold">{title}</div>
       </div>
-    </div>
+    </button>
   );
 };
 

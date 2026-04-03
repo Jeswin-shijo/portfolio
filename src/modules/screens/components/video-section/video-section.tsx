@@ -17,9 +17,11 @@ const VideoSection = () => {
       <div className="video-wrapper">
         <video
           ref={videoRef}
-          className="img-fluid rounded-4"
+          className="video-player"
           poster="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
           src="https://www.w3schools.com/html/mov_bbb.mp4"
+          controls={isPlaying}
+          playsInline
         />
         {!isPlaying && (
           <div className="play-btn-circle" onClick={handlePlay}>

@@ -3,34 +3,25 @@ import BlogCard from "../components/blog-card/blog-card";
 import ScreenName from "../../../shared/components/screen-name";
 const blogPosts = [
   {
-    image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4",
-    category: "Townhome",
-    title: "Unveils the Best Canadian Cities for Biking and Walk",
+    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd",
+    category: "Island Guide",
+    title: "Crystal Clear Waters, Overwater Villas & Sunset Dreams Await!",
     date: "2025-07-27",
+    href: "/blog/maldives-packing-guide",
   },
   {
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    category: "Villa",
-    title: "Diamond Manor Apartment in the New York and Service",
+    image: "https://images.unsplash.com/photo-1533929736458-ca588d08c8be",
+    category: "City Break",
+    title: "Dubai Unveiled: Smart Travel Tricks for a Luxurious Arabian Escape",
     date: "2025-07-27",
+    href: "/blog/maldives-packing-guide",
   },
   {
-    image: "https://images.unsplash.com/photo-1523958203904-cdcb402031fd",
-    category: "Townhome",
-    title: "7 Simple Ways to Keep Your Kids’ Toys From Taking Over Your Home",
+    image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60",
+    category: "Family Travel",
+    title: "7 Ways to Keep Long-Haul Family Trips Smooth and Memorable",
     date: "2025-07-27",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    category: "Villa",
-    title: "Diamond Manor Apartment in the New York and Service",
-    date: "2025-07-27",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4",
-    category: "Townhome",
-    title: "Unveils the Best Canadian Cities for Biking and Walk",
-    date: "2025-07-27",
+    href: "/blog/maldives-packing-guide",
   },
 ];
 const TravelBlogScreen = () => {
@@ -63,6 +54,7 @@ const TravelBlogScreen = () => {
               category={post.category}
               title={post.title}
               date={post.date}
+              href={post.href}
             />
           ))}
         </div>

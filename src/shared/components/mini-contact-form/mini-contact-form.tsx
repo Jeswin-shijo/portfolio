@@ -13,10 +13,11 @@ const MiniContactForm = () => {
         style={{ fontFamily: "Ivy mode", color: "white" }}
         className="pt-4 pb-2"
       >
-        Enjoy your vacation trip at <br /> Your Dream Place
+        Enjoy your vacation trip at <br /> your dream place
       </h4>
       <p style={{ color: "white", fontFamily: "Manrope" }} className="mb-4">
-        At Travel Escapades, we are dedicated to crafting.
+        Tell us what kind of holiday you have in mind and we will help shape
+        the right itinerary for you.
       </p>
       <form className="mb-4">
         <div className="mb-4">
@@ -53,8 +54,8 @@ const MiniContactForm = () => {
           </div>
         </div>
         <div className="col-12 pt-4 mt-2">
-          <button className="submit-btn align-item-center">
-            <p className="secondary-text mb-0">Submit</p>{" "}
+          <button type="button" className="submit-btn align-item-center">
+            <p className="secondary-text mb-0">Send Message</p>{" "}
             <i className="bi bi-arrow-up-right mt-1 fs-5 fw-1"></i>
           </button>
         </div>

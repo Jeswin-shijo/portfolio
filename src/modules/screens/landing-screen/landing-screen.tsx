@@ -2,6 +2,7 @@ import React from "react";
 import "./landing-screen.css";
 import FooterScreen from "../footer-screen";
 import bgScreen from "../../../assets/sample.jpg";
+import { navigateTo } from "../../../shared/navigation/site-navigation";
 
 const LandingScreen = () => {
   return (
@@ -30,7 +31,10 @@ const LandingScreen = () => {
             Let’s plan your dream vacation — hassle-free and tailor-made just
             for you.
           </p>
-          <button className="btn btn-warning fw-semibold mt-4 d-inline-flex align-items-center gap-2">
+          <button
+            className="btn btn-warning fw-semibold mt-4 d-inline-flex align-items-center gap-2"
+            onClick={() => navigateTo("/contact")}
+          >
             Get in Touch <i className="bi bi-arrow-right"></i>
           </button>
         </div>

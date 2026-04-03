@@ -14,6 +14,38 @@
   padding: 0 24px;
 }
 
+.galleryview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.galleryview-title {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  color: #123754;
+  font-family: "Ivy Mode";
+}
+
+.galleryview-back-btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 0.6rem 0.95rem;
+  background: #edf3f8;
+  color: #123754;
+  font-weight: 600;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+@media (hover: hover) {
+  .galleryview-back-btn:hover {
+    transform: translateY(-1px);
+    background: #e3ecf4;
+  }
+}
+
 /* ===== Mosaic Grid (Desktop) ===== */
 .mosaic-grid {
   display: grid;
@@ -175,6 +207,11 @@
 
   .galleryview-inner {
     padding: 0 16px;
+  }
+
+  .galleryview-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .mosaic-grid {

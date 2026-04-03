@@ -23,7 +23,7 @@ const ReviewScreen = (props: Props) => {
           </p>
         </div>
         <div className="d-flex w-100 justify-content-around">
-          <Marquee speed={50} pauseOnClick>
+          <Marquee speed={50} pauseOnHover>
             <ReviewCard cardStyle={{width: '390px', margin: '10px'}}/>
             <ReviewCard cardStyle={{width: '390px', margin: '10px'}}/>
             <ReviewCard cardStyle={{width: '390px', margin: '10px'}}/>

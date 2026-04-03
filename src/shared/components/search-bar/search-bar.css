@@ -20,3 +20,9 @@
 .search-bar .btn i {
   color: #0a2c4d;
 }
+.input-group .form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}

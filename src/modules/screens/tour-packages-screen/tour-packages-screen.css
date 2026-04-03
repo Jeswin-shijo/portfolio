@@ -1,0 +1,81 @@
+.tour-packages-tab {
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+}
+
+.tour-packages-tab h3 {
+  transition: transform 0.25s ease;
+}
+
+.tour-packages-tab.active {
+  color: #0c2d57;
+}
+
+.tour-packages-tab.active h3 {
+  transform: translateY(-1px);
+}
+
+.tour-packages-cards {
+  animation: tourPackagesCardsIn 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: center top;
+}
+
+/* Stagger each card for a stronger tab-switch feel */
+.tour-packages-cards > [class*="col-"] {
+  opacity: 0;
+  animation: tourPackageCardReveal 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.tour-packages-cards > [class*="col-"]:nth-child(1) {
+  animation-delay: 40ms;
+}
+
+.tour-packages-cards > [class*="col-"]:nth-child(2) {
+  animation-delay: 110ms;
+}
+
+.tour-packages-cards > [class*="col-"]:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+@keyframes tourPackagesCardsIn {
+  from {
+    opacity: 0;
+    transform: translateX(32px) scale(0.99);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes tourPackageCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-packages-tab,
+  .tour-packages-tab h3 {
+    transition: none;
+  }
+
+  .tour-packages-cards {
+    animation: none;
+  }
+
+  .tour-packages-cards > [class*="col-"] {
+    opacity: 1;
+    animation: none;
+  }
+}

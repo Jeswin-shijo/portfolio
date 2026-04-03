@@ -9,15 +9,60 @@ html {
 
 .home-screen {
   height: 65vh;
-  background-size: cover;
-  background-position: center;
   position: relative;
+  overflow: hidden;
+  background: #000;
 }
 
-.navbar a {
+.home-background-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.home-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.48) 0%,
+    rgba(0, 0, 0, 0.25) 38%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1;
+}
+
+.nav-links a,
+.nav-links button {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.nav-links button:hover {
+  color: #f5c400;
+}
+
+.home-hero-logo {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.home-screen .navbar {
+  position: relative;
+  z-index: 3;
+}
+
+.home-screen hr {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
@@ -26,6 +71,7 @@ html {
   left: 10%; /* fixed padding from left */
   transform: translateY(-50%);
   max-width: 700px; /* keeps text from stretching too wide */
+  z-index: 2;
 }
 
 @media (max-width: 768px) {

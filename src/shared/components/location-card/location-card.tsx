@@ -1,14 +1,26 @@
 import React from "react";
+import { navigateTo } from "../../navigation/site-navigation";
 
 interface LocationCardProps {
   imageSrc: string;
   locationName: string;
   style?: Record<string, string>;
+  href?: string;
 }
 
-const LocationCard = ({ imageSrc, locationName, style = {} }: LocationCardProps) => {
+const LocationCard = ({
+  imageSrc,
+  locationName,
+  style = {},
+  href,
+}: LocationCardProps) => {
   return (
-    <div className="card border-0 shadow rounded overflow-hidden" style={style}>
+    <button
+      type="button"
+      className="card border-0 shadow rounded overflow-hidden text-start w-100"
+      style={style}
+      onClick={() => href && navigateTo(href)}
+    >
       <div className="position-relative">
         <img
           src={imageSrc}
@@ -19,7 +31,7 @@ const LocationCard = ({ imageSrc, locationName, style = {} }: LocationCardProps)
           {locationName}
         </span>
       </div>
-    </div>
+    </button>
   );
 };
 

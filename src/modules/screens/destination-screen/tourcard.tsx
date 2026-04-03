@@ -1,7 +1,8 @@
 import React from "react";
 import "./tour-card.css";
+import { navigateTo } from "../../../shared/navigation/site-navigation";
 
-const TourCard = ({ image, tag, title, description, price }: any) => {
+const TourCard = ({ image, tag, title, description, price, href }: any) => {
   return (
     <div className="tour-card rounded-4 overflow-hidden position-relative">
       <img src={image} alt={title} className="tour-card-img" />
@@ -12,8 +13,11 @@ const TourCard = ({ image, tag, title, description, price }: any) => {
         <h5 className="fw-semibold">{title}</h5>
         <p className="text-muted small">{description}</p>
         <div className="d-flex justify-content-between align-items-center mt-3">
-          <span className="fw-bold">${price}</span>
-          <button className="btn btn-warning rounded-circle">
+          <span className="fw-bold">{price}</span>
+          <button
+            className="btn btn-warning rounded-circle"
+            onClick={() => href && navigateTo(href)}
+          >
             <i className="bi bi-arrow-right fs-4"></i>
           </button>
         </div>

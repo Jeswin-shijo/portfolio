@@ -1,5 +1,11 @@
 @import '@fortawesome/fontawesome-free/css/all.min.css';
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 @import url("../src/assets/ivy-mode/stylesheet.css");
+
+:root {
+  --font-heading: "Ivy Mode";
+  --font-body: "Manrope";
+}
 .App {
   text-align: center;
 }
@@ -40,12 +46,12 @@
 }
 
 .title-font {
-  font-family: 'ivy mode', serif;
+  font-family: var(--font-heading);
   font-weight: 500;
 }
 
 .sub-font {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
 }
 
 
@@ -66,27 +72,27 @@
 }
 
 .title-text {
-   font-family: "Ivy Mode";
+   font-family: var(--font-heading);
    font-size: clamp(32px, 5vw, 60px);
 }
 
 .sub-title-text {
-   font-family: "Ivy Mode";
+   font-family: var(--font-heading);
    font-size: clamp(15px, 5vw, 28px);
 }
 
 .sub-text {
-  font-family: "Manrope"; 
+  font-family: var(--font-body); 
   font-size: clamp(15px, 2.5vw, 30px);
 }
 
 .secondary-text {
-  font-family: "Manrope";
+  font-family: var(--font-body);
   font-size: clamp(10px, 2vw, 18px);
 }
 
 .screen-title {
-  font-family: "Ivy Mode";
+  font-family: var(--font-heading);
   font-size: clamp(30px, 5vw, 50px);
   color: #0c2d57;
 }

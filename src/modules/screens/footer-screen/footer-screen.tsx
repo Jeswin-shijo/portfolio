@@ -1,20 +1,21 @@
 import React from "react";
 import "./footer-screen.css";
 import logo from "../../../assets/logo/popup-logo-light.svg";
+import { navigateTo } from "../../../shared/navigation/site-navigation";
 
 const FooterScreen = () => {
   const footerData = [
     {
       title: "Quick Link",
       links: [
-        "Home",
-        "About Us",
-        "Projects",
-        "Properties",
-        "Location",
-        "Agent",
-        "Blogs",
-        "Contact Us",
+        { label: "Home", href: "/" },
+        { label: "About Us", href: "/about" },
+        { label: "International", href: "/packages/thailand" },
+        { label: "Domestic", href: "/#domestic" },
+        { label: "Honeymoon", href: "/#honeymoon" },
+        { label: "Gallery", href: "/gallery" },
+        { label: "Blogs", href: "/blog/maldives-packing-guide" },
+        { label: "Contact Us", href: "/contact" },
       ],
     },
     {
@@ -58,9 +59,9 @@ const FooterScreen = () => {
               style={{ height: 120, marginBottom: 20 }}
             />
             <p className="ps-5 secondary-text">
-              Casa View is your trusted partner in modern living – delivering
-              premium homes, smart communities, and exceptional service for a
-              better lifestyle.
+              Popup Tours is your trusted travel companion for curated escapes,
+              family holidays, honeymoon journeys, and tailor-made adventures
+              across India and beyond.
             </p>
           </div>
 
@@ -76,7 +77,19 @@ const FooterScreen = () => {
               <div className="border mb-3"></div>
               <ul className="list-unstyled small footer-links">
                 {section.links.map((link, i) => (
-                  <li key={i}>{link}</li>
+                  <li key={i}>
+                    {typeof link === "string" ? (
+                      link
+                    ) : (
+                      <button
+                        type="button"
+                        className="footer-link-btn"
+                        onClick={() => navigateTo(link.href)}
+                      >
+                        {link.label}
+                      </button>
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -96,7 +109,7 @@ const FooterScreen = () => {
           <div className="col-md-2 col-sm-2 col-lg-2 col-6">
             <strong style={{ fontFamily: "Ivy Mode" }}>EMAIL</strong>
             <br />
-            info@popup.com
+            info@popuptours.com
           </div>
           <div className="col-md-2 col-sm-2 col-lg-2 col-6">
             <strong style={{ fontFamily: "Ivy Mode" }}>ADDRESS</strong>
@@ -121,11 +134,11 @@ const FooterScreen = () => {
         <hr className="text-secondary mt-5 mb-3" />
         <div className="text-center small ">
           &copy; Copyright © popuptours &nbsp; | &nbsp;
-          <a href="terms" className=" text-decoration-none">
+          <a href="/terms" className=" text-decoration-none">
             Terms and Conditions
           </a>{" "}
           &nbsp;|&nbsp;
-          <a href="policy" className=" text-decoration-none">
+          <a href="/policy" className=" text-decoration-none">
             Privacy Policy
           </a>
         </div>

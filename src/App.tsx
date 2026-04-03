@@ -1,72 +1,76 @@
+import { useEffect, useState } from "react";
 import "./App.css";
-import HomeScreen from "./modules/screens/home-screen";
-import AboutUsSection from "./modules/screens/about-us-screen/about-us-section";
-import DestinationScreen from "./modules/screens/destination-screen";
-import PopularPlacesScreen from "./modules/screens/popular-places-screen";
-import TourPackagesScreen from "./modules/screens/tour-packages-screen";
-import AdvertiseScreen from "./modules/screens/advertise-screen";
-import ReviewScreen from "./modules/screens/reviews-screen/review-screen";
-import FAQScreen from "./modules/screens/faq-screen";
-import TravelBlogScreen from "./modules/screens/travel-blog-screen";
-import LandingScreen from "./modules/screens/landing-screen";
 import StickyWhatsApp from "./common/sticky-whatsapp";
-import TravelGalleryScreen from "./modules/screens/travel-gallery-screen";
-import InternationalPackageDetailScreen from "./modules/Details-screens/international-package-detail-screen/international-package-detail-screen";
-import MiniContactForm from "./shared/components/mini-contact-form";
-import WhyWeBetterScreen from "./modules/screens/why-we-better-screen";
-import AboutWhoWeAreScreen from "./modules/screens/about-who-we-are-screen";
-import SearchBar from "./shared/components/search-bar/search-bar";
-import LocationScreen from "./modules/screens/location-screen";
-import ContactFormScreen from "./modules/screens/contact-form-screen";
-import PopHeader from "./modules/screens/pop-header";
-import GalleryPage from "./modules/screens/gallery-page-screen/gallery-man-screen";
-import GalleryViewPage from "./modules/screens/gallery-page-screen/sub-screen/gallery-view-page";
+import AboutPage from "./pages/about-page";
+import BlogDetailPage from "./pages/blog-detail-page";
+import ContactPage from "./pages/contact-page";
+import GalleryRoutePage from "./pages/gallery-route-page";
+import HomePage from "./pages/home-page";
+import PackageDetailPage from "./pages/package-detail-page";
+import {
+  getLocationKey,
+  normalizePath,
+  scrollToHash,
+} from "./shared/navigation/site-navigation";
 
 function App() {
+  const [locationKey, setLocationKey] = useState(getLocationKey());
+
+  useEffect(() => {
+    const syncLocation = () => setLocationKey(getLocationKey());
+
+    window.addEventListener("popstate", syncLocation);
+    window.addEventListener("hashchange", syncLocation);
+
+    return () => {
+      window.removeEventListener("popstate", syncLocation);
+      window.removeEventListener("hashchange", syncLocation);
+    };
+  }, []);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+
+    if (hash) {
+      requestAnimationFrame(() => scrollToHash(hash, "smooth"));
+      return;
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [locationKey]);
+
+  const pathname = normalizePath(window.location.pathname);
+  const packageSlug = pathname.startsWith("/packages/")
+    ? pathname.replace("/packages/", "")
+    : null;
+
+  let page = <HomePage />;
+
+  if (packageSlug) {
+    page = <PackageDetailPage slug={packageSlug} />;
+  } else {
+    switch (pathname) {
+      case "/about":
+        page = <AboutPage />;
+        break;
+      case "/gallery":
+        page = <GalleryRoutePage />;
+        break;
+      case "/blog/maldives-packing-guide":
+        page = <BlogDetailPage />;
+        break;
+      case "/contact":
+        page = <ContactPage />;
+        break;
+      default:
+        page = <HomePage />;
+        break;
+    }
+  }
+
   return (
     <div>
-      <PopHeader/>
-      <HomeScreen />
-      <div>
-        <AboutUsSection />
-      </div>
-      <div>
-        <DestinationScreen />
-      </div>
-      <div>
-        <PopularPlacesScreen />
-      </div>
-      <div>
-        <TourPackagesScreen />
-      </div>
-      <div>
-        <AdvertiseScreen />
-      </div>
-      <div>
-        <TravelGalleryScreen/>
-      </div>
-      <div>
-        <ReviewScreen />
-      </div>
-      <div>
-        <FAQScreen />
-      </div>
-      <div>
-        <TravelBlogScreen />
-      </div>
-      <div>
-        <LandingScreen />
-        <InternationalPackageDetailScreen/>
-        <div className="container"><MiniContactForm/></div>
-        
-        <WhyWeBetterScreen/>
-        <AboutWhoWeAreScreen/>
-        <SearchBar/>
-        <LocationScreen/>
-        <ContactFormScreen/>
-        <GalleryPage/>
-        <GalleryViewPage/>
-      </div>
+      {page}
       <StickyWhatsApp />
     </div>
   );

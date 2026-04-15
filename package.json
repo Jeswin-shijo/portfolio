@@ -2,6 +2,7 @@
   "name": "popup-tours",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5002",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -32,6 +33,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:reviews-proxy": "node server/google-reviews-proxy.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

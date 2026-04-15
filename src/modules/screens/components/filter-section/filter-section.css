@@ -1,3 +1,9 @@
+.filter-panel-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
 .filter-panel-container {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(2px);
@@ -22,4 +28,32 @@
   width: 42px;
   height: 42px;
   background: transparent;
+}
+
+.filter-panel-feedback {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: "Manrope";
+  font-size: 0.95rem;
+}
+
+@media (max-width: 991.98px) {
+  .filter-panel-container {
+    min-width: min(100%, 640px);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .filter-panel-container {
+    min-width: 100%;
+    padding: 1rem !important;
+  }
+
+  .filter-item {
+    min-width: calc(50% - 0.75rem);
+  }
+
+  .search-btn {
+    width: 100%;
+  }
 }

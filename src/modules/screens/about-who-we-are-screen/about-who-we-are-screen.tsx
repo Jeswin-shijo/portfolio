@@ -1,6 +1,7 @@
 import React from "react";
 import "./about-who-we-are-screen.css";
 import flight from "../../../assets/essentials/flight.png";
+import VideoSection from "../components/video-section/video-section";
 
 const AboutWhoWeAreScreen = () => {
   return (
@@ -44,15 +45,10 @@ const AboutWhoWeAreScreen = () => {
         </div>
       </div>
 
-      <div className="about-who-we-are__media">
-        <img
-          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500&q=80"
-          alt="Traveler watching a mountain sunset"
-        />
-        <button type="button" className="about-who-we-are__play">
-          <i className="bi bi-play-fill"></i>
-        </button>
-      </div>
+      <VideoSection
+        containerClassName="about-who-we-are__media"
+        poster="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500&q=80"
+      />
     </section>
   );
 };

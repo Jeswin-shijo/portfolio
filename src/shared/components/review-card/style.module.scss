@@ -3,4 +3,95 @@
   min-height: 330px;
   border: 1px solid #e0e0e0;
   border-radius: 1.8rem;
+  padding: 1.5rem 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 30px rgba(10, 19, 37, 0.06);
+}
+
+.quoteMark {
+  position: absolute;
+  right: 1.2rem;
+  top: 0.4rem;
+  color: #c8d2de;
+  font-family: "Ivy Mode";
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.title {
+  margin: 0;
+  padding-top: 0.3rem;
+  color: #123f72;
+  font-family: "Ivy Mode";
+  font-size: 2rem;
+}
+
+.copy {
+  margin: 0.85rem 0 0;
+  color: #51606f;
+  font-family: "Manrope";
+  font-size: 1rem;
+  line-height: 1.55;
+  min-height: 116px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ratingRow {
+  margin-top: 0.6rem;
+}
+
+.divider {
+  margin: 1.2rem 0 0.9rem;
+  border-color: rgba(18, 63, 114, 0.12);
+}
+
+.authorRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.authorMeta {
+  min-width: 0;
+}
+
+.authorName,
+.authorLink {
+  margin: 0;
+  color: #123f72;
+  font-family: "Ivy Mode";
+  font-size: 1.45rem;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.authorLink:hover {
+  text-decoration: underline;
+}
+
+.authorSubline {
+  margin: 0.15rem 0 0;
+  color: #8a95a3;
+  font-family: "Manrope";
+  font-size: 0.95rem;
+}
+
+.reviewLink {
+  margin-top: 0.85rem;
+  align-self: flex-start;
+  color: #123f72;
+  font-family: "Manrope";
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.reviewLink:hover {
+  text-decoration: underline;
 }

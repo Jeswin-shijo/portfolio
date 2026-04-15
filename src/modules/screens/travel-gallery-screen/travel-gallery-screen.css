@@ -19,6 +19,10 @@
   transform: scale(1.02); /* Optional: slight zoom on hover */
 }
 
+.gallery-subtext {
+  max-width: 36rem;
+}
+
 /* Responsive columns */
 @media (max-width: 992px) {
   .masonry {
@@ -27,6 +31,10 @@
 }
 
 @media (max-width: 576px) {
+  .gallery-subtext {
+    max-width: none;
+  }
+
   .masonry {
     column-count: 1;
   }

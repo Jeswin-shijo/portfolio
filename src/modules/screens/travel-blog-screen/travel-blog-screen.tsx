@@ -26,8 +26,8 @@ const blogPosts = [
 ];
 const TravelBlogScreen = () => {
   return (
-    <section className="py-5 p-5 bg-light">
-      <div className="p-5">
+    <section className="py-5 px-3 px-md-5 bg-light">
+      <div className="px-lg-5">
        <ScreenName name={"Our Travel Blog"}/>
 
         <div className="row align-items-center mb-4">

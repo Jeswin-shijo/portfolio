@@ -35,12 +35,11 @@ const places = [
 
 const TravelGalleryScreen = () => {
   return (
-    <div className="travel-gallery-section py-5 p-5">
-      <div className="p-5">
+    <div className="travel-gallery-section py-5 px-3 px-md-5">
+      <div className="px-lg-5">
         <ScreenName name={"Travel gallery"}/>
 
-        {/* Heading + subtext */}
-        <div className="d-flex justify-content-between ">
+        <div className="d-flex flex-column flex-lg-row justify-content-between gap-3 gap-lg-5">
           <h2
            className="screen-title"
           >

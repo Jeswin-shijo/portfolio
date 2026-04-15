@@ -4,13 +4,11 @@ import ScreenName from "../../../shared/components/screen-name";
 
 const AboutUsSection: React.FC = () => {
   return (
-    <section className="py-5 p-5">
-      <div className="p-5">
-      {/* About Button */}
-      <div className="d-flex justify-content-between">
+    <section className="py-5 px-3 px-md-5">
+      <div className="px-lg-5">
+      <div className="d-flex flex-column flex-xl-row justify-content-between align-items-start gap-4 gap-xl-5">
         <ScreenName name={"About us"}/>
 
-        {/* Description */}
         <div className="mb-5" style={{ maxWidth: "900px" }}>
           <AnimatedParagraph
             text={
@@ -19,8 +17,7 @@ const AboutUsSection: React.FC = () => {
           />
         </div>
       </div>
-      {/* Stats */}
-      <div className="row text-center justify-content-around">
+      <div className="row text-center justify-content-around gy-4">
         <div className="col-lg-2 col-md-3 mb-4">
           <h3 style={{ color: "#f4c200", fontWeight: 400, fontSize: 50, fontFamily: "Ivy Mode" }}>
             10K+

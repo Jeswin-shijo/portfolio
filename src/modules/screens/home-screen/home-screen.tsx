@@ -16,7 +16,7 @@ const HomeScreen = () => {
       <div className="home-video-overlay" />
 
       <nav
-        className={`navbar px-5 pt-3 d-flex align-items-end justify-content-between top-0 w-100 z-3 bg-transparent`}
+        className="navbar home-screen__nav px-3 px-md-5 pt-3 d-flex align-items-end justify-content-between top-0 w-100 z-3 bg-transparent"
       >
         <button
           type="button"
@@ -24,12 +24,12 @@ const HomeScreen = () => {
           onClick={() => navigateTo("/")}
         >
           <img
+            className="home-hero-logo-image"
             src={logo}
             alt="Pop Up Tours"
-            style={{ height: 100, width: 270 }}
           />
         </button>
-        <div className="nav-links pb-3 d-flex gap-4 text-white">
+        <div className="nav-links home-screen__links pb-3 d-flex gap-4 text-white">
           {siteNavItems.map((item) => (
             <button
               key={item.key}
@@ -41,13 +41,13 @@ const HomeScreen = () => {
           ))}
         </div>
         <button
-          className="btn btn-warning fw-semibold px-4 mb-2"
+          className="btn btn-warning fw-semibold px-4 mb-2 home-screen__cta"
           onClick={() => navigateTo("/contact")}
         >
           Get in Touch
         </button>
       </nav>
-      <hr style={{ color:"#fff", borderTop: '2px solid #fff' }}/>
+      <hr className="home-screen__divider" />
       <div className="hero-content text-white text-start d-flex flex-column align-items-start justify-content-start ">
         <h1
           className="title-text"

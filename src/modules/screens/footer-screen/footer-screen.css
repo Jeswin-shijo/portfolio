@@ -1,3 +1,14 @@
+.footer-screen__brand-logo {
+  padding-left: 3rem;
+  height: 120px;
+  width: auto;
+}
+
+.footer-screen__brand-copy {
+  padding-left: 3rem;
+  max-width: 28rem;
+}
+
 footer ul li:hover {
   color: #ffc107;
   cursor: pointer;
@@ -22,4 +33,11 @@ footer a:hover {
 .footer-links li {
   margin-bottom: 10px; /* spacing */
   line-height: 1.8;    /* taller lines */
+}
+
+@media (max-width: 767.98px) {
+  .footer-screen__brand-logo,
+  .footer-screen__brand-copy {
+    padding-left: 0;
+  }
 }

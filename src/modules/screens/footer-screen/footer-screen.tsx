@@ -47,25 +47,22 @@ const FooterScreen = () => {
   ];
 
   return (
-    <footer className="bg-dark text-light pt-5 p-5 pb-3">
+    <footer className="bg-dark text-light pt-5 px-3 px-md-5 pb-3">
       <div className="container-fluid">
         <div className="row g-4 justify-content-center">
-          {/* Logo and About */}
-          <div className="col-md-4 col-sm-4 col-lg-4">
+          <div className="col-md-4 col-sm-6 col-lg-4">
             <img
               src={logo}
-              className="ps-5 mb-5"
+              className="footer-screen__brand-logo mb-5"
               alt="Pop Up Tours"
-              style={{ height: 120, marginBottom: 20 }}
             />
-            <p className="ps-5 secondary-text">
+            <p className="footer-screen__brand-copy secondary-text">
               Popup Tours is your trusted travel companion for curated escapes,
               family holidays, honeymoon journeys, and tailor-made adventures
               across India and beyond.
             </p>
           </div>
 
-          {/* <div className="d-flex"> */}
           {footerData.map((section, index) => (
             <div key={index} className={`col-md-2 col-sm-2 col-lg-2 col-6 p-0 ${index === 3 && "pe-2"}`}>
               <h6
@@ -94,13 +91,12 @@ const FooterScreen = () => {
               </ul>
             </div>
           ))}
-          {/* </div> */}
         </div>
 
         <div className="border mt-5 mb-5" />
 
         {/* Bottom Section */}
-        <div className="row justify-content-center small">
+        <div className="row justify-content-center small gy-4">
           <div className="col-md-2 col-sm-2 col-lg-2 col-6">
             <strong style={{ fontFamily: "Ivy Mode" }}>MOBILE</strong>
             <br />

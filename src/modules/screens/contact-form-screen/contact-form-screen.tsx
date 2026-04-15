@@ -177,8 +177,8 @@ const ContactFormScreen = () => {
   };
 
   return (
-    <section className="py-5 bg-white p-5">
-      <div className="row align-items-center ps-5 pe-5">
+    <section className="contact-form-screen py-5 bg-white px-3 px-md-5">
+      <div className="contact-form-screen__inner row align-items-center">
         <div className="col-md-6 mb-4 mb-md-0">
           <h2 className="screen-title mb-3">
             Ready to Find Your Next <br /> Destination?
@@ -187,7 +187,7 @@ const ContactFormScreen = () => {
             "Have questions or need help planning your next trip? Fill out the
             form below and our travel experts will get back to you shortly."
           </p>
-          <div className="my-4" style={{ maxWidth: "400px" }}>
+          <div className="contact-form-screen__details my-4">
             <GradientContainer className="gradient-hover p-4 rounded-4">
               <h3 className="sub-title-text">Contact Details</h3>
               <div className="gradient-line-1"></div>
@@ -197,7 +197,7 @@ const ContactFormScreen = () => {
                 <span>Info@popuptours.com</span>
               </div>
 
-              <div className="d-flex align-items-center mb-4 mt-2">
+              <div className="contact-form-screen__phone-row d-flex align-items-center mb-4 mt-2">
                 <i className="fas fa-phone me-2"></i>
                 <span>+971 18 919891 &nbsp; | &nbsp; +971 18 946281</span>
               </div>
@@ -205,8 +205,8 @@ const ContactFormScreen = () => {
           </div>
         </div>
 
-        <div className="col-md-6 pt-5 pb-5 p-5">
-          <div className="p-4 shadow rounded-3">
+        <div className="contact-form-screen__form-column col-md-6">
+          <div className="contact-form-screen__form-shell p-4 shadow rounded-3">
             <h1
               style={{
                 fontFamily: "Ivy mode",
@@ -216,7 +216,7 @@ const ContactFormScreen = () => {
               Let's Talk
             </h1>
             <div>
-              <div className="container mt-5">
+              <div className="contact-form-screen__form-container mt-4">
                 <form className="row g-4" onSubmit={handleSubmit}>
                   <div className="honeypot-field" aria-hidden="true">
                     <label htmlFor="website">Website</label>

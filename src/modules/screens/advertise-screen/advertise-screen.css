@@ -1,3 +1,13 @@
 .section-bg {
   background-color: #f1f5f9;
 }
+
+.advertise-screen__intro-copy {
+  max-width: 38rem;
+}
+
+@media (max-width: 767.98px) {
+  .advertise-screen__intro-copy {
+    max-width: none;
+  }
+}

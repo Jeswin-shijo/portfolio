@@ -4,17 +4,17 @@ import VideoSection from "../components/video-section/video-section";
 import ScreenName from "../../../shared/components/screen-name";
 const AdvertiseScreen = () => {
   return (
-    <section className="section-bg py-5 p-5">
-      <div className="p-5">
+    <section className="section-bg py-5 px-3 px-md-5">
+      <div className="px-lg-5">
        <ScreenName name={"Why choose us"}/>
         <div className="row align-items-center g-5">
-          <div className="d-flex justify-content-between">
+          <div className="advertise-screen__intro d-flex flex-column flex-xl-row justify-content-between align-items-start gap-4">
             <h2
              className="screen-title"
             >
               Travel made easy, with <br /> experts you can trust
             </h2>
-            <p className="text-muted mb-5 secondary-text">
+            <p className="text-muted mb-0 secondary-text advertise-screen__intro-copy">
               Embark on a journey through our most sought-after destinations –
               from serene hill stations and sun-kissed beaches to vibrant cities
               and cultural wonders,

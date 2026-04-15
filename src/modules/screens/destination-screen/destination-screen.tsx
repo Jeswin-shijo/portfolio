@@ -12,8 +12,8 @@ const DestinationScreen = () => {
 
   return (
     <>
-      <section className="py-5 p-5">
-        <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-5 p-5">
+      <section className="py-5 px-3 px-md-5">
+        <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-5 px-lg-5">
           <div className="text-start">
             <ScreenName name={"Destination"}/>
             <h2
@@ -68,8 +68,8 @@ const DestinationScreen = () => {
         </div>
       </section>
 
-      <section className="pb-5 p-5 pt-0">
-        <div className="d-flex gap-4 flex-wrap justify-content-between p-5 pt-0">
+      <section className="pb-5 px-3 px-md-5 pt-0">
+        <div className="d-flex gap-4 flex-wrap justify-content-between px-lg-5 pt-0">
           {featuredDestinationPackages.map((pkg) => (
             <TourCard
               key={pkg.slug}

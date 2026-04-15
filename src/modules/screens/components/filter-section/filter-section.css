@@ -2,13 +2,16 @@
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  width: min(100%, 900px);
+  max-width: 100%;
 }
 
 .filter-panel-container {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(2px);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  min-width: 900px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .filter-item {
@@ -39,13 +42,17 @@
 
 @media (max-width: 991.98px) {
   .filter-panel-container {
-    min-width: min(100%, 640px);
+    width: min(100%, 640px);
   }
 }
 
 @media (max-width: 767.98px) {
+  .filter-panel-shell {
+    width: min(100%, 40rem);
+  }
+
   .filter-panel-container {
-    min-width: 100%;
+    width: 100%;
     padding: 1rem !important;
   }
 
@@ -55,5 +62,11 @@
 
   .search-btn {
     width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .filter-item {
+    min-width: 100%;
   }
 }

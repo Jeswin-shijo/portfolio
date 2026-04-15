@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ReviewCard from "../../../shared/components/review-card";
 import Marquee from "../../../shared/components/marquee";
 import ScreenName from "../../../shared/components/screen-name";
+import "./review-screen.css";
 import {
   fallbackReviews,
   type ReviewsApiResponse,
@@ -61,23 +62,23 @@ const ReviewScreen = (props: Props) => {
   const isUsingFallback = !reviewsData || reviewsData.reviews.length === 0;
 
   return (
-    <div className="bg-blu py-5 p-5">
-      <div className="p-5">
+    <div className="review-screen bg-blu py-5 px-3 px-md-5">
+      <div className="review-screen__inner px-lg-5">
         <ScreenName name={"Testimonial"} />
 
-        <div className="d-flex justify-content-between flex-wrap align-items-center mb-4">
-          <div>
+        <div className="review-screen__header d-flex flex-column flex-lg-row justify-content-between align-items-start gap-3 gap-lg-4 mb-4">
+          <div className="review-screen__lead">
             <h2 className="screen-title">
             Regards From <br /> Travelers
             </h2>
-            <p className="text-muted secondary-text mb-0" style={{ maxWidth: "50rem" }}>
+            <p className="text-muted secondary-text mb-0">
               {reviewsData?.placeName
                 ? `${reviewsData.placeName} Google reviews, sorted by relevance.`
                 : "Live Google reviews can be shown here once your Places API details are configured."}
             </p>
           </div>
 
-          <div className="text-muted secondary-text" style={{ maxWidth: "50%" }}>
+          <div className="review-screen__meta text-muted secondary-text">
             {reviewsData?.rating && reviewsData?.userRatingCount ? (
               <p className="mb-2">
                 Rated {reviewsData.rating.toFixed(1)} from{" "}
@@ -93,13 +94,13 @@ const ReviewScreen = (props: Props) => {
             </p>
           </div>
         </div>
-        <div className="d-flex w-100 justify-content-around">
+        <div className="review-screen__marquee d-flex w-100 justify-content-around">
           <Marquee speed={50} pauseOnHover>
             {reviews.map((review) => (
               <ReviewCard
                 key={review.id}
                 review={review}
-                cardStyle={{ width: "390px", margin: "10px" }}
+                cardStyle={{ width: "min(390px, calc(100vw - 48px))", margin: "10px" }}
               />
             ))}
           </Marquee>

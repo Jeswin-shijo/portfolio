@@ -1,0 +1,17 @@
+.review-screen__lead {
+  max-width: 50rem;
+}
+
+.review-screen__meta {
+  max-width: 28rem;
+}
+
+.review-screen__marquee {
+  overflow: hidden;
+}
+
+@media (max-width: 767.98px) {
+  .review-screen__meta {
+    max-width: none;
+  }
+}

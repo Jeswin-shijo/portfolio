@@ -95,3 +95,31 @@
 .reviewLink:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 767.98px) {
+  .card {
+    min-height: auto;
+    padding: 1.2rem 1.2rem 1rem;
+  }
+
+  .quoteMark {
+    right: 0.9rem;
+    top: 0.2rem;
+    font-size: 3.5rem;
+  }
+
+  .title {
+    font-size: 1.65rem;
+  }
+
+  .copy {
+    min-height: 0;
+    font-size: 0.95rem;
+    -webkit-line-clamp: 5;
+  }
+
+  .authorName,
+  .authorLink {
+    font-size: 1.2rem;
+  }
+}

@@ -9,6 +9,7 @@ html {
 
 .home-screen {
   height: 65vh;
+  min-height: 700px;
   position: relative;
   overflow: hidden;
   background: #000;
@@ -55,14 +56,36 @@ html {
   padding: 0;
 }
 
+.home-hero-logo-image {
+  width: min(270px, 42vw);
+  min-width: 150px;
+  height: auto;
+}
+
 .home-screen .navbar {
   position: relative;
   z-index: 3;
 }
 
-.home-screen hr {
+.home-screen__nav {
+  gap: 1.25rem;
+}
+
+.home-screen__links {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-screen__links button {
+  white-space: nowrap;
+}
+
+.home-screen__divider {
   position: relative;
   z-index: 2;
+  color: #fff;
+  border-top: 2px solid #fff;
+  margin: 0;
 }
 
 .hero-content {
@@ -74,11 +97,80 @@ html {
   z-index: 2;
 }
 
+@media (max-width: 1199.98px) {
+  .home-screen__links {
+    gap: 0.85rem 1.15rem !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .home-screen {
+    min-height: 780px;
+    height: auto;
+  }
+
+  .home-screen__nav {
+    align-items: center !important;
+    flex-wrap: wrap;
+  }
+
+  .home-screen__links {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    padding-bottom: 0 !important;
+  }
+
+  .home-screen__cta {
+    margin-bottom: 0 !important;
+  }
+
+  .home-screen__divider {
+    margin: 0 1rem;
+  }
+
+  .hero-content {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    max-width: min(100%, 36rem);
+    padding: 3rem 1.5rem 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-content {
-    left: 10%; 
-    top: 60%;
-    max-width: 90%; /* allow more room on small screens */
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .home-screen {
+    min-height: 720px;
+  }
+
+  .home-screen__nav {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .home-hero-logo-image {
+    width: min(220px, 56vw);
+  }
+
+  .home-screen__links {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .home-screen__links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-content {
+    padding: 2.5rem 1rem 1.5rem;
   }
 }
 

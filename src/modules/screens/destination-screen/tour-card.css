@@ -47,3 +47,41 @@
 .tour-card-tag {
   z-index: 2;
 }
+
+@media (max-width: 991.98px) {
+  .tour-card {
+    max-width: none;
+    height: auto;
+  }
+
+  .tour-card:hover {
+    transform: none;
+  }
+
+  .tour-card-img,
+  .tour-card:hover .tour-card-img {
+    height: 240px;
+    transform: none;
+  }
+
+  .tour-card-content,
+  .tour-card:hover .tour-card-content {
+    position: static;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 1rem !important;
+  }
+
+  .tour-card-tag {
+    margin: 0.75rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .tour-card-img,
+  .tour-card:hover .tour-card-img {
+    height: 210px;
+  }
+}

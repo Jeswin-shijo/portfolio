@@ -4,7 +4,7 @@ import { navigateTo } from "../../../shared/navigation/site-navigation";
 
 const TourCard = ({ image, tag, title, description, price, href }: any) => {
   return (
-    <div className="tour-card rounded-4 overflow-hidden position-relative">
+    <div className="tour-card rounded-4 overflow-hidden position-relative" onClick={() => href && navigateTo(href)}>
       <img src={image} alt={title} className="tour-card-img" />
       <div className="tour-card-tag position-absolute top-0 end-0 m-3 px-3 py-1 rounded-3 bg-white bg-opacity-50 text-dark fw-medium small shadow-sm">
         {tag}
@@ -16,7 +16,6 @@ const TourCard = ({ image, tag, title, description, price, href }: any) => {
           <span className="fw-bold">{price}</span>
           <button
             className="btn btn-warning rounded-circle"
-            onClick={() => href && navigateTo(href)}
           >
             <i className="bi bi-arrow-right fs-4"></i>
           </button>

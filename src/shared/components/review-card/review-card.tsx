@@ -1,41 +1,66 @@
 import Avatar from "../avatar";
 import Stylesheet from "./style.module.scss";
 import { Rating } from "@mui/material";
+import type { ReviewItem } from "../../../data/reviews";
 
 type Props = {
-  cardStyle?: any;
+  cardStyle?: React.CSSProperties;
+  review: ReviewItem;
 };
 
-const ReviewCard = ({cardStyle}: Props) => {
+const ReviewCard = ({ cardStyle, review }: Props) => {
+  const profilePhoto = review.authorPhotoUri || "https://picsum.photos/seed/popup-review-avatar/120";
+
   return (
-    <div className={`${Stylesheet.card} px-4`} style={cardStyle}>
-      <h1 className="title-font pwdr-blu p-0 m-0">
-        <span style={{ fontSize: "5rem", float: "right" }}>
-          &ldquo;
-        </span>
-      </h1>
-      <h4 className="title-font blu-txt pt-4" style={{ fontFamily: "Ivy Mode" }}>Great Work</h4>
-
-      <p className="sub-font overflow-hidden" style={{ height: "37%" }}>
+    <article className={Stylesheet.card} style={cardStyle}>
+      <div className={Stylesheet.quoteMark} aria-hidden="true">
         &ldquo;
-        {
-          "Fontsource can be configured to load specific subsets, weights and styles.Embark on a journey from sun-kissed beaches to vibrant cities and cultural wonders"
-        }
-        &rdquo;
-      </p>
-      <Rating readOnly value={4} precision={0.1} />
+      </div>
 
-      <hr className="" />
-      <div className="d-flex pb-3">
-        <Avatar file={"https://picsum.photos/id/64/200/300"} />
-        <div>
-          <h5 className="title-font blu-txt ps-2 w-100 py-0 my-0" style={{ fontFamily: "Ivy Mode" }}>Ali Tufan</h5>
-          <p className="sub-font fw-lighter text-muted ps-2 w-100 py-0 my-0">
-            Marketing
+      <h4 className={Stylesheet.title}>Google Review</h4>
+
+      <p className={Stylesheet.copy}>
+        &ldquo;{review.text}&rdquo;
+      </p>
+
+      <div className={Stylesheet.ratingRow}>
+        <Rating readOnly value={review.rating} precision={0.5} />
+      </div>
+
+      <hr className={Stylesheet.divider} />
+
+      <div className={Stylesheet.authorRow}>
+        <Avatar file={profilePhoto} />
+        <div className={Stylesheet.authorMeta}>
+          {review.authorUri ? (
+            <a
+              className={Stylesheet.authorLink}
+              href={review.authorUri}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {review.authorName}
+            </a>
+          ) : (
+            <h5 className={Stylesheet.authorName}>{review.authorName}</h5>
+          )}
+          <p className={Stylesheet.authorSubline}>
+            {review.relativePublishTimeDescription || "Google review"}
           </p>
         </div>
       </div>
-    </div>
+
+      {review.googleMapsUri ? (
+        <a
+          className={Stylesheet.reviewLink}
+          href={review.googleMapsUri}
+          target="_blank"
+          rel="noreferrer"
+        >
+          View on Google
+        </a>
+      ) : null}
+    </article>
   );
 };
 

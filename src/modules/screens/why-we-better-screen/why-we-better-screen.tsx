@@ -12,8 +12,8 @@ const WhyWeBetterScreen = () => {
     "Digital management platform",
   ];
   return (
-    <div className="px-3 px-md-5 py-5">
-      <div className="px-lg-5">
+    <div className="py-5">
+      <div className="site-container">
         <ScreenName name={"Why we are better"} />
 
         <div className="row align-items-center mb-4">

@@ -34,8 +34,8 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
   }, [packageData.slug, packageData.itinerary.length]);
 
   return (
-    <div className="international-detail-layout py-5 p-5">
-      <div className="international-detail-main p-5">
+    <div className="international-detail-layout">
+      <div className="international-detail-main">
         <ul className="nav nav-tabs mb-4 border-0 justify-content-start">
           {tabs.map((tab, i) => (
             <li className="nav-item" key={i}>
@@ -283,7 +283,7 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
         </div>
       </div>
 
-      <aside className="international-detail-contact m-5">
+      <aside className="international-detail-contact">
         <div className="international-detail-contact-sticky">
           <MiniContactForm />
         </div>

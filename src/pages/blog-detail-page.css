@@ -3,7 +3,7 @@
 }
 
 .blog-detail-page__container {
-  width: min(1120px, calc(100% - 48px));
+  width: min(var(--site-max-width), calc(100% - (var(--site-gutter) * 2)));
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
@@ -107,11 +107,5 @@
 @media (max-width: 991.98px) {
   .blog-detail-page__container {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .blog-detail-page__container {
-    width: min(100% - 32px, 1120px);
   }
 }

@@ -4,8 +4,8 @@ import VideoSection from "../components/video-section/video-section";
 import ScreenName from "../../../shared/components/screen-name";
 const AdvertiseScreen = () => {
   return (
-    <section className="section-bg py-5 px-3 px-md-5">
-      <div className="px-lg-5">
+    <section className="section-bg py-5">
+      <div className="site-container">
        <ScreenName name={"Why choose us"}/>
         <div className="row align-items-center g-5">
           <div className="advertise-screen__intro d-flex flex-column flex-xl-row justify-content-between align-items-start gap-4">

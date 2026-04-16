@@ -1,11 +1,13 @@
 .footer-screen__brand-logo {
-  padding-left: 3rem;
-  height: 120px;
-  width: auto;
+  display: block;
+  padding-left: 0;
+  max-width: min(220px, 62vw);
+  height: auto;
+  width: 100%;
 }
 
 .footer-screen__brand-copy {
-  padding-left: 3rem;
+  padding-left: 0;
   max-width: 28rem;
 }
 
@@ -33,11 +35,43 @@ footer a:hover {
 .footer-links li {
   margin-bottom: 10px; /* spacing */
   line-height: 1.8;    /* taller lines */
+  word-break: break-word;
+}
+
+.footer-screen__section {
+  min-width: 0;
+}
+
+.footer-screen__meta-item {
+  word-break: break-word;
+}
+
+.footer-screen__legal a {
+  color: inherit;
+}
+
+@media (max-width: 991.98px) {
+  .footer-screen__brand-logo {
+    max-width: min(200px, 52vw);
+    margin-bottom: 1.25rem !important;
+  }
 }
 
 @media (max-width: 767.98px) {
-  .footer-screen__brand-logo,
-  .footer-screen__brand-copy {
-    padding-left: 0;
+  .footer-screen__brand-logo {
+    max-width: min(180px, 58vw);
+  }
+
+  .footer-screen__meta {
+    text-align: left;
+  }
+
+  .footer-screen__meta-item {
+    align-items: flex-start !important;
+  }
+
+  .footer-screen__legal {
+    text-align: left !important;
+    line-height: 1.7;
   }
 }

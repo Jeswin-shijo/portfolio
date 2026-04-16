@@ -177,47 +177,48 @@ const ContactFormScreen = () => {
   };
 
   return (
-    <section className="contact-form-screen py-5 bg-white px-3 px-md-5">
-      <div className="contact-form-screen__inner row align-items-center">
-        <div className="col-md-6 mb-4 mb-md-0">
-          <h2 className="screen-title mb-3">
-            Ready to Find Your Next <br /> Destination?
-          </h2>
-          <p className="text-muted secondary-text">
-            "Have questions or need help planning your next trip? Fill out the
-            form below and our travel experts will get back to you shortly."
-          </p>
-          <div className="contact-form-screen__details my-4">
-            <GradientContainer className="gradient-hover p-4 rounded-4">
-              <h3 className="sub-title-text">Contact Details</h3>
-              <div className="gradient-line-1"></div>
-              <div className="gradient-line-2 mb-3"></div>
-              <div className="d-flex align-items-center mb-4 mt-4">
-                <i className="fas fa-envelope me-2"></i>
-                <span>Info@popuptours.com</span>
-              </div>
+    <section className="contact-form-screen py-5 bg-white">
+      <div className="site-container">
+        <div className="contact-form-screen__inner row align-items-center">
+          <div className="col-md-6 mb-4 mb-md-0">
+            <h2 className="screen-title mb-3">
+              Ready to Find Your Next <br /> Destination?
+            </h2>
+            <p className="text-muted secondary-text">
+              "Have questions or need help planning your next trip? Fill out the
+              form below and our travel experts will get back to you shortly."
+            </p>
+            <div className="contact-form-screen__details my-4">
+              <GradientContainer className="gradient-hover p-4 rounded-4">
+                <h3 className="sub-title-text">Contact Details</h3>
+                <div className="gradient-line-1"></div>
+                <div className="gradient-line-2 mb-3"></div>
+                <div className="d-flex align-items-center mb-4 mt-4">
+                  <i className="fas fa-envelope me-2"></i>
+                  <span>Info@popuptours.com</span>
+                </div>
 
-              <div className="contact-form-screen__phone-row d-flex align-items-center mb-4 mt-2">
-                <i className="fas fa-phone me-2"></i>
-                <span>+971 18 919891 &nbsp; | &nbsp; +971 18 946281</span>
-              </div>
-            </GradientContainer>
+                <div className="contact-form-screen__phone-row d-flex align-items-center mb-4 mt-2">
+                  <i className="fas fa-phone me-2"></i>
+                  <span>+971 18 919891 &nbsp; | &nbsp; +971 18 946281</span>
+                </div>
+              </GradientContainer>
+            </div>
           </div>
-        </div>
 
-        <div className="contact-form-screen__form-column col-md-6">
-          <div className="contact-form-screen__form-shell p-4 shadow rounded-3">
-            <h1
-              style={{
-                fontFamily: "Ivy mode",
-                fontWeight: 600,
-              }}
-            >
-              Let's Talk
-            </h1>
-            <div>
-              <div className="contact-form-screen__form-container mt-4">
-                <form className="row g-4" onSubmit={handleSubmit}>
+          <div className="contact-form-screen__form-column col-md-6">
+            <div className="contact-form-screen__form-shell p-4 shadow rounded-3">
+              <h1
+                style={{
+                  fontFamily: "Ivy mode",
+                  fontWeight: 600,
+                }}
+              >
+                Let's Talk
+              </h1>
+              <div>
+                <div className="contact-form-screen__form-container mt-4">
+                  <form className="row g-4" onSubmit={handleSubmit}>
                   <div className="honeypot-field" aria-hidden="true">
                     <label htmlFor="website">Website</label>
                     <input
@@ -397,31 +398,32 @@ const ContactFormScreen = () => {
                     </div>
                   </div>
 
-                  <div className="col-12">
-                    <button
-                      type="submit"
-                      className="submit-btn align-item-center"
-                      disabled={isSubmitting}
-                    >
-                      <p className="secondary-text mb-0">
-                        {isSubmitting ? "Sending..." : "Submit"}
-                      </p>{" "}
-                      <i className="bi bi-arrow-up-right mt-1 fs-5 fw-1"></i>
-                    </button>
-                    {submitStatus && (
-                      <p
-                        className={`contact-submit-status ${
-                          submitStatus.type === "success"
-                            ? "contact-submit-success"
-                            : "contact-submit-error"
-                        }`}
-                        role="status"
+                    <div className="col-12">
+                      <button
+                        type="submit"
+                        className="contact-form-screen__submit-btn"
+                        disabled={isSubmitting}
                       >
-                        {submitStatus.message}
-                      </p>
-                    )}
-                  </div>
-                </form>
+                        <span className="contact-form-screen__submit-label">
+                          {isSubmitting ? "Sending..." : "Submit"}
+                        </span>
+                        <i className="bi bi-arrow-up-right fs-5"></i>
+                      </button>
+                      {submitStatus && (
+                        <p
+                          className={`contact-submit-status ${
+                            submitStatus.type === "success"
+                              ? "contact-submit-success"
+                              : "contact-submit-error"
+                          }`}
+                          role="status"
+                        >
+                          {submitStatus.message}
+                        </p>
+                      )}
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

@@ -57,8 +57,8 @@ html {
 }
 
 .home-hero-logo-image {
-  width: min(270px, 42vw);
-  min-width: 150px;
+  width: var(--site-header-logo-width);
+  min-width: 0;
   height: auto;
 }
 
@@ -67,16 +67,37 @@ html {
   z-index: 3;
 }
 
+.home-screen__inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
 .home-screen__nav {
+  align-items: center !important;
   gap: 1.25rem;
+  padding: var(--site-header-row-padding-y) 0 !important;
 }
 
 .home-screen__links {
+  display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .home-screen__links button {
+  white-space: nowrap;
+}
+
+.home-screen__cta {
+  min-height: var(--site-header-cta-min-height);
+  padding: var(--site-header-cta-padding-y) var(--site-header-cta-padding-x) !important;
+  margin: 0 !important;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   white-space: nowrap;
 }
 
@@ -91,7 +112,7 @@ html {
 .hero-content {
   position: absolute;
   top: 60%;
-  left: 10%; /* fixed padding from left */
+  left: 0;
   transform: translateY(-50%);
   max-width: 700px; /* keeps text from stretching too wide */
   z-index: 2;
@@ -110,7 +131,6 @@ html {
   }
 
   .home-screen__nav {
-    align-items: center !important;
     flex-wrap: wrap;
   }
 
@@ -126,7 +146,7 @@ html {
   }
 
   .home-screen__divider {
-    margin: 0 1rem;
+    margin: 0;
   }
 
   .hero-content {
@@ -151,26 +171,38 @@ html {
   }
 
   .home-screen__nav {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding: var(--site-header-row-padding-y-mobile) 0 !important;
   }
 
   .home-hero-logo-image {
-    width: min(220px, 56vw);
+    width: var(--site-header-logo-width-mobile);
   }
 
   .home-screen__links {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .home-screen__links::-webkit-scrollbar {
-    display: none;
+    gap: 0.5rem !important;
+    overflow: visible;
   }
 
   .hero-content {
-    padding: 2.5rem 1rem 1.5rem;
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .home-screen__links button {
+    padding: 0.45rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.82rem;
+  }
+
+  .home-screen__cta {
+    min-height: 44px;
+    padding: 0.7rem 1rem !important;
+    font-size: 0.95rem;
+  }
+
+  .home-screen__divider {
+    margin: 0.5rem 0 0;
   }
 }
 

@@ -7,7 +7,7 @@ const MiniContactForm = () => {
   return (
     <GradientContainer
       className="gradient-hover p-4 rounded-4"
-      style={{ maxWidth: 430 }}
+      style={{ width: "100%", maxWidth: 430 }}
     >
       <h4
         style={{ fontFamily: "Ivy mode", color: "white" }}
@@ -54,9 +54,9 @@ const MiniContactForm = () => {
           </div>
         </div>
         <div className="col-12 pt-4 mt-2">
-          <button type="button" className="submit-btn align-item-center">
-            <p className="secondary-text mb-0">Send Message</p>{" "}
-            <i className="bi bi-arrow-up-right mt-1 fs-5 fw-1"></i>
+          <button type="button" className="mini-contact-form__submit-btn">
+            <span className="mini-contact-form__submit-label">Send Message</span>
+            <i className="bi bi-arrow-up-right fs-5"></i>
           </button>
         </div>
       </form>

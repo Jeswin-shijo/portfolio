@@ -62,8 +62,8 @@ const ReviewScreen = (props: Props) => {
   const isUsingFallback = !reviewsData || reviewsData.reviews.length === 0;
 
   return (
-    <div className="review-screen bg-blu py-5 px-3 px-md-5">
-      <div className="review-screen__inner px-lg-5">
+    <div className="review-screen bg-blu py-5">
+      <div className="review-screen__inner site-container">
         <ScreenName name={"Testimonial"} />
 
         <div className="review-screen__header d-flex flex-column flex-lg-row justify-content-between align-items-start gap-3 gap-lg-4 mb-4">

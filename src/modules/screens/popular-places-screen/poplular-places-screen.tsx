@@ -51,8 +51,8 @@ const PopularPlacesBootstrap = () => {
 
   return (
     <section className="popular-places-section">
-      <div className="popular-places-inner row">
-        <div className="popular-places-left col-lg-5 col-md-12 col-12 col-xl-5 col-xxl-5">
+      <div className="popular-places-inner site-container">
+        <div className="popular-places-left">
           <ScreenName name="Popular Places" />
           <h2 className="popular-places-title screen-title">
             Explore Our Popular <br /> Places
@@ -75,7 +75,7 @@ const PopularPlacesBootstrap = () => {
           </div>
         </div>
 
-        <div className="popular-places-right col-lg-6 col-md-12 col-12 col-xl-6 col-xxl-6">
+        <div className="popular-places-right">
           <p className="popular-places-intro secondary-text">
             Embark on a journey through our most sought-after destinations —
             from serene hill stations and sun-kissed beaches to vibrant cities

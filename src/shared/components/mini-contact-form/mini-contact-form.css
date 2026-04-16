@@ -1,4 +1,4 @@
-.submit-btn {
+.mini-contact-form__submit-btn {
   background-color: #facc15; 
   color: #1a1a1a;
   font-family: "Manrope";
@@ -16,6 +16,10 @@
   &:hover {
     background-color: #fbbf24; 
   }
+}
+
+.mini-contact-form__submit-label {
+  line-height: 1;
 }
 
 .form-select,

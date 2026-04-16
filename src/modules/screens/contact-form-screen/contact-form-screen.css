@@ -1,5 +1,5 @@
 .contact-form-screen__inner {
-  padding-inline: clamp(0rem, 2vw, 3rem);
+  padding-inline: 0;
 }
 
 .contact-form-screen__details {
@@ -47,18 +47,21 @@
   color: white;
   transition: background 0.2s ease-out;
 }
-.submit-btn {
+
+.contact-form-screen__submit-btn {
   background-color: #facc15; 
   color: #1a1a1a;
   font-family: "Manrope";
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  min-height: 52px;
+  padding: 0.75rem 1.35rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   transition: background 0.3s ease;
 
@@ -67,9 +70,13 @@
   }
 }
 
-.submit-btn:disabled {
+.contact-form-screen__submit-btn:disabled {
   opacity: 0.75;
   cursor: not-allowed;
+}
+
+.contact-form-screen__submit-label {
+  line-height: 1;
 }
 
 .contact-submit-status {
@@ -136,5 +143,9 @@
 
   .contact-form-screen__phone-row {
     align-items: flex-start !important;
+  }
+
+  .contact-form-screen__submit-btn {
+    width: 100%;
   }
 }

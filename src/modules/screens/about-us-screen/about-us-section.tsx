@@ -4,8 +4,8 @@ import ScreenName from "../../../shared/components/screen-name";
 
 const AboutUsSection: React.FC = () => {
   return (
-    <section className="py-5 px-3 px-md-5">
-      <div className="px-lg-5">
+    <section className="py-5">
+      <div className="site-container">
       <div className="d-flex flex-column flex-xl-row justify-content-between align-items-start gap-4 gap-xl-5">
         <ScreenName name={"About us"}/>
 

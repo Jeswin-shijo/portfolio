@@ -3,9 +3,24 @@
 @import url("../src/assets/ivy-mode/stylesheet.css");
 
 :root {
+  --site-max-width: 1120px;
+  --site-gutter: clamp(16px, 3vw, 32px);
+  --site-header-logo-width: clamp(170px, 14vw, 220px);
+  --site-header-logo-width-mobile: 170px;
+  --site-header-row-padding-y: 1rem;
+  --site-header-row-padding-y-mobile: 0.75rem;
+  --site-header-cta-padding-y: 0.8rem;
+  --site-header-cta-padding-x: 1.4rem;
+  --site-header-cta-min-height: 48px;
   --font-heading: "Ivy Mode";
   --font-body: "Manrope";
 }
+
+.site-container {
+  width: min(var(--site-max-width), calc(100% - (var(--site-gutter) * 2)));
+  margin-inline: auto;
+}
+
 .App {
   text-align: center;
 }

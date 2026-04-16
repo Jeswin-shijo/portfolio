@@ -174,7 +174,7 @@
 }
 
 .package-detail-page__related-inner {
-  width: min(1120px, calc(100% - 48px));
+  width: min(var(--site-max-width), calc(100% - (var(--site-gutter) * 2)));
   margin: 0 auto;
 }
 
@@ -273,12 +273,14 @@
 }
 
 @media (max-width: 767.98px) {
-  .package-detail-page__related-inner {
-    width: min(100% - 32px, 1120px);
-  }
-
   .package-detail-page__hero-actions {
     justify-content: flex-start;
+  }
+
+  .package-detail-page__share,
+  .package-detail-page__enquire {
+    width: 100%;
+    justify-content: center;
   }
 
   .package-detail-page__gallery-side {
@@ -289,5 +291,13 @@
   .package-detail-page__gallery-side > .package-detail-page__gallery-shot,
   .package-detail-page__gallery-side > .package-detail-page__see-photos {
     aspect-ratio: 16 / 10;
+  }
+
+  .package-detail-page__see-photos span {
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.85rem;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
   }
 }

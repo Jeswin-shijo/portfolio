@@ -5,7 +5,7 @@ import VideoSection from "../components/video-section/video-section";
 
 const AboutWhoWeAreScreen = () => {
   return (
-    <section className="about-who-we-are p-5 py-5">
+    <section className="about-who-we-are py-5">
       <div className="about-who-we-are__intro d-flex gap-5">
         <div className="col-md-3 col-lg-3 mb-4 col-xxl-3">
           <div className="d-flex justify-content-center">

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import StickyWhatsApp from "./common/sticky-whatsapp";
+import { getPackageBySlug } from "./data/tour-packages";
+import PopHeader from "./modules/screens/pop-header";
 import AboutPage from "./pages/about-page";
 import BlogDetailPage from "./pages/blog-detail-page";
 import ContactPage from "./pages/contact-page";
@@ -9,6 +11,7 @@ import HomePage from "./pages/home-page";
 import PackageDetailPage from "./pages/package-detail-page";
 import {
   getLocationKey,
+  type NavKey,
   normalizePath,
   scrollToHash,
 } from "./shared/navigation/site-navigation";
@@ -40,9 +43,42 @@ function App() {
   }, [locationKey]);
 
   const pathname = normalizePath(window.location.pathname);
+  const hash = window.location.hash;
   const packageSlug = pathname.startsWith("/packages/")
     ? pathname.replace("/packages/", "")
     : null;
+  const packageData = packageSlug ? getPackageBySlug(packageSlug) : null;
+
+  let activeNav: NavKey | undefined;
+
+  if (packageData) {
+    activeNav = packageData.category;
+  } else {
+    switch (pathname) {
+      case "/about":
+        activeNav = "about";
+        break;
+      case "/gallery":
+        activeNav = "gallery";
+        break;
+      case "/blog/maldives-packing-guide":
+        activeNav = "blog";
+        break;
+      case "/contact":
+        activeNav = "contact";
+        break;
+      case "/":
+        if (hash === "#domestic") {
+          activeNav = "domestic";
+        } else if (hash === "#honeymoon") {
+          activeNav = "honeymoon";
+        }
+        break;
+      default:
+        activeNav = undefined;
+        break;
+    }
+  }
 
   let page = <HomePage />;
 
@@ -70,6 +106,7 @@ function App() {
 
   return (
     <div>
+      <PopHeader activeNav={activeNav} />
       {page}
       <StickyWhatsApp />
     </div>

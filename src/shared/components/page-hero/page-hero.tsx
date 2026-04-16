@@ -41,7 +41,7 @@ const PageHero = ({
             onClick={() => navigateTo("/")}
             aria-label="Go to Pop Up Tours home"
           >
-            <img src={logo} alt="Pop Up Tours" style={{ height: 74 }} />
+            <img className="page-hero__logo-image" src={logo} alt="Pop Up Tours" />
           </button>
 
           <div className="page-hero__links">

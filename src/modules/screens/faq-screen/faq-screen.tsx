@@ -33,8 +33,8 @@ function FAQScreen() {
   ];
 
   return (
-    <div className="pt-5 px-3 px-md-5">
-      <div className="px-lg-5">
+    <div className="pt-5">
+      <div className="site-container">
         <ScreenName name={"FAQ"}/>
 
         <div className="row align-items-center mb-4">

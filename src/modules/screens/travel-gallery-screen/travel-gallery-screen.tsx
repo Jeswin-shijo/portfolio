@@ -35,8 +35,8 @@ const places = [
 
 const TravelGalleryScreen = () => {
   return (
-    <div className="travel-gallery-section py-5 px-3 px-md-5">
-      <div className="px-lg-5">
+    <div className="travel-gallery-section py-5">
+      <div className="site-container">
         <ScreenName name={"Travel gallery"}/>
 
         <div className="d-flex flex-column flex-lg-row justify-content-between gap-3 gap-lg-5">

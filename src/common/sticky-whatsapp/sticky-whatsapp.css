@@ -1,7 +1,7 @@
 .whatsapp-container {
   position: fixed;
-  bottom: 50px;
-  left: 50px;
+  right: clamp(16px, 4vw, 24px);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
   z-index: 1000;
 }
 
@@ -20,13 +20,15 @@
 .whatsapp-popup {
   position: absolute;
   bottom: 70px;
-  left: 0;
-  width: 360px;
+  right: 0;
+  width: min(360px, calc(100vw - 32px));
+  max-height: min(70vh, 560px);
   background: white;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   padding: 15px;
   font-family: "Manrope";
+  overflow: auto;
 }
 
 .popup-header {
@@ -36,12 +38,14 @@
   margin-bottom: 10px;
   background-color: #25d366;
   border-radius: 5px;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 0.75rem;
 }
 
 .popup-header img.popup-icon {
-  width: 90px;
-  height: 90px;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
 }
 
 .popup-header p {
@@ -81,6 +85,38 @@
   border-radius: 5px;
   text-decoration: none;
   font-weight: 500;
+}
+
+@media (max-width: 575.98px) {
+  .whatsapp-container {
+    right: 12px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+  }
+
+  .whatsapp-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .whatsapp-popup {
+    bottom: 58px;
+    width: min(320px, calc(100vw - 24px));
+    padding: 12px;
+  }
+
+  .popup-header {
+    gap: 10px;
+  }
+
+  .popup-header img.popup-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .chat-bubble {
+    max-width: 100%;
+    font-size: 13px;
+  }
 }
 
 @keyframes popIn {

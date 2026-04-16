@@ -51,19 +51,20 @@
   display: flex;
   align-items: flex-start;
   gap: 2rem;
-  padding-left: clamp(1rem, 4vw, 3rem);
-  padding-right: clamp(1rem, 4vw, 3rem);
+  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 4vw, 3rem);
 }
 
 .international-detail-main {
   flex: 1;
   min-width: 0;
+  padding: clamp(1rem, 2.5vw, 3rem);
 }
 
 .international-detail-contact {
   flex: 0 0 430px;
   max-width: 430px;
   width: 100%;
+  margin: 0;
 }
 
 .international-detail-contact-sticky {
@@ -77,9 +78,16 @@
   padding: 1.25rem 0 2rem;
 }
 
+.international-detail-contact .gradient-hover {
+  width: 100%;
+  max-width: 100% !important;
+}
+
 @media (max-width: 991.98px) {
   .international-detail-layout {
     flex-direction: column;
+    gap: 1.75rem;
+    padding: 2rem 1rem 2.5rem;
   }
 
   .international-detail-contact {
@@ -93,6 +101,25 @@
 
   .international-map-wrap {
     padding: 1rem 0 1.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .international-detail-layout {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .international-detail-main {
+    padding: 0;
+  }
+
+  .accordion-button {
+    font-size: 16px;
+  }
+
+  .package-tab-btn {
+    padding: 0.35rem 0;
+    font-size: 0.95rem;
   }
 }
 

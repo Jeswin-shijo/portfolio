@@ -1,5 +1,5 @@
 .about-who-we-are {
-  width: min(1120px, calc(100% - 48px));
+  width: min(var(--site-max-width), calc(100% - (var(--site-gutter) * 2)));
   margin: 0 auto;
 }
 
@@ -9,6 +9,11 @@
 
 .about-who-we-are__flight {
   max-width: 100%;
+}
+
+.about-who-we-are__intro,
+.about-who-we-are__media {
+  padding-inline: 0;
 }
 
 .about-who-we-are__media {
@@ -25,7 +30,6 @@
 
 @media (max-width: 991.98px) {
   .about-who-we-are {
-    width: min(100% - 32px, 1120px);
     padding-left: 0 !important;
     padding-right: 0 !important;
   }

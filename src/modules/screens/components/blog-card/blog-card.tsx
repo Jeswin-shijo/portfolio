@@ -7,6 +7,7 @@ interface BlogCardProps {
   title: string;
   date: string;
   href?: string;
+  fullWidth?: boolean;
 }
 
 const BlogCard = ({
@@ -15,6 +16,7 @@ const BlogCard = ({
   title,
   date = "2025-07-27",
   href,
+  fullWidth = false,
 }: BlogCardProps) => {
   const dateObj = new Date(date);
   const month = dateObj.toLocaleString("default", { month: "short" }); 
@@ -24,7 +26,8 @@ const BlogCard = ({
     <button
       type="button"
       className="rounded-4 bg-light p-2 shadow-sm text-start border-0"
-      style={{ maxWidth: 400 }}
+      style={fullWidth ? { width: "100%" } : { maxWidth: 400 }}
+      aria-label={`Open blog: ${title}`}
       onClick={() => href && navigateTo(href)}
     >
       <div className="position-relative">

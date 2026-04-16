@@ -4,6 +4,7 @@ import StickyWhatsApp from "./common/sticky-whatsapp";
 import { getPackageBySlug } from "./data/tour-packages";
 import PopHeader from "./modules/screens/pop-header";
 import AboutPage from "./pages/about-page";
+import BlogPage from "./pages/blog-page";
 import BlogDetailPage from "./pages/blog-detail-page";
 import ContactPage from "./pages/contact-page";
 import GalleryRoutePage from "./pages/gallery-route-page";
@@ -44,6 +45,9 @@ function App() {
 
   const pathname = normalizePath(window.location.pathname);
   const hash = window.location.hash;
+  const blogSlug = pathname.startsWith("/blog/")
+    ? pathname.replace("/blog/", "")
+    : null;
   const packageSlug = pathname.startsWith("/packages/")
     ? pathname.replace("/packages/", "")
     : null;
@@ -61,7 +65,7 @@ function App() {
       case "/gallery":
         activeNav = "gallery";
         break;
-      case "/blog/maldives-packing-guide":
+      case "/blog":
         activeNav = "blog";
         break;
       case "/contact":
@@ -75,7 +79,7 @@ function App() {
         }
         break;
       default:
-        activeNav = undefined;
+        activeNav = blogSlug ? "blog" : undefined;
         break;
     }
   }
@@ -84,6 +88,10 @@ function App() {
 
   if (packageSlug) {
     page = <PackageDetailPage slug={packageSlug} />;
+  } else if (pathname === "/blog") {
+    page = <BlogPage />;
+  } else if (blogSlug) {
+    page = <BlogDetailPage slug={blogSlug} />;
   } else {
     switch (pathname) {
       case "/about":
@@ -91,9 +99,6 @@ function App() {
         break;
       case "/gallery":
         page = <GalleryRoutePage />;
-        break;
-      case "/blog/maldives-packing-guide":
-        page = <BlogDetailPage />;
         break;
       case "/contact":
         page = <ContactPage />;

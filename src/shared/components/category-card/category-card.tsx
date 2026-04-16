@@ -1,40 +1,82 @@
-import React, { useState } from 'react';
-import './category-card.css';
+import "./category-card.css";
 
-const CategoryCard = () => {
-  const categories = [
-    'Adventure',
-    'International',
-    'Maldives',
-    'Bali',
-    'Travel Tips',
-    'FAQ',
-  ];
+type CategoryCardProps = {
+  categories: string[];
+  tags: string[];
+  activeCategory?: string | null;
+  activeTag?: string | null;
+  matchedCategories?: string[];
+  matchedTags?: string[];
+  onCategorySelect?: (value: string | null) => void;
+  onTagSelect?: (value: string | null) => void;
+};
 
-  const [activeCategory, setActiveCategory] = useState('Adventure');
-
+const CategoryCard = ({
+  categories,
+  tags,
+  activeCategory = null,
+  activeTag = null,
+  matchedCategories = [],
+  matchedTags = [],
+  onCategorySelect,
+  onTagSelect,
+}: CategoryCardProps) => {
   return (
     <div className="category-card py-5 p-4">
       <h5 className="section-title">Categories</h5>
       <ul className="category-list">
-        {categories.map((cat) => (
-          <li
-            key={cat}
-            className={activeCategory === cat ? 'active' : ''}
-            onClick={() => setActiveCategory(cat)}
+        <li>
+          <button
+            type="button"
+            className={`category-card__option ${
+              !activeCategory ? "active" : ""
+            }`}
+            onClick={() => onCategorySelect?.(null)}
           >
-            {activeCategory === cat && <span className="highlight-bar"></span>}
-            {cat}
-          </li>
-        ))}
+            {!activeCategory ? <span className="highlight-bar"></span> : null}
+            All Categories
+          </button>
+        </li>
+        {categories.map((category) => {
+          const isActive = activeCategory === category;
+          const isMatch = matchedCategories.includes(category);
+
+          return (
+            <li key={category}>
+              <button
+                type="button"
+                className={`category-card__option ${isActive ? "active" : ""} ${
+                  isMatch ? "is-match" : ""
+                }`}
+                onClick={() => onCategorySelect?.(isActive ? null : category)}
+              >
+                {isActive || isMatch ? <span className="highlight-bar"></span> : null}
+                {category}
+              </button>
+            </li>
+          );
+        })}
       </ul>
 
       <h5 className="section-title">Tags</h5>
       <div className="tags">
-        <span className="tag">International</span>
-        <span className="tag">Camera</span>
-        <span className="tag">Singapore</span>
-        <span className="tag">Camp</span>
+        {tags.map((tag) => {
+          const isActive = activeTag === tag;
+          const isMatch = matchedTags.includes(tag);
+
+          return (
+            <button
+              key={tag}
+              type="button"
+              className={`tag ${isActive ? "active" : ""} ${
+                isMatch ? "is-match" : ""
+              }`}
+              onClick={() => onTagSelect?.(isActive ? null : tag)}
+            >
+              {tag}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

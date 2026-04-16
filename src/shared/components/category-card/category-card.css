@@ -20,25 +20,42 @@
   margin: 0 0 20px 0;
   max-height: 150px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .category-list li {
   padding: 10px 0;
-  padding-left: 20px;
   position: relative;
-  color: #000;
-  cursor: pointer;
-  transition: all 0.2s ease;
   font-family: 'Manrope';
   font-size: 18px;
 }
 
-.category-list li.active {
-  color: #f4c200;
+.category-card__option {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0 0 0 20px;
+  position: relative;
+  text-align: left;
+  color: #000;
+  transition: all 0.2s ease;
   font-family: 'Manrope';
 }
 
-.category-list li .highlight-bar {
+.category-card__option:hover {
+  color: #0c2d57;
+}
+
+.category-card__option.active {
+  color: #f4c200;
+}
+
+.category-card__option.is-match:not(.active) {
+  color: #0c2d57;
+  font-weight: 700;
+}
+
+.category-card__option .highlight-bar {
   position: absolute;
   left: 0;
   width: 2px;
@@ -74,6 +91,16 @@
   background-color: #dce4ec;
 }
 
+.tag.active {
+  background-color: #0c2d57;
+  color: #ffffff;
+}
+
+.tag.is-match:not(.active) {
+  background-color: rgba(249, 207, 2, 0.16);
+  border-color: rgba(249, 207, 2, 0.48);
+}
+
 /* For Webkit-based browsers (Chrome, Safari, Edge) */
 .category-list::-webkit-scrollbar {
   width: 2px; /* Increase width */
@@ -103,7 +130,7 @@
     font-size: 20px;
   }
 
-  .category-list li,
+  .category-card__option,
   .tag {
     font-size: 16px;
   }

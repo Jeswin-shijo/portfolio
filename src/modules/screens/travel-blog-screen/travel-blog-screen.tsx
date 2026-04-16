@@ -1,30 +1,14 @@
 import React from "react";
 import BlogCard from "../components/blog-card/blog-card";
 import ScreenName from "../../../shared/components/screen-name";
-const blogPosts = [
-  {
-    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd",
-    category: "Island Guide",
-    title: "Crystal Clear Waters, Overwater Villas & Sunset Dreams Await!",
-    date: "2025-07-27",
-    href: "/blog/maldives-packing-guide",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1533929736458-ca588d08c8be",
-    category: "City Break",
-    title: "Dubai Unveiled: Smart Travel Tricks for a Luxurious Arabian Escape",
-    date: "2025-07-27",
-    href: "/blog/maldives-packing-guide",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1527631746610-bca00a040d60",
-    category: "Family Travel",
-    title: "7 Ways to Keep Long-Haul Family Trips Smooth and Memorable",
-    date: "2025-07-27",
-    href: "/blog/maldives-packing-guide",
-  },
-];
+import {
+  buildBlogHref,
+  getSortedBlogPosts,
+} from "../../../data/blog-posts";
+
 const TravelBlogScreen = () => {
+  const blogPosts = getSortedBlogPosts().slice(0, 3);
+
   return (
     <section className="py-5 bg-light">
       <div className="site-container">
@@ -47,14 +31,14 @@ const TravelBlogScreen = () => {
           </div>
         </div>
         <div className="d-flex flex-wrap gap-4 justify-content-between">
-          {blogPosts.map((post, index) => (
+          {blogPosts.map((post) => (
             <BlogCard
-              key={index}
-              image={post.image}
+              key={post.slug}
+              image={post.cardImage}
               category={post.category}
               title={post.title}
               date={post.date}
-              href={post.href}
+              href={buildBlogHref(post.slug)}
             />
           ))}
         </div>

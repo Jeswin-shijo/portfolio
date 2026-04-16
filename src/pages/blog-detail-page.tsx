@@ -3,144 +3,176 @@ import FooterScreen from "../modules/screens/footer-screen";
 import PageHero from "../shared/components/page-hero/page-hero";
 import CategoryCard from "../shared/components/category-card/category-card";
 import SearchBar from "../shared/components/search-bar/search-bar";
+import {
+  buildBlogHref,
+  buildBlogListHref,
+  getBlogCategories,
+  getBlogPostBySlug,
+  getRelatedBlogPosts,
+  getBlogTags,
+  getSortedBlogPosts,
+} from "../data/blog-posts";
+import { navigateTo } from "../shared/navigation/site-navigation";
 
-const recentBlogs = [
-  {
-    date: "08-08-2025",
-    title: "Dubai Unveiled: Smart Travel Tricks for a Luxurious Arabian Escape",
-    image:
-      "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    date: "08-08-2025",
-    title: "Bangkok After Dark: What to Know Before Your First Night Market",
-    image:
-      "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    date: "08-08-2025",
-    title: "Hidden Lagoon Stays for Travelers Who Want More Than a Resort",
-    image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    date: "08-08-2025",
-    title: "Tea Trails and Mountain Roads: Planning a Calm Hill Escape",
-    image:
-      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=400&q=80",
-  },
-];
+type BlogDetailPageProps = {
+  slug: string;
+};
 
-const BlogDetailPage = () => {
+const BlogDetailPage = ({ slug }: BlogDetailPageProps) => {
+  const post = getBlogPostBySlug(slug) ?? getSortedBlogPosts()[0];
+  const recentBlogs = getSortedBlogPosts()
+    .filter((item) => item.slug !== post.slug)
+    .slice(0, 4);
+  const relatedBlogs = getRelatedBlogPosts(post, 3);
+
   return (
     <>
       <PageHero
-        title="Crystal Clear Waters, Overwater Villas & Sunset Dreams Await!"
-        subtitle="A soft-paced Maldives guide for travelers planning a stylish island stay without the guesswork."
-        backgroundImage='url("https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80")'
+        title={post.title}
+        subtitle={post.subtitle}
+        backgroundImage={`url("${post.heroImage}")`}
         activeNav="blog"
+        meta={
+          <div className="blog-detail-page__hero-meta">
+            <span>{new Date(post.date).toLocaleDateString("en-GB")}</span>
+            <span>{post.category}</span>
+            <span>{post.readingTime}</span>
+          </div>
+        }
       />
 
       <section className="blog-detail-page">
         <div className="blog-detail-page__container">
-          <article className="blog-detail-page__content">
-            <p className="blog-detail-page__lead">
-              Close your eyes: you wake up to the gentle lapping of waves
-              beneath your overwater villa. The turquoise waters stretch
-              endlessly before you, and as you sip on fresh coconut water, you
-              realize you are in paradise. Welcome to the Maldives.
-            </p>
+          <div className="blog-detail-page__main">
+            <article className="blog-detail-page__content">
+              <p className="blog-detail-page__lead">{post.lead}</p>
 
-            <h2>Packing Checklist for the Maldives:</h2>
-            <ul className="blog-detail-page__checklist">
-              <li>
-                <i className="bi bi-check-square-fill"></i>
-                <span>
-                  Breezy beachwear, light kaftans, swimwear, and sandals are
-                  all you need for effortless resort days.
-                </span>
-              </li>
-              <li>
-                <i className="bi bi-check-square-fill"></i>
-                <span>
-                  An underwater camera helps you capture reef moments and the
-                  Maldives&apos; vivid marine life while snorkeling.
-                </span>
-              </li>
-              <li>
-                <i className="bi bi-check-square-fill"></i>
-                <span>
-                  A waterproof dry bag keeps your essentials safe on speedboat
-                  rides, sandbank stops, and beach days.
-                </span>
-              </li>
-              <li>
-                <i className="bi bi-check-square-fill"></i>
-                <span>
-                  A sun hat and good sunglasses matter more than you think. The
-                  island light gets bright quickly.
-                </span>
-              </li>
-            </ul>
+              {post.sections.map((section) => (
+                <div key={section.heading} className="blog-detail-page__section">
+                  <h2>{section.heading}</h2>
 
-            <h3 className="mt-5">Pro Tips for a Seamless Maldives Experience:</h3>
-            <ul className="blog-detail-page__tips">
-              <li>
-                <i className="bi bi-check2"></i>
-                <span>
-                  Choose the right island for your pace. Some islands are best
-                  for honeymooners, while others suit active travelers or
-                  families.
-                </span>
-              </li>
-              <li>
-                <i className="bi bi-check2"></i>
-                <span>
-                  All-inclusive stays can save money if you plan to dine, relax,
-                  and enjoy property activities without moving around much.
-                </span>
-              </li>
-              <li>
-                <i className="bi bi-check2"></i>
-                <span>
-                  Seaplane rides deliver incredible aerial views, while
-                  speedboats can be more practical for shorter transfers and
-                  tighter budgets.
-                </span>
-              </li>
-              <li>
-                <i className="bi bi-check2"></i>
-                <span>
-                  Book a private sandbank picnic if you want one signature
-                  memory that feels intimate, cinematic, and completely removed
-                  from the usual resort rhythm.
-                </span>
-              </li>
-            </ul>
+                  {section.paragraphs?.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
 
-            <p className="mt-4">
-              The Maldives is waiting for you. From floating breakfasts to
-              sunset decks and island-hopping moments, the right plan turns a
-              beautiful destination into a calm and unforgettable escape.
-            </p>
-          </article>
+                  {section.items ? (
+                    <ul
+                      className={
+                        section.listStyle === "tips"
+                          ? "blog-detail-page__tips"
+                          : "blog-detail-page__checklist"
+                      }
+                    >
+                      {section.items.map((item) => (
+                        <li key={item}>
+                          <i
+                            className={
+                              section.listStyle === "tips"
+                                ? "bi bi-check2"
+                                : "bi bi-check-square-fill"
+                            }
+                          ></i>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+              ))}
+
+              <p className="mt-4">{post.closing}</p>
+
+              <div className="blog-detail-page__tags">
+                {post.tags.map((tag) => (
+                  <button
+                    key={tag}
+                    type="button"
+                    onClick={() => navigateTo(buildBlogListHref({ tag }))}
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            </article>
+
+            {relatedBlogs.length ? (
+              <div className="blog-detail-page__related">
+                <h2 className="blog-detail-page__related-title">Related Blogs</h2>
+                <div className="blog-detail-page__related-grid">
+                  {relatedBlogs.map((blog) => {
+                    const date = new Date(blog.date);
+                    const month = date.toLocaleString("default", { month: "short" });
+                    const day = date.getDate();
+
+                    return (
+                      <button
+                        key={blog.slug}
+                        type="button"
+                        className="blog-detail-page__related-card"
+                        aria-label={`Open related blog: ${blog.title}`}
+                        onClick={() => navigateTo(buildBlogHref(blog.slug))}
+                      >
+                        <div className="blog-detail-page__related-image-wrap">
+                          <img src={blog.cardImage} alt={blog.title} />
+                          <div className="blog-detail-page__related-date">
+                            <span>{month}</span>
+                            <strong>{day}</strong>
+                          </div>
+                        </div>
+                        <div className="blog-detail-page__related-body">
+                          <span className="blog-detail-page__related-category">
+                            {blog.category}
+                          </span>
+                          <h3>{blog.title}</h3>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : null}
+          </div>
 
           <aside className="blog-detail-page__sidebar">
-            <SearchBar />
-            <CategoryCard />
+            <SearchBar
+              onLiveSearch={(value) =>
+                navigateTo(
+                  buildBlogListHref({ search: value || undefined }),
+                  { replace: true }
+                )
+              }
+              onSearch={(value) =>
+                navigateTo(buildBlogListHref({ search: value || undefined }))
+              }
+            />
+            <CategoryCard
+              categories={getBlogCategories()}
+              tags={getBlogTags()}
+              activeCategory={post.category}
+              onCategorySelect={(value) =>
+                navigateTo(buildBlogListHref({ category: value }))
+              }
+              onTagSelect={(value) => navigateTo(buildBlogListHref({ tag: value }))}
+            />
 
             <div className="blog-detail-page__recent">
               <h3>Recent Blogs</h3>
               {recentBlogs.map((blog) => (
-                <div key={blog.title} className="blog-detail-page__recent-item">
-                  <img src={blog.image} alt={blog.title} />
+                <button
+                  key={blog.slug}
+                  type="button"
+                  className="blog-detail-page__recent-item"
+                  aria-label={`Open recent blog: ${blog.title}`}
+                  onClick={() => navigateTo(buildBlogHref(blog.slug))}
+                >
+                  <img src={blog.cardImage} alt={blog.title} />
                   <div>
                     <span className="blog-detail-page__recent-date">
-                      {blog.date}
+                      {new Date(blog.date).toLocaleDateString("en-GB")}
                     </span>
                     <p className="blog-detail-page__recent-title">{blog.title}</p>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </aside>

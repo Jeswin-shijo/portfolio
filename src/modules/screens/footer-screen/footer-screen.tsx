@@ -14,7 +14,7 @@ const FooterScreen = () => {
         { label: "Domestic", href: "/#domestic" },
         { label: "Honeymoon", href: "/#honeymoon" },
         { label: "Gallery", href: "/gallery" },
-        { label: "Blogs", href: "/blog/maldives-packing-guide" },
+        { label: "Blogs", href: "/blog" },
         { label: "Contact Us", href: "/contact" },
       ],
     },

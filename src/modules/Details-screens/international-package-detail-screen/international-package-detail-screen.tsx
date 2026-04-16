@@ -36,7 +36,7 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
   return (
     <div className="international-detail-layout">
       <div className="international-detail-main">
-        <ul className="nav nav-tabs mb-4 border-0 justify-content-start">
+        <ul className="nav nav-tabs international-detail-tabs border-0 justify-content-start">
           {tabs.map((tab, i) => (
             <li className="nav-item" key={i}>
               <button
@@ -44,11 +44,6 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
                 className={`nav-link package-tab-btn border-0 ${
                   activeTab === tab ? "active" : ""
                 }`}
-                style={{
-                  fontFamily: "Ivy Mode",
-                  // fontSize: "15px",
-                  background: "transparent",
-                }}
               >
                 {tab}
               </button>
@@ -57,229 +52,181 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
         </ul>
 
         <div className="tab-content">
-        <div className={getTabPaneClass("Overview")}>
-          <h4
-            className="fw-semibold mb-3"
-            style={{ color: "#0C2D57", fontFamily: "Ivy Mode" }}
-          >
-            Overview
-          </h4>
-          <p className="text-muted small mb-4">
-            {packageData.overview}
-          </p>
+          <div className={getTabPaneClass("Overview")}>
+            <h4 className="international-detail-section-title">Overview</h4>
+            <p className="international-detail-copy international-detail-copy--lead">
+              {packageData.overview}
+            </p>
 
-          <h5
-            className="fw-semibold mb-3"
-            style={{ color: "#0C2D57", fontFamily: "Ivy Mode" }}
-          >
-            Highlights
-          </h5>
-          <ul className="list-unstyled small text-muted mb-5">
-            {packageData.highlights.map((text, i) => (
-              <li key={i} className="mb-3 d-flex align-items-start">
-                <span
-                  className="material-symbols-outlined me-2"
-                  style={{
-                    color: "#f4b400",
-                    fontSize: "22px",
-                    marginTop: "2px",
-                  }}
-                >
-                  task_alt
-                </span>
-                <span>{text}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className={getTabPaneClass("Itinerary")}>
-          <div className="py-5" style={{ maxWidth: "900px" }}>
-            <h3
-              className="fw-semibold mb-5"
-              style={{ color: "#0C2D57", fontFamily: "Ivy Mode" }}
-            >
-              Itinerary
-            </h3>
-
-            <div className="position-relative">
-              <div
-                className="position-absolute"
-                style={{
-                  left: "20px",
-                  top: "10px",
-                  bottom: "0",
-                  width: "2px",
-                  borderLeft: "2px dotted #f4b400",
-                  zIndex: "0",
-                }}
-              ></div>
-
-              {packageData.itinerary.map((item, index) => (
-                <div
-                  key={index}
-                  className="position-relative ps-5 mb-5"
-                  style={{ zIndex: "1" }}
-                >
-                  <div
-                    className="position-absolute rounded-circle d-flex align-items-center justify-content-center"
-                    style={{
-                      width: "40px",
-                      height: "40px",
-                      backgroundColor: "#F9CF02",
-                      left: "0",
-                      top: "0",
-                      zIndex: "1",
-                    }}
+            <h5 className="international-detail-subtitle">Highlights</h5>
+            <ul className="international-detail-list list-unstyled">
+              {packageData.highlights.map((text, i) => (
+                <li key={i} className="international-detail-list-item">
+                  <span
+                    className="material-symbols-outlined international-detail-list-icon international-detail-list-icon--highlight"
                   >
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ color: "#fff", fontSize: "22px" }}
+                    task_alt
+                  </span>
+                  <span className="international-detail-copy">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={getTabPaneClass("Itinerary")}>
+            <div className="international-detail-itinerary">
+              <h3 className="international-detail-section-title">Itinerary</h3>
+
+              <div className="position-relative">
+                <span
+                  className="position-absolute"
+                  style={{
+                    left: "20px",
+                    top: "10px",
+                    bottom: "0",
+                    width: "2px",
+                    borderLeft: "2px dotted #f4b400",
+                    zIndex: "0",
+                  }}
+                ></span>
+
+                {packageData.itinerary.map((item, index) => (
+                  <div
+                    key={index}
+                    className="position-relative ps-5 mb-5"
+                    style={{ zIndex: "1" }}
+                  >
+                    <div
+                      className="position-absolute rounded-circle d-flex align-items-center justify-content-center"
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        backgroundColor: "#F9CF02",
+                        left: "0",
+                        top: "0",
+                        zIndex: "1",
+                      }}
                     >
-                      location_on
-                    </span>
-                  </div>
-
-                  <div className="accordion" id={`accordion${index}`}>
-                    <div className="accordion-item border-0">
-                      <h2 className="accordion-header">
-                        <button
-                          className={`accordion-button shadow-none ms-3 ps-0 pt-2 fw-semibold ${
-                            !openAccordion.includes(index) ? "collapsed" : ""
-                          }`}
-                          type="button"
-                          aria-expanded={
-                            openAccordion.includes(index) ? "true" : "false"
-                          }
-                          style={{
-                            background: "transparent",
-                            color: "#0C2D57",
-                            fontSize: "18px",
-                            fontFamily: "Ivy Mode",
-                          }}
-                          onClick={() => setAccIndex(index)}
-                        >
-                          Day {item.day}: {item.title}
-                        </button>
-                      </h2>
-
-                      <div
-                        id={`collapse${index}`}
-                        className={`accordion-collapse ${
-                          openAccordion.includes(index) ? "show" : ""
-                        }`}
+                      <span
+                        className="material-symbols-outlined"
+                        style={{ color: "#fff", fontSize: "22px" }}
                       >
-                        <div className="accordion-body ps-0 pt-3 small">
-                          <ul className="list-unstyled mb-0">
-                            {item.details.map((detail, i) => (
-                              <li
-                                key={i}
-                                className="mb-3 d-flex align-items-start"
-                              >
-                                <span
-                                  className="material-symbols-outlined me-2 mt-1"
-                                  style={{
-                                    fontSize: "8px",
-                                    color: "#0C2D57",
-                                  }}
+                        location_on
+                      </span>
+                    </div>
+
+                    <div className="accordion" id={`accordion${index}`}>
+                      <div className="accordion-item border-0">
+                        <h2 className="accordion-header">
+                          <button
+                            className={`accordion-button shadow-none ms-3 ps-0 pt-2 fw-semibold ${
+                              !openAccordion.includes(index) ? "collapsed" : ""
+                            }`}
+                            type="button"
+                            aria-expanded={
+                              openAccordion.includes(index) ? "true" : "false"
+                            }
+                            onClick={() => setAccIndex(index)}
+                          >
+                            Day {item.day}: {item.title}
+                          </button>
+                        </h2>
+
+                        <div
+                          id={`collapse${index}`}
+                          className={`accordion-collapse ${
+                            openAccordion.includes(index) ? "show" : ""
+                          }`}
+                        >
+                          <div className="accordion-body ps-0 pt-3">
+                            <ul className="international-detail-list list-unstyled mb-0">
+                              {item.details.map((detail, i) => (
+                                <li
+                                  key={i}
+                                  className="international-detail-list-item"
                                 >
-                                  fiber_manual_record
-                                </span>
-                                <p className="mb-0 text-muted">
-                                  <strong>{detail.time}:</strong> {detail.text}
-                                </p>
-                              </li>
-                            ))}
-                          </ul>
+                                  <span
+                                    className="material-symbols-outlined international-detail-list-icon international-detail-list-icon--dot"
+                                  >
+                                    fiber_manual_record
+                                  </span>
+                                  <p className="mb-0 international-detail-copy">
+                                    <strong>{detail.time}:</strong> {detail.text}
+                                  </p>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
+
+                    {index < packageData.itinerary.length - 1 && (
+                      <hr className="mt-4" style={{ color: "#ddd" }} />
+                    )}
                   </div>
-
-                  {index < packageData.itinerary.length - 1 && (
-                    <hr className="mt-4" style={{ color: "#ddd" }} />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className={getTabPaneClass("Cost")}>
-          <h4
-            className="fw-semibold mb-3"
-            style={{ color: "#0C2D57", fontFamily: "Ivy Mode" }}
-          >
-            Cost
-          </h4>
-          <div className="row d-flex flex-column">
-            <div className="col-md-6 mb-4">
-              <h6
-                className="fw-semibold mb-3"
-                style={{ color: "#0C2D57", fontFamily: "Ivy Mode" }}
-              >
-                The Cost Includes
-              </h6>
-              <ul className="list-unstyled small text-muted">
-                {packageData.costIncludes.map((text, i) => (
-                  <li key={i} className="mb-2 d-flex align-items-start">
-                    <span
-                      className="material-symbols-outlined me-2"
-                      style={{ color: "#429945" }}
-                    >
-                      task_alt
-                    </span>
-                    <span className="ms-2">{text}</span>
-                  </li>
                 ))}
-              </ul>
-            </div>
-
-            <div className="col-md-6 mb-4">
-              <h6
-                className="fw-semibold mb-3"
-                style={{ color: "#0C2D57", fontFamily: "Ivy Mode" }}
-              >
-                The Cost Excludes
-              </h6>
-              <ul className="list-unstyled small text-muted">
-                {packageData.costExcludes.map((text, i) => (
-                  <li key={i} className="mb-2 d-flex align-items-start">
-                    <span
-                      className="material-symbols-outlined me-2"
-                      style={{ color: "#E73B36", fontWeight: "100" }}
-                    >
-                      cancel
-                    </span>
-                    <span className="ms-2">{text}</span>
-                  </li>
-                ))}
-              </ul>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className={getTabPaneClass("Map")}>
-          <h4
-            className="fw-semibold mb-3"
-            style={{ color: "#0C2D57", fontFamily: "Ivy Mode" }}
-          >
-            Map
-          </h4>
-          <div className="international-map-wrap">
-            <div className="ratio ratio-21x9 shadow rounded-3">
-              <iframe
-                src={`https://www.google.com/maps?q=${encodeURIComponent(
-                  packageData.mapQuery
-                )}&output=embed`}
-                title={`${packageData.title} tour map`}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                style={{ borderRadius: 10 }}
-              ></iframe>
+          <div className={getTabPaneClass("Cost")}>
+            <h4 className="international-detail-section-title">Cost</h4>
+            <div className="row d-flex flex-column">
+              <div className="col-md-6 mb-4">
+                <h6 className="international-detail-subtitle">
+                  The Cost Includes
+                </h6>
+                <ul className="international-detail-list list-unstyled">
+                  {packageData.costIncludes.map((text, i) => (
+                    <li key={i} className="international-detail-list-item">
+                      <span
+                        className="material-symbols-outlined international-detail-list-icon international-detail-list-icon--include"
+                      >
+                        task_alt
+                      </span>
+                      <span className="international-detail-copy">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="col-md-6 mb-4">
+                <h6 className="international-detail-subtitle">
+                  The Cost Excludes
+                </h6>
+                <ul className="international-detail-list list-unstyled">
+                  {packageData.costExcludes.map((text, i) => (
+                    <li key={i} className="international-detail-list-item">
+                      <span
+                        className="material-symbols-outlined international-detail-list-icon international-detail-list-icon--exclude"
+                      >
+                        cancel
+                      </span>
+                      <span className="international-detail-copy">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div className={getTabPaneClass("Map")}>
+            <h4 className="international-detail-section-title">Map</h4>
+            <div className="international-map-wrap">
+              <div className="ratio ratio-21x9 shadow rounded-3">
+                <iframe
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(
+                    packageData.mapQuery
+                  )}&output=embed`}
+                  title={`${packageData.title} tour map`}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  style={{ borderRadius: 10 }}
+                ></iframe>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

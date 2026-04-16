@@ -17,7 +17,7 @@ export const siteNavItems: ReadonlyArray<{
   { label: "Domestic", href: "/#domestic", key: "domestic" },
   { label: "Honeymoon", href: "/#honeymoon", key: "honeymoon" },
   { label: "Gallery", href: "/gallery", key: "gallery" },
-  { label: "Blog", href: "/blog/maldives-packing-guide", key: "blog" },
+  { label: "Blog", href: "/blog", key: "blog" },
   { label: "Contact Us", href: "/contact", key: "contact" },
 ] as const;
 
@@ -27,7 +27,7 @@ export const normalizePath = (pathname: string) => {
 };
 
 export const getLocationKey = () =>
-  `${normalizePath(window.location.pathname)}${window.location.hash}`;
+  `${normalizePath(window.location.pathname)}${window.location.search}${window.location.hash}`;
 
 export const scrollToHash = (hash: string, behavior: ScrollBehavior = "smooth") => {
   const targetId = hash.replace(/^#/, "");
@@ -39,9 +39,13 @@ export const scrollToHash = (hash: string, behavior: ScrollBehavior = "smooth") 
   section.scrollIntoView({ behavior, block: "start" });
 };
 
-export const navigateTo = (href: string) => {
+type NavigateOptions = {
+  replace?: boolean;
+};
+
+export const navigateTo = (href: string, options: NavigateOptions = {}) => {
   const url = new URL(href, window.location.origin);
-  const nextLocation = `${normalizePath(url.pathname)}${url.hash}`;
+  const nextLocation = `${normalizePath(url.pathname)}${url.search}${url.hash}`;
   const currentLocation = getLocationKey();
 
   if (nextLocation === currentLocation) {
@@ -54,6 +58,12 @@ export const navigateTo = (href: string) => {
     return;
   }
 
-  window.history.pushState({}, "", `${normalizePath(url.pathname)}${url.hash}`);
+  const historyMethod = options.replace ? "replaceState" : "pushState";
+
+  window.history[historyMethod](
+    {},
+    "",
+    `${normalizePath(url.pathname)}${url.search}${url.hash}`
+  );
   window.dispatchEvent(new PopStateEvent("popstate"));
 };

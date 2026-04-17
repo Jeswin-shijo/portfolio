@@ -7,11 +7,9 @@
   padding: 3.25rem 0 4rem;
 }
 
-/* centered content width like design */
 .galleryview-inner {
-  max-width: 2000px;
-  margin: 0 auto;
-  padding: 0 24px;
+  width: min(var(--site-max-width), calc(100% - (var(--site-gutter) * 2)));
+  margin-inline: auto;
 }
 
 .galleryview-header {
@@ -203,10 +201,6 @@
 @media (max-width: 575.98px) {
   .galleryview-container {
     padding: 2.25rem 0 3rem;
-  }
-
-  .galleryview-inner {
-    padding: 0 16px;
   }
 
   .galleryview-header {

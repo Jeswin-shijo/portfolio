@@ -10,8 +10,13 @@ import {
 
 type Props = {};
 
+const configuredReviewsApiUrl = process.env.REACT_APP_REVIEWS_API_URL?.trim();
+const isLocalDevelopment =
+  process.env.NODE_ENV === "development" &&
+  typeof window !== "undefined" &&
+  /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
 const reviewsApiUrl =
-  process.env.REACT_APP_REVIEWS_API_URL || "/api/google-reviews";
+  configuredReviewsApiUrl || (isLocalDevelopment ? null : "/api/google-reviews");
 
 const ReviewScreen = (props: Props) => {
   const [reviewsData, setReviewsData] = useState<ReviewsApiResponse | null>(null);
@@ -19,6 +24,12 @@ const ReviewScreen = (props: Props) => {
   const [loadError, setLoadError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!reviewsApiUrl) {
+      setIsLoading(false);
+      setLoadError(null);
+      return;
+    }
+
     const controller = new AbortController();
 
     const loadReviews = async () => {

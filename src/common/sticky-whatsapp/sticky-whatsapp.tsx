@@ -1,7 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./sticky-whatsapp.css";
 import logo from "../../assets/logo/popup-logo-light.svg";
-import bgImage from "../../assets/whatsapp background/logo.jpg"
+import bgImage from "../../assets/whatsapp background/logo.jpg";
+
+const defaultWhatsappNumber = "919791244717";
+const whatsappNumber = (
+  process.env.REACT_APP_WHATSAPP_CHAT_NUMBER || defaultWhatsappNumber
+).replace(/\D/g, "");
+const whatsappMessage =
+  process.env.REACT_APP_WHATSAPP_CHAT_MESSAGE ||
+  "Hi PopUp Tours! I would like to know more about your tour packages.";
+const whatsappHref = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(
+  whatsappMessage
+)}`;
 
 const StickyWhatsApp = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -53,7 +64,7 @@ const StickyWhatsApp = () => {
             </div>
           </div>
           <a
-            href="https://wa.me/9791244717"
+            href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             className="start-chat"

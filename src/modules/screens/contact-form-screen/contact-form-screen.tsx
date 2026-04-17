@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./contact-form-screen.css";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -7,6 +7,7 @@ import GradientContainer from "../../../shared/components/gradient-container";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Dayjs } from "dayjs";
+import { tourPackages } from "../../../data/tour-packages";
 
 type SubmitStatus = {
   type: "success" | "error";
@@ -37,10 +38,31 @@ const initialFormData: ContactFormData = {
   website: "",
 };
 
+const vacationTypeOptions = ["Family", "Couple", "Group"] as const;
+
+const destinationOptions = Array.from(
+  new Set([
+    ...tourPackages.map((item) => item.title),
+    "Ooty",
+    "Alleppey Backwaters",
+    "Fort Aguada",
+    "Botanical Garden",
+    "Amber Fort",
+    "Radhanagar Beach",
+    "Srinagar, Pahalgam",
+  ])
+);
+
 const ContactFormScreen = () => {
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>(null);
+  const searchParams =
+    typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search)
+      : new URLSearchParams();
+  const prefilledDestination = searchParams.get("destination")?.trim() || "";
+  const prefilledVacationType = searchParams.get("vacationType")?.trim() || "";
 
   const emailJsServiceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
   const emailJsTemplateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
@@ -57,6 +79,21 @@ const ContactFormScreen = () => {
   const updateField = (name: keyof ContactFormData, value: string | Dayjs | null) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  useEffect(() => {
+    setFormData({
+      ...initialFormData,
+      destination: destinationOptions.includes(prefilledDestination)
+        ? prefilledDestination
+        : "",
+      vacationType: vacationTypeOptions.includes(
+        prefilledVacationType as (typeof vacationTypeOptions)[number]
+      )
+        ? prefilledVacationType
+        : "",
+    });
+    setSubmitStatus(null);
+  }, [prefilledDestination, prefilledVacationType]);
 
   const buildTemplateParams = () => ({
     name: formData.name,
@@ -326,9 +363,11 @@ const ContactFormScreen = () => {
                         <option value="" disabled className="secondary-text">
                           Select Destination
                         </option>
-                        <option>Sri Lanka</option>
-                        <option>Bali</option>
-                        <option>Thailand</option>
+                        {destinationOptions.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>
@@ -391,9 +430,11 @@ const ContactFormScreen = () => {
                         <option value="" disabled className="secondary-text">
                           Select Type
                         </option>
-                        <option>Family</option>
-                        <option>Couple</option>
-                        <option>Group</option>
+                        {vacationTypeOptions.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>

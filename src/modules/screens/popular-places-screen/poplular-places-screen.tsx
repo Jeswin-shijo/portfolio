@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import ScreenName from "../../../shared/components/screen-name";
+import { buildPackageHref } from "../../../data/tour-packages";
+import { navigateTo } from "../../../shared/navigation/site-navigation";
 import "./poplular-places-screen.css";
 
 type Place = {
+  slug: string;
   title: string;
   description: string;
   image: string;
@@ -10,6 +13,7 @@ type Place = {
 
 const places: Place[] = [
   {
+    slug: "sri-lanka",
     title: "Sri Lanka Packages",
     description:
       "Sri Lanka, historically known as Ceylon and officially the Democratic Socialist Republic of Sri Lanka, is an island country in South Asia. It lies in the Indian Ocean southwest of the Bay of Bengal.",
@@ -17,6 +21,7 @@ const places: Place[] = [
       "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1400&q=80",
   },
   {
+    slug: "bali",
     title: "Bali Packages",
     description:
       "Explore Bali's ancient temples, emerald rice terraces, and iconic beaches. From spiritual retreats to lively coastal towns, Bali blends culture and relaxation beautifully.",
@@ -24,6 +29,7 @@ const places: Place[] = [
       "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1400&q=80",
   },
   {
+    slug: "wayanad",
     title: "Wayanad Packages",
     description:
       "Discover lush greenery, misty viewpoints, wildlife sanctuaries, and hidden waterfalls in Wayanad. A perfect getaway for nature lovers and slow-travel explorers.",
@@ -31,6 +37,7 @@ const places: Place[] = [
       "https://images.unsplash.com/photo-1593696954577-ab3d39317b97?auto=format&fit=crop&w=1400&q=80",
   },
   {
+    slug: "munnar",
     title: "Munnar Package",
     description:
       "Enjoy rolling tea plantations, cool mountain air, and scenic drives through Munnar. This hill station is ideal for peaceful stays and refreshing landscapes.",
@@ -38,6 +45,7 @@ const places: Place[] = [
       "https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=1400&q=80",
   },
   {
+    slug: "thailand",
     title: "Thailand Package",
     description:
       "Experience vibrant markets, tropical beaches, ornate temples, and rich Thai culture. Thailand offers the right mix of adventure, food, and island relaxation.",
@@ -48,6 +56,7 @@ const places: Place[] = [
 
 const PopularPlacesBootstrap = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const activePlace = places[activeIndex];
 
   return (
     <section className="popular-places-section">
@@ -86,19 +95,23 @@ const PopularPlacesBootstrap = () => {
             <div className="popular-places-image-wrap">
               <div className="popular-places-image">
                 <img
-                  src={places[activeIndex].image}
-                  alt={places[activeIndex].title}
+                  src={activePlace.image}
+                  alt={activePlace.title}
                   className="img-fluid w-100 h-100"
                 />
               </div>
             </div>
 
             <div className="popular-places-content">
-              <h4 className="sub-title-text">{places[activeIndex].title}</h4>
+              <h4 className="sub-title-text">{activePlace.title}</h4>
               <p className="secondary-text">
-                {places[activeIndex].description}
+                {activePlace.description}
               </p>
-              <button type="button" className="popular-places-cta">
+              <button
+                type="button"
+                className="popular-places-cta"
+                onClick={() => navigateTo(buildPackageHref(activePlace.slug))}
+              >
                 Explore More <i className="bi bi-box-arrow-up-right"></i>
               </button>
             </div>

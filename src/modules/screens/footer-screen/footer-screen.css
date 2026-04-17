@@ -1,3 +1,10 @@
+.footer-screen__brand-home {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+}
+
 .footer-screen__brand-logo {
   display: block;
   padding-left: 0;
@@ -22,6 +29,12 @@ footer ul li:hover {
   color: inherit;
   padding: 0;
   text-align: left;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link-btn--inline {
+  display: inline;
 }
 
 .footer-link-btn:hover {
@@ -44,6 +57,47 @@ footer a:hover {
 
 .footer-screen__meta-item {
   word-break: break-word;
+}
+
+.footer-screen__meta-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.45rem;
+}
+
+.footer-screen__meta-link {
+  color: inherit;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.footer-screen__meta-link:hover {
+  color: #ffc107;
+}
+
+.footer-screen__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-screen__social-link:hover {
+  color: #ffc107;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.footer-screen__social-link--disabled {
+  opacity: 0.45;
+  cursor: default;
 }
 
 .footer-screen__legal a {

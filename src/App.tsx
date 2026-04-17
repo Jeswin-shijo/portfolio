@@ -10,6 +10,8 @@ import ContactPage from "./pages/contact-page";
 import GalleryRoutePage from "./pages/gallery-route-page";
 import HomePage from "./pages/home-page";
 import PackageDetailPage from "./pages/package-detail-page";
+import PrivacyPolicyPage from "./pages/privacy-policy-page";
+import TermsPage from "./pages/terms-page";
 import {
   getLocationKey,
   type NavKey,
@@ -102,6 +104,14 @@ function App() {
         break;
       case "/contact":
         page = <ContactPage />;
+        break;
+      case "/terms":
+      case "/terms-and-conditions":
+        page = <TermsPage />;
+        break;
+      case "/policy":
+      case "/privacy-policy":
+        page = <PrivacyPolicyPage />;
         break;
       default:
         page = <HomePage />;

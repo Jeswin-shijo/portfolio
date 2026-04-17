@@ -592,6 +592,11 @@ export const featuredDestinationPackages = [
   "sri-lanka",
   "bali",
   "thailand",
+  "wayanad",
+  "coorg",
+  "maldives",
+  "kashmir",
+  "manali",
 ]
   .map((slug) => getPackageBySlug(slug))
   .filter((item): item is TourPackage => Boolean(item));

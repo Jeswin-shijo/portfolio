@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   buildPackageHref,
   featuredDestinationPackages,
@@ -7,8 +7,53 @@ import TourCard from "./tourcard";
 import ScreenName from "../../../shared/components/screen-name";
 import { navigateTo } from "../../../shared/navigation/site-navigation";
 
+const getVisibleCount = (width: number) => {
+  if (width < 576) return 1;
+  if (width < 992) return 2;
+  return 4;
+};
+
 const DestinationScreen = () => {
-  const [activeBtn, setActiveBtn] = useState<"left" | "right" | null>("right");
+  const [visibleStart, setVisibleStart] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(() =>
+    typeof window === "undefined" ? 4 : getVisibleCount(window.innerWidth)
+  );
+
+  useEffect(() => {
+    const syncVisibleCount = () => {
+      setVisibleCount(getVisibleCount(window.innerWidth));
+    };
+
+    syncVisibleCount();
+    window.addEventListener("resize", syncVisibleCount);
+    return () => window.removeEventListener("resize", syncVisibleCount);
+  }, []);
+
+  useEffect(() => {
+    setVisibleStart((current) =>
+      Math.min(
+        current,
+        Math.max(0, featuredDestinationPackages.length - visibleCount)
+      )
+    );
+  }, [visibleCount]);
+
+  const maxVisibleStart = Math.max(
+    0,
+    featuredDestinationPackages.length - visibleCount
+  );
+  const canGoPrev = visibleStart > 0;
+  const canGoNext = visibleStart < maxVisibleStart;
+  const visiblePackages = useMemo(
+    () =>
+      featuredDestinationPackages.slice(
+        visibleStart,
+        visibleStart + visibleCount
+      ),
+    [visibleCount, visibleStart]
+  );
+  const featuredPackage =
+    visiblePackages[0] || featuredDestinationPackages[0];
 
   return (
     <>
@@ -36,30 +81,38 @@ const DestinationScreen = () => {
               type="button"
               className="btn btn-warning text-dark d-inline-flex align-items-center gap-2 rounded-3"
               style={{ maxWidth: "170px" }}
-              onClick={() => navigateTo("/packages/thailand")}
+              onClick={() => navigateTo(buildPackageHref(featuredPackage.slug))}
             >
               Explore More <i className="bi bi-box-arrow-up-right"></i>
             </button>
 
             <div className="d-flex justify-content-end gap-3">
               <button
+                type="button"
                 className={`btn rounded-3 ${
-                  activeBtn === "left"
-                    ? "btn-warning text-white"
-                    : "btn-outline-secondary"
+                  canGoPrev ? "btn-warning text-white" : "btn-outline-secondary"
                 }`}
-                onClick={() => setActiveBtn("left")}
+                onClick={() =>
+                  setVisibleStart((current) => Math.max(0, current - 1))
+                }
+                disabled={!canGoPrev}
+                aria-label="Show previous destinations"
               >
                 <i className="bi bi-arrow-left"></i>
               </button>
 
               <button
+                type="button"
                 className={`btn rounded-3 ${
-                  activeBtn === "right"
-                    ? "btn-warning text-white"
-                    : "btn-outline-secondary"
+                  canGoNext ? "btn-warning text-white" : "btn-outline-secondary"
                 }`}
-                onClick={() => setActiveBtn("right")}
+                onClick={() =>
+                  setVisibleStart((current) =>
+                    Math.min(maxVisibleStart, current + 1)
+                  )
+                }
+                disabled={!canGoNext}
+                aria-label="Show next destinations"
               >
                 <i className="bi bi-arrow-right"></i>
               </button>
@@ -70,7 +123,7 @@ const DestinationScreen = () => {
 
       <section className="pb-5 pt-0">
         <div className="site-container d-flex gap-4 flex-wrap justify-content-between pt-0">
-          {featuredDestinationPackages.map((pkg) => (
+          {visiblePackages.map((pkg) => (
             <TourCard
               key={pkg.slug}
               image={pkg.cardImage}

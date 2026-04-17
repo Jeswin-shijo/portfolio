@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   buildPackageHref,
   getPackagesByCategory,
@@ -14,11 +14,30 @@ const tabs = [
   { label: "Honeymoon", value: "honeymoon" },
 ] as const;
 
+const visiblePackageCount = 3;
+
 const TourPackagesScreen = () => {
   const [activeTab, setActiveTab] = useState<PackageCategory>("international");
-  const [activeBtn, setActiveBtn] = useState<"left" | "right" | null>("right");
-
+  const [packageOffset, setPackageOffset] = useState(0);
   const places = getPackagesByCategory(activeTab);
+  const canRotatePackages = places.length > 1;
+
+  useEffect(() => {
+    setPackageOffset(0);
+  }, [activeTab]);
+
+  const visiblePlaces = useMemo(() => {
+    if (places.length === 0) {
+      return [];
+    }
+
+    const rotatedPlaces = [
+      ...places.slice(packageOffset),
+      ...places.slice(0, packageOffset),
+    ];
+
+    return rotatedPlaces.slice(0, Math.min(visiblePackageCount, places.length));
+  }, [packageOffset, places]);
 
   return (
     <div className="py-5">
@@ -60,8 +79,8 @@ const TourPackagesScreen = () => {
         </div>
 
         {/* Cards */}
-        <div key={activeTab} className="row g-4 tour-packages-cards">
-          {places.map((place) => (
+        <div key={`${activeTab}-${packageOffset}`} className="row g-4 tour-packages-cards">
+          {visiblePlaces.map((place) => (
             <div className="col-12 col-sm-6 col-md-4" key={place.slug}>
               <LocationCard
                 imageSrc={place.cardImage}
@@ -74,23 +93,33 @@ const TourPackagesScreen = () => {
 
         <div className="d-flex justify-content-end gap-2 mt-4">
           <button
+            type="button"
             className={`btn rounded-3 ${
-              activeBtn === "left"
-                ? "btn-warning text-white"
-                : "btn-outline-secondary"
+              canRotatePackages ? "btn-warning text-white" : "btn-outline-secondary"
             }`}
-            onClick={() => setActiveBtn("left")}
+            onClick={() =>
+              canRotatePackages &&
+              setPackageOffset((current) =>
+                current === 0 ? places.length - 1 : current - 1
+              )
+            }
+            disabled={!canRotatePackages}
+            aria-label="Show previous packages in this category"
           >
             <i className="bi bi-arrow-left"></i>
           </button>
 
           <button
+            type="button"
             className={`btn rounded-3 ${
-              activeBtn === "right"
-                ? "btn-warning text-white"
-                : "btn-outline-secondary"
+              canRotatePackages ? "btn-warning text-white" : "btn-outline-secondary"
             }`}
-            onClick={() => setActiveBtn("right")}
+            onClick={() =>
+              canRotatePackages &&
+              setPackageOffset((current) => (current + 1) % places.length)
+            }
+            disabled={!canRotatePackages}
+            aria-label="Show next packages in this category"
           >
             <i className="bi bi-arrow-right"></i>
           </button>

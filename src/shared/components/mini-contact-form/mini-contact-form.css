@@ -18,8 +18,27 @@
   }
 }
 
+.mini-contact-form__submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
 .mini-contact-form__submit-label {
   line-height: 1;
+}
+
+.mini-contact-form__status {
+  margin: 0.85rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.mini-contact-form__status--success {
+  color: #d5f7df;
+}
+
+.mini-contact-form__status--error {
+  color: #ffd6d6;
 }
 
 .form-select,

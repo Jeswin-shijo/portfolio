@@ -25,10 +25,10 @@
 }
 
 .gallery-lede {
-  max-width: 920px;
+  max-width: 72ch;
   margin-top: 1rem;
-  font-size: 0.95rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.8;
   color: #495057;
 }
 
@@ -127,6 +127,19 @@
   .gallery-container {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+  }
+
+  .gallery-header {
+    margin-bottom: 1.85rem;
+  }
+
+  .gallery-heading {
+    font-size: 2.2rem;
+  }
+
+  .gallery-lede {
+    font-size: 0.96rem;
+    line-height: 1.75;
   }
 
   .album-collage {

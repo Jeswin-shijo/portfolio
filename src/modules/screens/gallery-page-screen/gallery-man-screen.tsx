@@ -2,30 +2,67 @@ import React from "react";
 import GalleryAlbumCard from "../../../shared/components/gallery-album-card";
 import "./gallery-page.css";
 
-// Replace these with your own images (local assets or CDN)
-const IMG_MAIN =
-  "https://images.unsplash.com/photo-1526481280695-3c687fd5432c?auto=format&fit=crop&w=1200&q=70";
-const IMG_TOP =
-  "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=900&q=70";
-const IMG_BOTTOM =
-  "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=70";
-
 export type Album = {
   title: string;
   count: number;
   images: string[];
 };
 
-const createAlbumImages = (seed: string): string[] =>
-  [
-    IMG_MAIN,
-    IMG_TOP,
-    IMG_BOTTOM,
-    ...Array.from({ length: 9 }).map(
-      (_, index) =>
-        `https://picsum.photos/seed/${seed}-${index + 1}/1400/900`
-    ),
-  ];
+const albumImageSets: Record<string, string[]> = {
+  bali: [
+    "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=80",
+  ],
+  wayanad: [
+    "https://images.unsplash.com/photo-1593696954577-ab3d39317b97?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=80",
+  ],
+  kodaikanal: [
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=900&q=80",
+  ],
+  munnar: [
+    "https://images.unsplash.com/photo-1566552881560-0be862a7c445?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+  ],
+  "sri-lanka": [
+    "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=80",
+  ],
+  thailand: [
+    "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80",
+  ],
+  manali: [
+    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+  ],
+  ooty: [
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=900&q=80",
+  ],
+  alappuzha: [
+    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
+  ],
+};
+
+const createAlbumImages = (seed: string): string[] => [
+  ...(albumImageSets[seed] || albumImageSets.ooty),
+  ...Array.from(
+    { length: 9 },
+    (_, index) => `https://picsum.photos/seed/${seed}-${index + 1}/1400/900`
+  ),
+];
 
 const albums: Album[] = [
   { title: "Bali", count: 12, images: createAlbumImages("bali") },
@@ -46,7 +83,7 @@ type GalleryPageProps = {
 const GalleryPage: React.FC<GalleryPageProps> = ({ onAlbumSelect }) => {
   return (
     <main className="gallery-page">
-      <div className="p-5 gallery-container">
+      <div className="site-container gallery-container">
         <header className="gallery-header">
           <h1 className="gallery-heading">Moments That Inspire Journeys</h1>
           <p className="gallery-lede">
@@ -58,7 +95,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onAlbumSelect }) => {
 
         <div className="row g-4 g-lg-5">
           {albums.map((a) => (
-            <div className="col-12 col-sm-6 col-lg-4 col-xxl-3" key={a.title}>
+            <div className="col-12 col-sm-6 col-lg-4" key={a.title}>
               <GalleryAlbumCard
                 title={a.title}
                 count={a.count}

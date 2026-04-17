@@ -8,21 +8,13 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Dayjs } from "dayjs";
 import { tourPackages } from "../../../data/tour-packages";
+import {
+  submitLeadForm,
+  type LeadFormPayload,
+  type LeadSubmitStatus,
+} from "../../../shared/contact/lead-submission";
 
-type SubmitStatus = {
-  type: "success" | "error";
-  message: string;
-} | null;
-
-type ContactFormData = {
-  name: string;
-  email: string;
-  whatsapp: string;
-  phone: string;
-  destination: string;
-  travelDate: Dayjs | null;
-  people: string;
-  vacationType: string;
+type ContactFormData = LeadFormPayload & {
   website: string;
 };
 
@@ -56,7 +48,7 @@ const destinationOptions = Array.from(
 const ContactFormScreen = () => {
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>(null);
+  const [submitStatus, setSubmitStatus] = useState<LeadSubmitStatus | null>(null);
   const searchParams =
     typeof window !== "undefined"
       ? new URLSearchParams(window.location.search)
@@ -71,10 +63,7 @@ const ContactFormScreen = () => {
   const isEmailJsConfigured = Boolean(
     emailJsServiceId && emailJsTemplateId && emailJsPublicKey
   );
-  const whatsappApiUrl =
-    process.env.REACT_APP_WHATSAPP_API_URL ||
-    "http://localhost:5001/api/whatsapp-lead";
-  const isWhatsappConfigured = Boolean(whatsappApiUrl);
+  const whatsappApiUrl = process.env.REACT_APP_WHATSAPP_API_URL;
 
   const updateField = (name: keyof ContactFormData, value: string | Dayjs | null) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -95,55 +84,6 @@ const ContactFormScreen = () => {
     setSubmitStatus(null);
   }, [prefilledDestination, prefilledVacationType]);
 
-  const buildTemplateParams = () => ({
-    name: formData.name,
-    email: formData.email,
-    whatsapp: formData.whatsapp || "Not provided",
-    phone: formData.phone || "Not provided",
-    destination: formData.destination,
-    date_of_travel: formData.travelDate
-      ? formData.travelDate.format("DD MMM YYYY")
-      : "Not provided",
-    no_of_people: formData.people || "Not provided",
-    vacation_type: formData.vacationType || "Not provided",
-    submitted_at: new Date().toLocaleString(),
-  });
-
-  const sendEmailLead = async () => {
-    const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        service_id: emailJsServiceId,
-        template_id: emailJsTemplateId,
-        user_id: emailJsPublicKey,
-        template_params: buildTemplateParams(),
-      }),
-    });
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(errorText || "Unable to send email lead.");
-    }
-  };
-
-  const sendWhatsappLead = async () => {
-    const response = await fetch(whatsappApiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(buildTemplateParams()),
-    });
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(errorText || "Unable to send WhatsApp lead.");
-    }
-  };
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitStatus(null);
@@ -152,7 +92,7 @@ const ContactFormScreen = () => {
       return;
     }
 
-    if (!isEmailJsConfigured && !isWhatsappConfigured) {
+    if (!isEmailJsConfigured && !whatsappApiUrl) {
       setSubmitStatus({
         type: "error",
         message: "Form channels are not configured yet.",
@@ -160,52 +100,43 @@ const ContactFormScreen = () => {
       return;
     }
 
-    if (!formData.name || !formData.email || !formData.destination) {
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.whatsapp.trim() ||
+      !formData.destination.trim()
+    ) {
       setSubmitStatus({
         type: "error",
-        message: "Please fill Name, Email, and Travel Destination.",
+        message:
+          "Please fill Name, Email, WhatsApp number, and Travel Destination.",
       });
       return;
     }
 
     setIsSubmitting(true);
 
-    let emailSent = false;
-    let whatsappSent = false;
-    const errors: string[] = [];
-
     try {
-      if (isEmailJsConfigured) {
-        try {
-          await sendEmailLead();
-          emailSent = true;
-        } catch {
-          errors.push("email");
-        }
-      }
+      const { status, shouldReset } = await submitLeadForm(formData, {
+        emailJsServiceId,
+        emailJsTemplateId,
+        emailJsPublicKey,
+        whatsappApiUrl,
+      });
 
-      if (isWhatsappConfigured) {
-        try {
-          await sendWhatsappLead();
-          whatsappSent = true;
-        } catch {
-          errors.push("whatsapp");
-        }
-      }
+      setSubmitStatus(status);
 
-      if (emailSent || whatsappSent) {
-        setSubmitStatus({
-          type: "success",
-          message:
-            errors.length > 0
-              ? "Lead submitted. One channel failed, please verify integrations."
-              : "Thanks! Your request was sent successfully.",
-        });
-        setFormData(initialFormData);
-      } else {
-        setSubmitStatus({
-          type: "error",
-          message: "Submission failed. Please check EmailJS/Twilio configuration.",
+      if (shouldReset) {
+        setFormData({
+          ...initialFormData,
+          destination: destinationOptions.includes(prefilledDestination)
+            ? prefilledDestination
+            : "",
+          vacationType: vacationTypeOptions.includes(
+            prefilledVacationType as (typeof vacationTypeOptions)[number]
+          )
+            ? prefilledVacationType
+            : "",
         });
       }
     } finally {
@@ -314,6 +245,10 @@ const ContactFormScreen = () => {
                         country={"in"}
                         value={formData.whatsapp}
                         onChange={(phone) => updateField("whatsapp", phone)}
+                        inputProps={{
+                          name: "whatsapp",
+                          required: true,
+                        }}
                         containerStyle={{
                           borderRadius: "8px",
                         }}

@@ -232,7 +232,7 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
 
       <aside className="international-detail-contact">
         <div className="international-detail-contact-sticky">
-          <MiniContactForm />
+          <MiniContactForm destination={packageData.title} />
         </div>
       </aside>
     </div>

@@ -3,6 +3,7 @@ import "./footer-screen.css";
 import logo from "../../../assets/logo/popup-logo-light.svg";
 import { navigateTo } from "../../../shared/navigation/site-navigation";
 import { buildPackageHref } from "../../../data/tour-packages";
+import { env } from "../../../config/env";
 
 type FooterLink = {
   label: string;
@@ -126,29 +127,25 @@ const FooterScreen = () => {
   const socialLinks = [
     {
       label: "Facebook",
-      href: process.env.REACT_APP_SOCIAL_FACEBOOK_URL || "",
+      href: env.social.facebook,
       iconClassName: "fab fa-facebook-f",
       external: true,
     },
     {
       label: "Instagram",
-      href:
-        process.env.REACT_APP_SOCIAL_INSTAGRAM_URL ||
-        "https://www.instagram.com/popuptours.in?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      href: env.social.instagram,
       iconClassName: "fab fa-instagram",
       external: true,
     },
     {
       label: "X / Twitter",
-      href: process.env.REACT_APP_SOCIAL_X_URL || "",
+      href: env.social.x,
       iconClassName: "fab fa-twitter",
       external: true,
     },
     {
       label: "YouTube",
-      href:
-        process.env.REACT_APP_SOCIAL_YOUTUBE_URL ||
-        "https://www.youtube.com/@PopUpTours",
+      href: env.social.youtube,
       iconClassName: "fab fa-youtube",
       external: true,
     },

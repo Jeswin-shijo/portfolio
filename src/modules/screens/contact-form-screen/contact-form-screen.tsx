@@ -4,8 +4,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import GradientContainer from "../../../shared/components/gradient-container";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+import PhoneInputField from "../../../shared/components/phone-input-field";
 import { Dayjs } from "dayjs";
 import { tourPackages } from "../../../data/tour-packages";
 import {
@@ -13,6 +12,7 @@ import {
   type LeadFormPayload,
   type LeadSubmitStatus,
 } from "../../../shared/contact/lead-submission";
+import { env, hasEmailJsConfig } from "../../../config/env";
 
 type ContactFormData = LeadFormPayload & {
   website: string;
@@ -56,14 +56,8 @@ const ContactFormScreen = () => {
   const prefilledDestination = searchParams.get("destination")?.trim() || "";
   const prefilledVacationType = searchParams.get("vacationType")?.trim() || "";
 
-  const emailJsServiceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-  const emailJsTemplateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-  const emailJsPublicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
-
-  const isEmailJsConfigured = Boolean(
-    emailJsServiceId && emailJsTemplateId && emailJsPublicKey
-  );
-  const whatsappApiUrl = process.env.REACT_APP_WHATSAPP_API_URL;
+  const isEmailJsConfigured = hasEmailJsConfig();
+  const whatsappApiUrl = env.whatsapp.apiUrl;
 
   const updateField = (name: keyof ContactFormData, value: string | Dayjs | null) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -118,9 +112,9 @@ const ContactFormScreen = () => {
 
     try {
       const { status, shouldReset } = await submitLeadForm(formData, {
-        emailJsServiceId,
-        emailJsTemplateId,
-        emailJsPublicKey,
+        emailJsServiceId: env.emailJs.serviceId,
+        emailJsTemplateId: env.emailJs.templateId,
+        emailJsPublicKey: env.emailJs.publicKey,
         whatsappApiUrl,
       });
 
@@ -241,22 +235,11 @@ const ContactFormScreen = () => {
                       Whatsapp
                     </label>
                     <div className="input-group">
-                      <PhoneInput
-                        country={"in"}
+                      <PhoneInputField
                         value={formData.whatsapp}
                         onChange={(phone) => updateField("whatsapp", phone)}
-                        inputProps={{
-                          name: "whatsapp",
-                          required: true,
-                        }}
-                        containerStyle={{
-                          borderRadius: "8px",
-                        }}
-                        inputStyle={{
-                          height: "50px",
-                          borderRadius: "8px 8px 8px 8px",
-                          width: "100%",
-                        }}
+                        name="whatsapp"
+                        required
                       />
                     </div>
                   </div>
@@ -266,18 +249,9 @@ const ContactFormScreen = () => {
                       Phone
                     </label>
                     <div className="input-group">
-                      <PhoneInput
-                        country={"in"}
+                      <PhoneInputField
                         value={formData.phone}
                         onChange={(phone) => updateField("phone", phone)}
-                        containerStyle={{
-                          borderRadius: "8px",
-                        }}
-                        inputStyle={{
-                          height: "50px",
-                          borderRadius: "8px 8px 8px 8px",
-                          width: "100%",
-                        }}
                       />
                     </div>
                   </div>

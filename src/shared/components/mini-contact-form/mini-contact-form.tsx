@@ -1,12 +1,12 @@
 import { useState } from "react";
 import GradientContainer from "../gradient-container";
+import PhoneInputField from "../phone-input-field";
 import "./mini-contact-form.css";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
 import {
   submitLeadForm,
   type LeadSubmitStatus,
 } from "../../contact/lead-submission";
+import { env } from "../../../config/env";
 
 type MiniContactFormProps = {
   destination?: string;
@@ -20,10 +20,6 @@ const MiniContactForm = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<LeadSubmitStatus | null>(null);
 
-  const emailJsServiceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-  const emailJsTemplateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-  const emailJsPublicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
-  const whatsappApiUrl = process.env.REACT_APP_WHATSAPP_API_URL;
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -52,10 +48,10 @@ const MiniContactForm = ({
           vacationType: "",
         },
         {
-          emailJsServiceId,
-          emailJsTemplateId,
-          emailJsPublicKey,
-          whatsappApiUrl,
+          emailJsServiceId: env.emailJs.serviceId,
+          emailJsTemplateId: env.emailJs.templateId,
+          emailJsPublicKey: env.emailJs.publicKey,
+          whatsappApiUrl: env.whatsapp.apiUrl,
         }
       );
 
@@ -106,22 +102,11 @@ const MiniContactForm = ({
             Whatsapp
           </label>
           <div className="input-group">
-            <PhoneInput
-              country={"in"}
+            <PhoneInputField
               value={whatsapp}
-              onChange={(phone) => setWhatsapp(phone)}
-              inputProps={{
-                name: "mini-whatsapp",
-                required: true,
-              }}
-              containerStyle={{
-                borderRadius: "8px",
-              }}
-              inputStyle={{
-                height: "50px",
-                borderRadius: "8px 8px 8px 8px",
-                width: "100%",
-              }}
+              onChange={setWhatsapp}
+              name="mini-whatsapp"
+              required
             />
           </div>
         </div>

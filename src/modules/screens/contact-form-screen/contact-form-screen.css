@@ -49,7 +49,7 @@
 }
 
 .contact-form-screen__submit-btn {
-  background-color: #facc15; 
+  background-color: #facc15;
   color: #1a1a1a;
   font-family: "Manrope";
   font-weight: 600;
@@ -63,10 +63,18 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease,
+              transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 220ms ease;
 
   &:hover {
-    background-color: #fbbf24; 
+    background-color: #fbbf24;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(250, 204, 21, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 }
 
@@ -147,5 +155,16 @@
 
   .contact-form-screen__submit-btn {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-screen__submit-btn {
+    min-height: 48px;
+    font-size: 0.95rem;
+  }
+  .gradient-line-1,
+  .gradient-line-2 {
+    width: 85%;
   }
 }

@@ -79,7 +79,7 @@ const DestinationScreen = () => {
 
             <button
               type="button"
-              className="btn btn-warning text-dark d-inline-flex align-items-center gap-2 rounded-3"
+              className="btn btn-warning text-dark d-inline-flex align-items-center gap-2 rounded-3 pt-press"
               style={{ maxWidth: "170px" }}
               onClick={() => navigateTo(buildPackageHref(featuredPackage.slug))}
             >
@@ -89,7 +89,7 @@ const DestinationScreen = () => {
             <div className="d-flex justify-content-end gap-3">
               <button
                 type="button"
-                className={`btn rounded-3 ${
+                className={`btn rounded-3 pt-press ${
                   canGoPrev ? "btn-warning text-white" : "btn-outline-secondary"
                 }`}
                 onClick={() =>
@@ -103,7 +103,7 @@ const DestinationScreen = () => {
 
               <button
                 type="button"
-                className={`btn rounded-3 ${
+                className={`btn rounded-3 pt-press ${
                   canGoNext ? "btn-warning text-white" : "btn-outline-secondary"
                 }`}
                 onClick={() =>
@@ -122,7 +122,10 @@ const DestinationScreen = () => {
       </section>
 
       <section className="pb-5 pt-0">
-        <div className="site-container d-flex gap-4 flex-wrap justify-content-between pt-0">
+        <div
+          key={visibleStart}
+          className="site-container d-flex gap-4 flex-wrap justify-content-between pt-0 destination-cards"
+        >
           {visiblePackages.map((pkg) => (
             <TourCard
               key={pkg.slug}

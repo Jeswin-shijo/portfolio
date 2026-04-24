@@ -3,8 +3,8 @@ import "./location-screen.css"
 
 const LocationScreen = () => {
   return (
-    <section className="py-5 bg-white p-5">
-        <div className="row align-items-center ps-5 pe-5">
+    <section className="location-section py-5 bg-white">
+        <div className="row align-items-center">
           <div className="col-md-6 mb-4 mb-md-0">
             <h2  className="screen-title mb-3">
               Our Office Location <br /> and Directions on Map
@@ -21,7 +21,7 @@ const LocationScreen = () => {
             </a>
           </div>
 
-          <div className="col-md-6 pt-5 pb-5 p-5">
+          <div className="col-md-6 map-col">
             <div className="ratio ratio-16x9 shadow rounded-3">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.0599167418636!2d77.23311417590673!3d8.196719291835079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04fe7ea4515e61%3A0xd45d8a362e8b7ad7!2sAlanchi%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1758367754669!5m2!1sen!2sin"

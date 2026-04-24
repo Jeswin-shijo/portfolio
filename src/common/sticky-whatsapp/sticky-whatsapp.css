@@ -15,6 +15,41 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 240ms ease;
+  animation: whatsapp-pulse 2.4s ease-in-out infinite;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+  animation-play-state: paused;
+}
+
+.whatsapp-icon:active {
+  transform: scale(0.94);
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2),
+                0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2),
+                0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+
+.start-chat {
+  transition: background-color 220ms ease,
+              transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.start-chat:hover {
+  background-color: #113c72;
+}
+.start-chat:active {
+  transform: scale(0.97);
 }
 
 .whatsapp-popup {
@@ -128,5 +163,11 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-icon {
+    animation: none;
   }
 }

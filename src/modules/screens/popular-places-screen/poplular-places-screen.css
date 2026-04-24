@@ -45,7 +45,19 @@
   line-height: 1.25;
   text-align: left;
   cursor: pointer;
-  transition: color 0.25s ease, border-color 0.25s ease;
+  transition: color 0.25s ease, border-color 0.25s ease,
+              padding-left 0.25s ease, background-color 0.25s ease;
+}
+
+.popular-place-item:hover {
+  color: #0c3f6a;
+  padding-left: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.popular-place-item:hover i {
+  transform: translateX(3px);
+  transition: transform 0.25s ease;
 }
 
 .popular-place-item i {
@@ -123,8 +135,20 @@
 }
 
 .popular-places-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(80, 64, 0, 0.22);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(80, 64, 0, 0.28);
+}
+
+.popular-places-cta:active {
+  transform: scale(0.97);
+}
+
+.popular-places-feature {
+  animation: pt-fade-in 380ms ease-out both;
+}
+
+.popular-places-image {
+  animation: pt-scale-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @media (max-width: 1199.98px) {
@@ -157,7 +181,8 @@
   }
 
   .popular-place-item {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
+    padding: 0.85rem 0.25rem;
   }
 
   .popular-places-intro {
@@ -166,5 +191,15 @@
 
   .popular-places-feature {
     gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popular-places-cta {
+    width: 100%;
+    justify-content: center;
+  }
+  .popular-place-item {
+    font-size: 0.98rem;
   }
 }

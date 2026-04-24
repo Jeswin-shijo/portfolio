@@ -14,4 +14,13 @@
   .review-screen__meta {
     max-width: none;
   }
+  .review-screen__lead .screen-title br {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-screen__lead .screen-title {
+    font-size: clamp(26px, 8vw, 34px);
+  }
 }

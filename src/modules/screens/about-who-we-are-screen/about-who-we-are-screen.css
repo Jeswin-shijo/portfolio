@@ -38,4 +38,20 @@
   .about-who-we-are__details {
     flex-direction: column;
   }
+
+  .about-who-we-are__media {
+    margin-top: 2rem;
+  }
+  .about-who-we-are__media .video-section__media {
+    max-height: 340px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-who-we-are__media .video-section__frame {
+    border-radius: 20px;
+  }
+  .about-who-we-are__media .video-section__media {
+    max-height: 260px;
+  }
 }

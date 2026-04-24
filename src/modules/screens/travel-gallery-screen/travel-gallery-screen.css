@@ -12,11 +12,17 @@
 }
 
 .image-card {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .image-card:hover {
-  transform: scale(1.02); /* Optional: slight zoom on hover */
+  transform: scale(1.02);
+  box-shadow: 0 14px 30px rgba(10, 19, 37, 0.15);
+}
+
+.image-card:active {
+  transform: scale(0.99);
 }
 
 .gallery-subtext {
@@ -35,6 +41,13 @@
     max-width: none;
   }
 
+  .masonry {
+    column-count: 2;
+    column-gap: 0.9rem;
+  }
+}
+
+@media (max-width: 380px) {
   .masonry {
     column-count: 1;
   }

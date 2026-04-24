@@ -44,6 +44,11 @@
   background: transparent;
   padding: 0;
   text-align: left;
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.album-card-btn:active {
+  transform: scale(0.98);
 }
 
 .album-card-btn:focus-visible {

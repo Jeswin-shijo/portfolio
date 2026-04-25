@@ -4,7 +4,7 @@
   align-items: center;
   gap: 1.2rem;
   color: rgba(255, 255, 255, 0.88);
-  font-family: "Manrope";
+  font-family: var(--font-body);
 }
 
 .package-detail-page__hero-meta span {
@@ -22,7 +22,12 @@
 
 .package-detail-page__hero-price strong {
   color: #f9cf02;
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 2.7rem);
+}
+
+.package-detail-page__related-card h3 {
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
 }
 
 .package-detail-page__hero-actions {
@@ -180,7 +185,7 @@
 
 .package-detail-page__related-title {
   margin: 0 0 2rem;
-  font-family: "Ivy Mode";
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3rem);
   color: #0c2d57;
 }
@@ -250,7 +255,7 @@
 
 .package-detail-page__related-content h3 {
   margin: 0 0 0.5rem;
-  font-family: "Ivy Mode";
+  font-family: var(--font-heading);
 }
 
 .package-detail-page__related-content p {

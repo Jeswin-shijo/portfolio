@@ -1,4 +1,3 @@
-import React from "react";
 import "./about-who-we-are-screen.css";
 import flight from "../../../assets/essentials/flight.png";
 import VideoSection from "../components/video-section/video-section";

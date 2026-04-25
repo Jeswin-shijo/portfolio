@@ -1,22 +1,23 @@
-import React from 'react'
-import { Masonry } from 'masonic';
+import { Masonry, type RenderComponentProps } from "masonic";
 
-const ImageGrid = ({places}: any) => {
-  return (
+type Place = {
+  image: string;
+  title: string;
+};
 
-<Masonry
-  items={places}
-  columnGutter={0}
-  columnCount={3}
-  render={({ data }:any) => (
-    <div className="image-card">
-      <img src={data.image} alt={data.title} />
-      <div className="image-tag">{data.title}</div>
-    </div>
-  )}
-/>
+type ImageGridProps = {
+  places: Place[];
+};
 
-  )
-}
+const renderItem = ({ data }: RenderComponentProps<Place>) => (
+  <div className="image-card">
+    <img src={data.image} alt={data.title} />
+    <div className="image-tag">{data.title}</div>
+  </div>
+);
 
-export default ImageGrid
+const ImageGrid = ({ places }: ImageGridProps) => (
+  <Masonry items={places} columnGutter={0} columnCount={3} render={renderItem} />
+);
+
+export default ImageGrid;

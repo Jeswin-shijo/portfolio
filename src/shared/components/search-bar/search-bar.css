@@ -15,7 +15,7 @@
   background-color: #f2f2f2;
   border: none;
   box-shadow: none;
-  font-family: 'Manrope';
+  font-family: var(--font-body);
   min-height: 44px;
   font-size: 0.95rem;
 }

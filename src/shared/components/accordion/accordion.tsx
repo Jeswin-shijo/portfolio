@@ -22,7 +22,7 @@ const Accordion = ({ title, children }: Props) => {
   return (
     <div className={`${Stylesheet.accordionItem} ${isOpen ? Stylesheet.open : ""}`}>
       <button className={Stylesheet.accordionHeader} onClick={toggleAccordion}>
-        <span style={{ fontFamily: "Ivy Mode" }}>{title}</span>
+        <span style={{ fontFamily: "var(--font-heading)" }}>{title}</span>
         <span className={Stylesheet.icon}>
           {/* Plus sign */}
           <span

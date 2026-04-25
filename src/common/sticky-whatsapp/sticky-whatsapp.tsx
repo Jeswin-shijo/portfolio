@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./sticky-whatsapp.css";
 import logo from "../../assets/logo/popup-logo-light.svg";
 import bgImage from "../../assets/whatsapp background/logo.jpg";

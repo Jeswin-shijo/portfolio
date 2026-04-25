@@ -9,7 +9,7 @@
 }
 
 .title {
-  font-family: "Ivy Mode";
+  font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 500;
   color: #1a1a1a;
@@ -24,7 +24,7 @@
 .button {
   background-color: #facc15; // yellow-400
   color: #1a1a1a;
-  font-family: "Manrope";
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 0.95rem;
   padding: 0.6rem 1.25rem;

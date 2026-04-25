@@ -13,7 +13,7 @@ const statValueStyle: React.CSSProperties = {
   color: "#f4c200",
   fontWeight: 400,
   fontSize: "clamp(30px, 6vw, 50px)",
-  fontFamily: "Ivy Mode",
+  fontFamily: "var(--font-heading)",
   margin: 0,
 };
 

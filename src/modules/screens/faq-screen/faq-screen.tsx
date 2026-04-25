@@ -1,4 +1,3 @@
-import React from "react";
 import Accordion from "../../../shared/components/accordion";
 import ContactCard from "../../../shared/contact-items";
 import ScreenName from "../../../shared/components/screen-name";
@@ -57,12 +56,13 @@ function FAQScreen() {
         <div className="my-2">
           <div className="row">
             <div className="col-lg-8 mb-4">
-              {tourFAQs.map((item: any, index: any) => (
+              {tourFAQs.map((item) => (
                 <Accordion
                   title={item.title}
-                  children={item.children}
-                  key={index}
-                />
+                  key={item.title}
+                >
+                  {item.children}
+                </Accordion>
               ))}
             </div>
 

@@ -1,7 +1,7 @@
 .button {
   background-color: #facc15;
   color: #1a1a1a;
-  font-family: "Manrope";
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 0.95rem;
   padding: 0.6rem 1.25rem;

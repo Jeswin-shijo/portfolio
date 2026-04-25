@@ -172,7 +172,7 @@ const ContactFormScreen = () => {
             <div className="contact-form-screen__form-shell p-4 shadow rounded-3">
               <h1
                 style={{
-                  fontFamily: "Ivy mode",
+                  fontFamily: "var(--font-heading)",
                   fontWeight: 600,
                 }}
               >
@@ -202,12 +202,11 @@ const ContactFormScreen = () => {
                       <input
                         type="text"
                         name="name"
-                        className="form-control"
+                        className="form-control contact-form-screen__field"
                         placeholder="Enter Name"
                         value={formData.name}
                         onChange={(e) => updateField("name", e.target.value)}
                         required
-                        style={{ height: 50, borderRadius: 8 }}
                       />
                     </div>
                   </div>
@@ -220,12 +219,11 @@ const ContactFormScreen = () => {
                       <input
                         type="email"
                         name="email"
-                        className="form-control"
+                        className="form-control contact-form-screen__field"
                         placeholder="Enter Email"
                         value={formData.email}
                         onChange={(e) => updateField("email", e.target.value)}
                         required
-                        style={{ height: 50, borderRadius: 8 }}
                       />
                     </div>
                   </div>
@@ -263,11 +261,10 @@ const ContactFormScreen = () => {
                     <div className="input-group">
                       <select
                         name="destination"
-                        className="form-select form-control"
+                        className="form-select form-control contact-form-screen__field"
                         value={formData.destination}
                         onChange={(e) => updateField("destination", e.target.value)}
                         required
-                        style={{ height: 50, borderRadius: 8 }}
                       >
                         <option value="" disabled className="secondary-text">
                           Select Destination
@@ -314,12 +311,11 @@ const ContactFormScreen = () => {
                       <input
                         type="number"
                         name="people"
-                        className="form-control"
+                        className="form-control contact-form-screen__field"
                         placeholder="Enter No of People"
                         min={1}
                         value={formData.people}
                         onChange={(e) => updateField("people", e.target.value)}
-                        style={{ height: 50, borderRadius: 8 }}
                       />
                     </div>
                   </div>
@@ -331,10 +327,9 @@ const ContactFormScreen = () => {
                     <div className="input-group">
                       <select
                         name="vacationType"
-                        className="form-select form-control"
+                        className="form-select form-control contact-form-screen__field"
                         value={formData.vacationType}
                         onChange={(e) => updateField("vacationType", e.target.value)}
-                        style={{ height: 50, borderRadius: 8 }}
                       >
                         <option value="" disabled className="secondary-text">
                           Select Type

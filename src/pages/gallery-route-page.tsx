@@ -1,13 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GalleryPage, {
   type Album as GalleryAlbum,
+  albums as galleryAlbums,
 } from "../modules/screens/gallery-page-screen/gallery-man-screen";
 import GalleryViewPage from "../modules/screens/gallery-page-screen/sub-screen/gallery-view-page";
 import FooterScreen from "../modules/screens/footer-screen";
 import PageHero from "../shared/components/page-hero/page-hero";
+import { navigateTo } from "../shared/navigation/site-navigation";
+
+const slugify = (value: string) =>
+  value.toLowerCase().replace(/\s+/g, "-").trim();
+
+const findAlbumBySlug = (slug: string | null): GalleryAlbum | null => {
+  if (!slug) return null;
+  const normalized = slugify(slug);
+  return (
+    galleryAlbums.find((album) => slugify(album.title) === normalized) ?? null
+  );
+};
+
+const readAlbumSlugFromUrl = (): string | null => {
+  if (typeof window === "undefined") return null;
+  return new URLSearchParams(window.location.search).get("album");
+};
 
 const GalleryRoutePage = () => {
-  const [selectedAlbum, setSelectedAlbum] = useState<GalleryAlbum | null>(null);
+  const [selectedAlbum, setSelectedAlbum] = useState<GalleryAlbum | null>(() =>
+    findAlbumBySlug(readAlbumSlugFromUrl())
+  );
+
+  useEffect(() => {
+    const sync = () => {
+      setSelectedAlbum(findAlbumBySlug(readAlbumSlugFromUrl()));
+    };
+
+    window.addEventListener("popstate", sync);
+    return () => window.removeEventListener("popstate", sync);
+  }, []);
+
+  const handleSelect = (album: GalleryAlbum) => {
+    setSelectedAlbum(album);
+    navigateTo(`/gallery?album=${slugify(album.title)}`, { replace: true });
+  };
+
+  const handleBack = () => {
+    setSelectedAlbum(null);
+    navigateTo("/gallery", { replace: true });
+  };
 
   return (
     <>
@@ -22,12 +61,12 @@ const GalleryRoutePage = () => {
         activeNav="gallery"
       />
       {!selectedAlbum ? (
-        <GalleryPage onAlbumSelect={setSelectedAlbum} />
+        <GalleryPage onAlbumSelect={handleSelect} />
       ) : (
         <GalleryViewPage
           albumTitle={selectedAlbum.title}
           images={selectedAlbum.images}
-          onBack={() => setSelectedAlbum(null)}
+          onBack={handleBack}
         />
       )}
       <FooterScreen />

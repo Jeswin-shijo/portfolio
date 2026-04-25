@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ScreenName from "../../../shared/components/screen-name";
 import { buildPackageHref } from "../../../data/tour-packages";
 import { navigateTo } from "../../../shared/navigation/site-navigation";

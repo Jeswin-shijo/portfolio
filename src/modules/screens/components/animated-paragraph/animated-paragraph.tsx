@@ -33,11 +33,11 @@ const AnimatedParagraph: React.FC<AnimatedParagraphProps> = ({ text = "This is t
     <p className="animated-paragraph">
       {words.map((word, i) => (
         <span
-          key={i}
+          key={`${word}-${i}`}
           className={`word ${i < revealedWords ? 'visible' : ''}`}
           style={{
           fontSize: "2rem",
-          fontFamily: "Ivy Mode",
+          fontFamily: "var(--font-heading)",
           color: "#0c2d57",
           fontWeight: 500,
           lineHeight: 1.5

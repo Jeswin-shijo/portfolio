@@ -72,12 +72,12 @@ const MiniContactForm = ({
       style={{ width: "100%", maxWidth: 430 }}
     >
       <h4
-        style={{ fontFamily: "Ivy mode", color: "white" }}
+        style={{ fontFamily: "var(--font-heading)", color: "white" }}
         className="pt-4 pb-2"
       >
         Enjoy your vacation trip at <br /> your dream place
       </h4>
-      <p style={{ color: "white", fontFamily: "Manrope" }} className="mb-4">
+      <p style={{ color: "white", fontFamily: "var(--font-body)" }} className="mb-4">
         Tell us what kind of holiday you have in mind and we will help shape
         the right itinerary for you.
       </p>
@@ -89,11 +89,10 @@ const MiniContactForm = ({
           <div className="input-group">
             <input
               type="text"
-              className="form-control"
+              className="form-control mini-contact-form__field"
               placeholder="Enter Name"
               value={name}
               onChange={(event) => setName(event.target.value)}
-              style={{ height: 50, borderRadius: 8 }}
             />
           </div>
         </div>

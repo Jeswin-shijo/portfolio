@@ -1,4 +1,3 @@
-import React from "react";
 import { navigateTo } from "../../../../shared/navigation/site-navigation";
 
 interface BlogCardProps {

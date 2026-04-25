@@ -7,11 +7,11 @@
 }
 
 .section-title {
-  font-size: 24px;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
   font-weight: 600;
   color: #002e5b;
   margin-bottom: 15px;
-  font-family: 'Ivy mode';
+  font-family: var(--font-heading);
 }
 
 .category-list {
@@ -26,8 +26,8 @@
 .category-list li {
   padding: 10px 0;
   position: relative;
-  font-family: 'Manrope';
-  font-size: 18px;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
 }
 
 .category-card__option {
@@ -38,12 +38,16 @@
   position: relative;
   text-align: left;
   color: #000;
-  transition: all 0.2s ease;
-  font-family: 'Manrope';
+  transition: color 0.2s ease, transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  font-family: var(--font-body);
 }
 
 .category-card__option:hover {
   color: #0c2d57;
+}
+
+.category-card__option:active {
+  transform: scale(0.98);
 }
 
 .category-card__option.active {
@@ -78,7 +82,7 @@
   padding-right: 30px;
   padding-left: 30px;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
   color: #00315a;
   border: 1px solid transparent;
   white-space: nowrap;
@@ -88,7 +92,7 @@
               border-color 0.2s ease,
               transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
               box-shadow 200ms ease;
-  font-family: 'Manrope';
+  font-family: var(--font-body);
 }
 
 .tag:hover {

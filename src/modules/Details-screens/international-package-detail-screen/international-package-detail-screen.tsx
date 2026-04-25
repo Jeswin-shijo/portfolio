@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./international-package-detail-screen.css";
 import MiniContactForm from "../../../shared/components/mini-contact-form";
 import type { TourPackage } from "../../../data/tour-packages";

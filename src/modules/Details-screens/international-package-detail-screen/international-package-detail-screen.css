@@ -74,7 +74,7 @@
   background: transparent !important;
   border-radius: 0 !important;
   color: #22252a !important;
-  font-family: "Ivy Mode", serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.5rem, 1.4vw, 1.16rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
@@ -115,7 +115,7 @@
 .international-detail-section-title {
   margin: 0 0 1.1rem;
   color: #0c2d57;
-  font-family: "Ivy Mode", serif;
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 3vw, 2.45rem);
   line-height: 1.05;
   font-weight: 600;
@@ -125,7 +125,7 @@
 .international-detail-subtitle {
   margin: 0 0 1rem;
   color: #0c2d57;
-  font-family: "Ivy Mode", serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.35rem, 2vw, 1.6rem);
   line-height: 1.15;
   font-weight: 600;
@@ -201,7 +201,7 @@
   background: transparent !important;
   color: #0c2d57 !important;
   transition: all 0.3s ease;
-  font-family: "Ivy Mode", serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   font-size: clamp(1.05rem, 1.6vw, 1.25rem);
   line-height: 1.3;

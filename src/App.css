@@ -12,8 +12,8 @@
   --site-header-cta-padding-y: 0.8rem;
   --site-header-cta-padding-x: 1.4rem;
   --site-header-cta-min-height: 48px;
-  --font-heading: "Ivy Mode";
-  --font-body: "Manrope";
+  --font-heading: "Ivy Mode", "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, -apple-system, sans-serif;
 }
 
 .site-container {
@@ -88,27 +88,32 @@
 
 .title-text {
    font-family: var(--font-heading);
-   font-size: clamp(32px, 5vw, 60px);
+   font-size: clamp(2rem, 5vw, 3.75rem);
+   line-height: 1.1;
 }
 
 .sub-title-text {
    font-family: var(--font-heading);
-   font-size: clamp(15px, 5vw, 28px);
+   font-size: clamp(1.2rem, 3vw, 1.75rem);
+   line-height: 1.25;
 }
 
 .sub-text {
-  font-family: var(--font-body); 
-  font-size: clamp(15px, 2.5vw, 30px);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
 }
 
 .secondary-text {
   font-family: var(--font-body);
-  font-size: clamp(10px, 2vw, 18px);
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  line-height: 1.65;
 }
 
 .screen-title {
   font-family: var(--font-heading);
-  font-size: clamp(30px, 5vw, 50px);
+  font-size: clamp(1.875rem, 5vw, 3.125rem);
+  line-height: 1.12;
   color: #0c2d57;
 }
 

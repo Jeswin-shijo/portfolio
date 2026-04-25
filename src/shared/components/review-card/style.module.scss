@@ -16,7 +16,7 @@
   right: 1.2rem;
   top: 0.4rem;
   color: #c8d2de;
-  font-family: "Ivy Mode";
+  font-family: var(--font-heading);
   font-size: 4.5rem;
   line-height: 1;
 }
@@ -25,14 +25,14 @@
   margin: 0;
   padding-top: 0.3rem;
   color: #123f72;
-  font-family: "Ivy Mode";
+  font-family: var(--font-heading);
   font-size: 2rem;
 }
 
 .copy {
   margin: 0.85rem 0 0;
   color: #51606f;
-  font-family: "Manrope";
+  font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.55;
   min-height: 116px;
@@ -65,7 +65,7 @@
 .authorLink {
   margin: 0;
   color: #123f72;
-  font-family: "Ivy Mode";
+  font-family: var(--font-heading);
   font-size: 1.45rem;
   line-height: 1.1;
   text-decoration: none;
@@ -78,7 +78,7 @@
 .authorSubline {
   margin: 0.15rem 0 0;
   color: #8a95a3;
-  font-family: "Manrope";
+  font-family: var(--font-body);
   font-size: 0.95rem;
 }
 
@@ -86,7 +86,7 @@
   margin-top: 0.85rem;
   align-self: flex-start;
   color: #123f72;
-  font-family: "Manrope";
+  font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;

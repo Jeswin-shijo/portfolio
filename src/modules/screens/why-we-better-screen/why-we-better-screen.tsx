@@ -1,4 +1,3 @@
-import React from "react";
 import "./why-we-better-screen.css";
 import ScreenName from "../../../shared/components/screen-name";
 
@@ -33,7 +32,7 @@ const WhyWeBetterScreen = () => {
         <section className="features-wrap">
           <div className="features-grid">
             {features.map((item, i) => (
-              <div className="feature" key={i}>
+              <div className="feature" key={item}>
                 <div className="d-flex gap-5">
                 <span className="number">{String(i + 1).padStart(2, "0")}</span>
                 <span className="text">{item}</span>

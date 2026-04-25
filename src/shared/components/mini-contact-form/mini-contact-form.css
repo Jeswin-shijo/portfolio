@@ -1,7 +1,7 @@
 .mini-contact-form__submit-btn {
   background-color: #facc15;
   color: #1a1a1a;
-  font-family: "Manrope";
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 0.95rem;
   padding: 0.55rem 1rem;
@@ -53,7 +53,7 @@
 .form-select,
 .form-control::placeholder,
 .form-select::placeholder {
-  font-family: "Manrope";
+  font-family: var(--font-body);
   color: #999;
 }
 
@@ -69,6 +69,11 @@
 .input-group .form-control:focus {
   border-color: #0c2d57; /* custom focus color (like MUI primary) */
   box-shadow: 0 0 0 2px rgba(12, 45, 87, 0.2); /* subtle glow */
+}
+
+.mini-contact-form__field {
+  height: 50px;
+  border-radius: 8px;
 }
 
 @media (max-width: 576px) {

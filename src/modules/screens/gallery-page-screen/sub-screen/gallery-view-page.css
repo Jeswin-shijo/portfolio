@@ -24,7 +24,7 @@
   margin: 0;
   font-size: clamp(1.4rem, 2.2vw, 2rem);
   color: #123754;
-  font-family: "Ivy Mode";
+  font-family: var(--font-heading);
 }
 
 .galleryview-back-btn {
@@ -113,13 +113,13 @@
 }
 
 .mosaic-current {
-  font-size: 34px;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
   font-weight: 500;
   color: #1b2f44;
 }
 
 .mosaic-total {
-  font-size: 28px;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 300;
   color: #b7c1cc;
   margin-top: 8px;

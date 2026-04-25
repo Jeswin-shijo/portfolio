@@ -1,4 +1,3 @@
-import React from "react";
 import "./footer-screen.css";
 import logo from "../../../assets/logo/popup-logo-light.svg";
 import { navigateTo } from "../../../shared/navigation/site-navigation";
@@ -178,21 +177,23 @@ const FooterScreen = () => {
 
             {footerData.map((section, index) => (
               <div
-                key={index}
+                key={section.title}
                 className={`footer-screen__section col-md-2 col-sm-2 col-lg-2 col-6 p-0 ${
                   index === 3 ? "pe-2" : ""
                 }`}
               >
                 <h6
                   className="text-uppercase fw-semibold mb-3"
-                  style={{ fontFamily: "Ivy Mode" }}
+                  style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {section.title}
                 </h6>
                 <div className="border mb-3"></div>
                 <ul className="list-unstyled small footer-links">
-                  {section.links.map((link, i) => (
-                    <li key={i}>{renderFooterLink(link)}</li>
+                  {section.links.map((link) => (
+                    <li key={`${link.label}-${link.href}`}>
+                      {renderFooterLink(link)}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -204,7 +205,7 @@ const FooterScreen = () => {
           {/* Bottom Section */}
           <div className="footer-screen__meta row justify-content-center small gy-4">
             <div className="footer-screen__meta-item col-md-2 col-sm-2 col-lg-2 col-6">
-              <strong style={{ fontFamily: "Ivy Mode" }}>MOBILE</strong>
+              <strong style={{ fontFamily: "var(--font-heading)" }}>MOBILE</strong>
               <div className="footer-screen__meta-links">
                 <a href="tel:+97118919891" className="footer-screen__meta-link">
                   +971 18 919891
@@ -215,7 +216,7 @@ const FooterScreen = () => {
               </div>
             </div>
             <div className="footer-screen__meta-item col-md-2 col-sm-2 col-lg-2 col-6">
-              <strong style={{ fontFamily: "Ivy Mode" }}>EMAIL</strong>
+              <strong style={{ fontFamily: "var(--font-heading)" }}>EMAIL</strong>
               <div className="footer-screen__meta-links">
                 <a
                   href="mailto:info@popuptours.com"
@@ -226,7 +227,7 @@ const FooterScreen = () => {
               </div>
             </div>
             <div className="footer-screen__meta-item col-md-2 col-sm-2 col-lg-2 col-6">
-              <strong style={{ fontFamily: "Ivy Mode" }}>ADDRESS</strong>
+              <strong style={{ fontFamily: "var(--font-heading)" }}>ADDRESS</strong>
               <div className="footer-screen__meta-links">
                 <a
                   href={mapsHref}
@@ -243,7 +244,7 @@ const FooterScreen = () => {
               </div>
             </div>
             <div className="footer-screen__meta-item col-md-2 col-sm-2 col-6 col-lg-2 d-flex flex-column align-items-start align-items-md-center">
-              <strong style={{ fontFamily: "Ivy Mode" }}>SOCIAL NETWORK</strong>
+              <strong style={{ fontFamily: "var(--font-heading)" }}>SOCIAL NETWORK</strong>
               <div className="footer-screen__social d-flex gap-2 mt-2">
                 {socialLinks.map((link) =>
                   link.href ? (

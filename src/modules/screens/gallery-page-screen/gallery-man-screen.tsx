@@ -64,7 +64,7 @@ const createAlbumImages = (seed: string): string[] => [
   ),
 ];
 
-const albums: Album[] = [
+export const albums: Album[] = [
   { title: "Bali", count: 12, images: createAlbumImages("bali") },
   { title: "Wayanad", count: 12, images: createAlbumImages("wayanad") },
   { title: "Kodaikanal", count: 12, images: createAlbumImages("kodaikanal") },

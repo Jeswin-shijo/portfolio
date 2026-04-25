@@ -38,7 +38,7 @@
 .legal-page__card h2 {
   margin: 0 0 0.75rem;
   color: #0c2d57;
-  font-family: "Ivy Mode", serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.4rem, 2vw, 1.7rem);
   line-height: 1.15;
   font-weight: 600;

@@ -1,4 +1,3 @@
-import React from "react";
 import "./landing-screen.css";
 import FooterScreen from "../footer-screen";
 import bgScreen from "../../../assets/sample.jpg";

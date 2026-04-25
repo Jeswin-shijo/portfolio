@@ -1,4 +1,3 @@
-import React from "react";
 import Stylesheet from "./contact-card.module.scss";
 import { navigateTo } from "../navigation/site-navigation";
 

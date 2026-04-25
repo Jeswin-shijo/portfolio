@@ -102,7 +102,7 @@
 .share-popup__title {
   margin: 0.35rem 0 0;
   color: #fff;
-  font-family: "Ivy Mode";
+  font-family: var(--font-heading);
   font-size: clamp(1.3rem, 2vw, 1.6rem);
   line-height: 1.05;
 }

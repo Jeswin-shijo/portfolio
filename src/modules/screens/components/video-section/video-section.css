@@ -230,7 +230,7 @@
 
 .video-section__time {
   color: rgba(255, 255, 255, 0.92);
-  font-family: "Manrope";
+  font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 600;
 }

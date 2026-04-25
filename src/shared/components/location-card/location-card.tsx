@@ -1,4 +1,3 @@
-import React from "react";
 import { navigateTo } from "../../navigation/site-navigation";
 import "./location-card.css";
 
@@ -30,7 +29,7 @@ const LocationCard = ({
         />
         <span
           className="position-absolute top-0 end-0 m-3 bg-white text-dark px-2 py-1 rounded-3 bg-opacity-50 shadow-sm location-card-tag"
-          style={{ fontSize: 20 }}
+          style={{ fontSize: "clamp(1rem, 2.2vw, 1.3rem)" }}
         >
           {locationName}
         </span>

@@ -202,19 +202,47 @@
   .photo-gallery-modal__shell {
     padding: 1rem;
     border-radius: 22px;
+    max-height: 94vh;
+    overflow-y: auto;
   }
 
   .photo-gallery-modal__figure,
   .photo-gallery-modal__figure img {
-    min-height: 280px;
+    min-height: 260px;
   }
 
   .photo-gallery-modal__thumbs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .photo-gallery-modal__thumb img {
-    height: 88px;
+    height: 78px;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-gallery-modal {
+    padding: 8px;
+  }
+  .photo-gallery-modal__shell {
+    padding: 0.85rem;
+    border-radius: 18px;
+  }
+  .photo-gallery-modal__figure,
+  .photo-gallery-modal__figure img {
+    min-height: 220px;
+  }
+  .photo-gallery-modal__thumbs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+  .photo-gallery-modal__thumb img {
+    height: 66px;
+  }
+  .photo-gallery-modal__close {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
   }
 }
 

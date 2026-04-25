@@ -43,8 +43,20 @@ type NavigateOptions = {
   replace?: boolean;
 };
 
+const isInternalHref = (href: string) =>
+  href.startsWith("/") || href.startsWith("#") || href.startsWith("?");
+
 export const navigateTo = (href: string, options: NavigateOptions = {}) => {
+  if (typeof href !== "string" || href.length === 0 || !isInternalHref(href)) {
+    return;
+  }
+
   const url = new URL(href, window.location.origin);
+
+  if (url.origin !== window.location.origin) {
+    return;
+  }
+
   const nextLocation = `${normalizePath(url.pathname)}${url.search}${url.hash}`;
   const currentLocation = getLocationKey();
 
@@ -60,10 +72,6 @@ export const navigateTo = (href: string, options: NavigateOptions = {}) => {
 
   const historyMethod = options.replace ? "replaceState" : "pushState";
 
-  window.history[historyMethod](
-    {},
-    "",
-    `${normalizePath(url.pathname)}${url.search}${url.hash}`
-  );
+  window.history[historyMethod]({}, "", nextLocation);
   window.dispatchEvent(new PopStateEvent("popstate"));
 };

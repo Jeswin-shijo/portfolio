@@ -1,6 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import "./photo-gallery-modal.css";
+
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 type PhotoGalleryModalProps = {
   isOpen: boolean;
@@ -19,31 +22,69 @@ const PhotoGalleryModal = ({
   onClose,
   onSelect,
 }: PhotoGalleryModalProps) => {
+  const shellRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
     if (!isOpen) return;
 
     const previousOverflow = document.body.style.overflow;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
     document.body.style.overflow = "hidden";
+
+    const focusFirst = () => {
+      const shell = shellRef.current;
+      if (!shell) return;
+      const focusables = shell.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR);
+      focusables[0]?.focus();
+    };
+
+    const rafId = requestAnimationFrame(focusFirst);
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose();
+        return;
       }
 
       if (event.key === "ArrowRight") {
         onSelect((activeIndex + 1) % images.length);
+        return;
       }
 
       if (event.key === "ArrowLeft") {
         onSelect((activeIndex - 1 + images.length) % images.length);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+      const shell = shellRef.current;
+      if (!shell) return;
+      const focusables = Array.from(
+        shell.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      ).filter((node) => !node.hasAttribute("data-focus-skip"));
+      if (focusables.length === 0) {
+        event.preventDefault();
+        return;
+      }
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (event.shiftKey && (active === first || !shell.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      cancelAnimationFrame(rafId);
       document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", handleKeyDown);
+      previouslyFocused?.focus?.();
     };
   }, [activeIndex, images.length, isOpen, onClose, onSelect]);
 
@@ -65,9 +106,11 @@ const PhotoGalleryModal = ({
         className="photo-gallery-modal__backdrop"
         aria-label="Close gallery"
         onClick={onClose}
+        data-focus-skip="true"
+        tabIndex={-1}
       />
 
-      <div className="photo-gallery-modal__shell">
+      <div className="photo-gallery-modal__shell" ref={shellRef}>
         <div className="photo-gallery-modal__header">
           <div>
             <p className="photo-gallery-modal__eyebrow">Photo Gallery</p>

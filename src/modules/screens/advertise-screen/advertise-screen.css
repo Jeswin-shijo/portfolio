@@ -6,8 +6,30 @@
   max-width: 38rem;
 }
 
+.advertise-screen__intro .screen-title {
+  animation: pt-fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.advertise-screen__intro-copy {
+  animation: pt-fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+}
+
+.advertise-screen__intro i,
+.advertise-screen__intro-copy ~ div i {
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 @media (max-width: 767.98px) {
   .advertise-screen__intro-copy {
     max-width: none;
+  }
+  .advertise-screen__intro .screen-title br {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .advertise-screen__intro i {
+    font-size: 1.75rem !important;
   }
 }

@@ -7,18 +7,11 @@ import {
   fallbackReviews,
   type ReviewsApiResponse,
 } from "../../../data/reviews";
+import { env } from "../../../config/env";
 
-type Props = {};
+const reviewsApiUrl = env.reviewsApiUrl;
 
-const configuredReviewsApiUrl = process.env.REACT_APP_REVIEWS_API_URL?.trim();
-const isLocalDevelopment =
-  process.env.NODE_ENV === "development" &&
-  typeof window !== "undefined" &&
-  /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
-const reviewsApiUrl =
-  configuredReviewsApiUrl || (isLocalDevelopment ? null : "/api/google-reviews");
-
-const ReviewScreen = (props: Props) => {
+const ReviewScreen = () => {
   const [reviewsData, setReviewsData] = useState<ReviewsApiResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);

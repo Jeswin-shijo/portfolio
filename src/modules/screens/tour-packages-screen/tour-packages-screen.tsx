@@ -62,15 +62,13 @@ const TourPackagesScreen = () => {
         </div>
 
         {/* Tabs */}
-        <div className="d-flex justify-content-between border-bottom mb-4 w-100">
+        <div className="d-flex justify-content-between border-bottom mb-4 w-100 tour-packages-tabs">
           {tabs.map((tab) => (
             <div
               key={tab.value}
               onClick={() => setActiveTab(tab.value)}
-              className={`flex-fill text-center pb-2 tour-packages-tab ${
-                activeTab === tab.value
-                  ? "active border-bottom border-warning fw-bold"
-                  : "text-secondary"
+              className={`flex-fill text-center pb-2 tour-packages-tab pt-press ${
+                activeTab === tab.value ? "active fw-bold" : "text-secondary"
               }`}
             >
               <h3 className="sub-title-text">{tab.label}</h3>
@@ -94,7 +92,7 @@ const TourPackagesScreen = () => {
         <div className="d-flex justify-content-end gap-2 mt-4">
           <button
             type="button"
-            className={`btn rounded-3 ${
+            className={`btn rounded-3 pt-press ${
               canRotatePackages ? "btn-warning text-white" : "btn-outline-secondary"
             }`}
             onClick={() =>
@@ -111,7 +109,7 @@ const TourPackagesScreen = () => {
 
           <button
             type="button"
-            className={`btn rounded-3 ${
+            className={`btn rounded-3 pt-press ${
               canRotatePackages ? "btn-warning text-white" : "btn-outline-secondary"
             }`}
             onClick={() =>

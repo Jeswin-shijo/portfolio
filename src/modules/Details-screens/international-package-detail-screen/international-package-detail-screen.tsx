@@ -37,8 +37,8 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
     <div className="international-detail-layout">
       <div className="international-detail-main">
         <ul className="nav nav-tabs international-detail-tabs border-0 justify-content-start">
-          {tabs.map((tab, i) => (
-            <li className="nav-item" key={i}>
+          {tabs.map((tab) => (
+            <li className="nav-item" key={tab}>
               <button
                 onClick={() => setActiveTab(tab)}
                 className={`nav-link package-tab-btn border-0 ${
@@ -60,8 +60,8 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
 
             <h5 className="international-detail-subtitle">Highlights</h5>
             <ul className="international-detail-list list-unstyled">
-              {packageData.highlights.map((text, i) => (
-                <li key={i} className="international-detail-list-item">
+              {packageData.highlights.map((text) => (
+                <li key={text} className="international-detail-list-item">
                   <span
                     className="material-symbols-outlined international-detail-list-icon international-detail-list-icon--highlight"
                   >
@@ -92,7 +92,7 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
 
                 {packageData.itinerary.map((item, index) => (
                   <div
-                    key={index}
+                    key={`day-${item.day}`}
                     className="position-relative ps-5 mb-5"
                     style={{ zIndex: "1" }}
                   >
@@ -140,9 +140,9 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
                         >
                           <div className="accordion-body ps-0 pt-3">
                             <ul className="international-detail-list list-unstyled mb-0">
-                              {item.details.map((detail, i) => (
+                              {item.details.map((detail) => (
                                 <li
-                                  key={i}
+                                  key={`${detail.time}-${detail.text}`}
                                   className="international-detail-list-item"
                                 >
                                   <span
@@ -178,8 +178,8 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
                   The Cost Includes
                 </h6>
                 <ul className="international-detail-list list-unstyled">
-                  {packageData.costIncludes.map((text, i) => (
-                    <li key={i} className="international-detail-list-item">
+                  {packageData.costIncludes.map((text) => (
+                    <li key={text} className="international-detail-list-item">
                       <span
                         className="material-symbols-outlined international-detail-list-icon international-detail-list-icon--include"
                       >
@@ -196,8 +196,8 @@ const InternationalPackageDetailScreen = ({ packageData }: Props) => {
                   The Cost Excludes
                 </h6>
                 <ul className="international-detail-list list-unstyled">
-                  {packageData.costExcludes.map((text, i) => (
-                    <li key={i} className="international-detail-list-item">
+                  {packageData.costExcludes.map((text) => (
+                    <li key={text} className="international-detail-list-item">
                       <span
                         className="material-symbols-outlined international-detail-list-icon international-detail-list-icon--exclude"
                       >

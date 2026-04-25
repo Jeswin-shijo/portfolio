@@ -1,5 +1,6 @@
 .hero-section {
   position: relative;
+  min-height: 360px;
 }
 
 .hero-section .overlay {
@@ -8,4 +9,40 @@
 
 .hero-section .z-1 {
   z-index: 1;
+  max-width: min(var(--site-max-width), calc(100% - (var(--site-gutter) * 2)));
+  margin-inline: auto;
+  animation: pt-fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-section .btn-warning {
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 220ms ease,
+              background-color 220ms ease;
+}
+.hero-section .btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+.hero-section .btn-warning:active {
+  transform: scale(0.96);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 320px;
+  }
+  .hero-section .lead {
+    font-size: 0.95rem;
+    padding-inline: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 280px;
+  }
+  .hero-section .btn-warning {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.95rem;
+  }
 }

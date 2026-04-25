@@ -25,8 +25,8 @@ const BlogCard = ({
   return (
     <button
       type="button"
-      className="rounded-4 bg-light p-2 shadow-sm text-start border-0"
-      style={fullWidth ? { width: "100%" } : { maxWidth: 400 }}
+      className="rounded-4 bg-light p-2 shadow-sm text-start border-0 pt-lift pt-press blog-card-btn"
+      style={fullWidth ? { width: "100%" } : { maxWidth: 400, width: "100%" }}
       aria-label={`Open blog: ${title}`}
       onClick={() => href && navigateTo(href)}
     >

@@ -59,6 +59,13 @@
 .international-detail-tabs {
   gap: clamp(1rem, 2vw, 1.75rem);
   margin-bottom: clamp(1.5rem, 2vw, 2.25rem);
+  flex-wrap: wrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.international-detail-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .package-tab-btn {
@@ -72,6 +79,11 @@
   line-height: 1.1;
   letter-spacing: -0.01em;
   transition: color 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+
+.package-tab-btn:active {
+  transform: scale(0.97);
 }
 
 .package-tab-btn:hover {
@@ -273,6 +285,7 @@
   .international-detail-tabs {
     gap: 0.9rem;
     margin-bottom: 1.35rem;
+    flex-wrap: nowrap;
   }
 
   .package-tab-btn {
@@ -316,5 +329,20 @@
 
   .international-detail-itinerary {
     padding-top: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .international-detail-section-title {
+    font-size: 1.6rem;
+  }
+  .international-detail-subtitle {
+    font-size: 1.15rem;
+  }
+  .international-detail-copy {
+    font-size: 0.92rem;
+  }
+  .package-tab-btn {
+    font-size: 0.9rem;
   }
 }

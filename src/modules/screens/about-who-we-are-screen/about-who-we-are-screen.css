@@ -24,10 +24,6 @@
   border-radius: 28px;
 }
 
-.about-who-we-are__media .video-section__media {
-  max-height: 480px;
-}
-
 @media (max-width: 991.98px) {
   .about-who-we-are {
     padding-left: 0 !important;

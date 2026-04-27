@@ -66,7 +66,6 @@ const VideoSection = ({
     if (!video) return;
 
     try {
-      setHasStarted(true);
       await video.play();
     } catch {
       setIsPlaying(false);
@@ -215,7 +214,7 @@ const VideoSection = ({
           </button>
         ) : null}
 
-        <div className="video-section__controls">
+        {hasStarted ? <div className="video-section__controls">
           <div className="video-section__timeline-wrap">
             <input
               type="range"
@@ -297,7 +296,7 @@ const VideoSection = ({
               </button>
             </div>
           </div>
-        </div>
+        </div> : null}
       </div>
     </div>
   );

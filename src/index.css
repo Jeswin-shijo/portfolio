@@ -114,13 +114,13 @@ a {
   position: sticky;
   top: 1.5rem;
   z-index: 50;
-  background-color: var(--bg-nav);
-  border: 1px solid var(--border-color);
+  background-color: rgba(252, 252, 252, 0.6); /* Needs a slight tint for the blur to work well */
+  border: none;
   border-radius: 9999px;
   width: 90%;
   max-width: 64rem;
   margin: 0 auto;
-  box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 
 .navbar-brand {

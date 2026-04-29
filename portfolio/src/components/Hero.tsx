@@ -8,22 +8,33 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ type: "spring", stiffness: 100, damping: 10 }}
       >
-        <span style={{ color: '#60a5fa', fontFamily: 'monospace', fontSize: '1.125rem', display: 'block', marginBottom: '1rem' }}>
+        {/* <span style={{ color: '#60a5fa', fontFamily: 'monospace', fontSize: '1.125rem', display: 'block', marginBottom: '1rem' }}>
           &lt;Hello World /&gt;
-        </span>
-        <h2 className="hero-title">
-          Crafting Modern Web & Mobile Experiences
+        </span> */}
+        <h2 
+          className="hero-title" 
+          style={{ 
+            background: 'linear-gradient(to right, #60a5fa, #a78bfa)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent' 
+          }}
+        >
+          Jeswin Shijo J
         </h2>
       </motion.div>
-      <motion.p 
-        className="hero-subtitle"
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 100, damping: 10, delay: 0.1 }}
       >
-        Frontend & Mobile Developer specializing in React, React Native, and TypeScript.
-        I build scalable, performant, and user-friendly applications.
-      </motion.p>
+        <h3 style={{ fontSize: '1.5rem', fontWeight: 500, color: 'var(--text-main)', marginTop: '0.5rem', marginBottom: '1rem' }}>
+          Crafting Modern Web | Mobile Experiences
+        </h3>
+        <p className="hero-subtitle">
+          Frontend & Mobile Developer specializing in React, React Native, and TypeScript.
+          I build scalable, performant, and user-friendly applications.
+        </p>
+      </motion.div>
       <motion.div 
         className="hero-actions"
         initial={{ opacity: 0, y: 20 }}

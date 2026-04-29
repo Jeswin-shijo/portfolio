@@ -1,6 +1,18 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [activeTab, setActiveTab] = useState("");
+
+  const links = [
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Education", href: "#education" },
+    { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
     <motion.nav 
       className="navbar"
@@ -8,14 +20,21 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 100, damping: 15 }}
     >
-      <h1 className="navbar-brand">Jeswin Shijo</h1>
+      {/* <h1 className="navbar-brand">Jeswin Shijo J</h1> */}
+      <span style={{ color: '#60a5fa', fontFamily: 'monospace', fontSize: '1.125rem', display: 'block' }}>
+          &lt;Hello World /&gt;
+        </span>
       <div className="navbar-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        {links.map((link) => (
+          <a 
+            key={link.name} 
+            href={link.href}
+            className={activeTab === link.href ? "active-link" : ""}
+            onClick={() => setActiveTab(link.href)}
+          >
+            {link.name}
+          </a>
+        ))}
       </div>
     </motion.nav>
   );

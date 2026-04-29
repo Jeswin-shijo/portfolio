@@ -22,14 +22,15 @@ export default function Skills() {
 
   return (
     <section id="skills" className="skills-section">
-      <motion.h3 
-        className="section-title"
+      <motion.div 
+        className="section-header"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        Skills & Technologies
-      </motion.h3>
+        <span className="section-subtitle">SKILLS</span>
+        <h3 className="section-title-large">Technologies and tools I work with.</h3>
+      </motion.div>
       
       <div className="skills-grid">
         {skillCategories.map((category, i) => (

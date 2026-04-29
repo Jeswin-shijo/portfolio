@@ -18,7 +18,7 @@ export default function Projects() {
       title: "Pop Up Tours Website",
       desc: "Modern travel website with responsive UI and smooth UX.",
       tech: ["React", "Tailwind", "TypeScript"],
-      link: null
+      link: "https://popup-tours.vercel.app/"
     },
   ];
 
@@ -42,14 +42,15 @@ export default function Projects() {
 
   return (
     <section id="projects" className="projects-section">
-      <motion.h3 
-        className="section-title"
+      <motion.div 
+        className="section-header"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        Projects
-      </motion.h3>
+        <span className="section-subtitle">PROJECTS</span>
+        <h3 className="section-title-large">Featured work and recent builds.</h3>
+      </motion.div>
       <motion.div 
         className="projects-grid"
         variants={containerVariants}

@@ -110,7 +110,6 @@ a {
   align-items: center;
   padding: 1rem 2rem;
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   position: sticky;
   top: 1.5rem;
   z-index: 50;

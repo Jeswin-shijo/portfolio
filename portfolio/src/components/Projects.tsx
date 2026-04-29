@@ -5,20 +5,20 @@ export default function Projects() {
     {
       title: "SODISYS Mobile App",
       desc: "Production-ready mobile app with authentication, real-time updates, and modular architecture. Currently live in both the Play Store and App Store.",
-      tech: ["React Native", "Redux", "Socket.io"],
-      link: null
+      tech: ["React Native", "Tanstack", "Socket.io"],
+      link: null,
     },
     {
       title: "SODISYS Web App",
       desc: "Scalable web application featuring real-time dashboards and complex business logic.",
       tech: ["React", "TypeScript", "Tailwind CSS"],
-      link: "https://app.sodisys.net/dashboard"
+      link: null,
     },
     {
       title: "Pop Up Tours Website",
       desc: "Modern travel website with responsive UI and smooth UX.",
       tech: ["React", "Tailwind", "TypeScript"],
-      link: "https://popup-tours.vercel.app/"
+      link: "https://popup-tours.vercel.app/",
     },
   ];
 
@@ -26,8 +26,8 @@ export default function Projects() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
+      transition: { staggerChildren: 0.2 },
+    },
   };
 
   const itemVariants: any = {
@@ -36,22 +36,24 @@ export default function Projects() {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { type: "spring", stiffness: 100, damping: 10 }
-    }
+      transition: { type: "spring", stiffness: 100, damping: 10 },
+    },
   };
 
   return (
     <section id="projects" className="projects-section">
-      <motion.div 
+      <motion.div
         className="section-header"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
       >
         <span className="section-subtitle">PROJECTS</span>
-        <h3 className="section-title-large">Featured work and recent builds.</h3>
+        <h3 className="section-title-large">
+          Featured work and recent builds.
+        </h3>
       </motion.div>
-      <motion.div 
+      <motion.div
         className="projects-grid"
         variants={containerVariants}
         initial="hidden"
@@ -80,7 +82,11 @@ export default function Projects() {
               variants={itemVariants}
               whileHover={{ scale: 1.05, rotateX: 2, rotateY: 2, zIndex: 10 }}
               className="project-card"
-              style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                display: "block",
+              }}
             >
               {CardContent}
             </motion.a>

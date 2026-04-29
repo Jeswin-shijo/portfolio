@@ -11,14 +11,7 @@ export default function Hero() {
         {/* <span style={{ color: '#60a5fa', fontFamily: 'monospace', fontSize: '1.125rem', display: 'block', marginBottom: '1rem' }}>
           &lt;Hello World /&gt;
         </span> */}
-        <h2 
-          className="hero-title" 
-          style={{ 
-            background: 'linear-gradient(to right, #60a5fa, #a78bfa)', 
-            WebkitBackgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent' 
-          }}
-        >
+        <h2 className="hero-title">
           Jeswin Shijo J
         </h2>
       </motion.div>
@@ -28,11 +21,11 @@ export default function Hero() {
         transition={{ type: "spring", stiffness: 100, damping: 10, delay: 0.1 }}
       >
         <h3 style={{ fontSize: '1.5rem', fontWeight: 500, color: 'var(--text-main)', marginTop: '0.5rem', marginBottom: '1rem' }}>
-          Crafting Modern Web | Mobile Experiences
+          Crafting Modern Full Stack | Mobile Experiences
         </h3>
         <p className="hero-subtitle">
-          Frontend & Mobile Developer specializing in React, React Native, and TypeScript.
-          I build scalable, performant, and user-friendly applications.
+          Full Stack & Mobile Developer specializing in React, React Native, Node.js, and TypeScript.
+          I build scalable, performant, and user-friendly end-to-end applications.
         </p>
       </motion.div>
       <motion.div 

@@ -21,7 +21,7 @@ export default function Navbar() {
       transition={{ type: "spring", stiffness: 100, damping: 15 }}
     >
       {/* <h1 className="navbar-brand">Jeswin Shijo J</h1> */}
-      <span style={{ color: '#60a5fa', fontFamily: 'monospace', fontSize: '1.125rem', display: 'block' }}>
+      <span style={{ color: 'var(--text-main)', fontFamily: 'monospace', fontSize: '1.125rem', display: 'block' }}>
           &lt;Hello World /&gt;
         </span>
       <div className="navbar-links">

@@ -15,7 +15,7 @@ export default function About() {
         <h3 className="section-title-large">Passionate about building software that people actually enjoy using.</h3>
       </div>
       <p className="about-text">
-        Enthusiastic and detail-oriented Mobile App and Frontend Developer with experience in building cross-platform apps using React Native, React.js, and TypeScript. Skilled in creating responsive UIs, integrating REST APIs, and contributing to performance-optimized applications.
+        Enthusiastic and detail-oriented Full Stack and Mobile Developer with experience in building end-to-end applications using React Native, React.js, TypeScript, and Node.js. Skilled in creating responsive UIs, designing robust backend architectures, integrating complex REST APIs, and managing databases to deliver performance-optimized, full-stack solutions.
       </p>
     </motion.section>
   );

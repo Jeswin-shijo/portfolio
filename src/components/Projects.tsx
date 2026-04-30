@@ -3,21 +3,15 @@ import { motion } from "framer-motion";
 export default function Projects() {
   const projects = [
     {
-      title: "SODISYS Mobile App",
-      desc: "Production-ready mobile app with authentication, real-time updates, and modular architecture. Currently live in both the Play Store and App Store.",
-      tech: ["React Native", "Tanstack", "Socket.io"],
-      link: null,
-    },
-    {
-      title: "SODISYS Web App",
-      desc: "Scalable web application featuring real-time dashboards and complex business logic.",
-      tech: ["React", "TypeScript", "Tailwind CSS"],
-      link: null,
+      title: "Smart Bill System",
+      desc: "Invoice management system with a clean UI for creating and tracking invoices.",
+      tech: ["React Js", "TypeScript", 'My SQL', 'Express Js'],
+      link: "https://smartbill-system-2.onrender.com/#/invoices/new",
     },
     {
       title: "Pop Up Tours Website",
       desc: "Modern travel website with responsive UI and smooth UX.",
-      tech: ["React", "Tailwind", "TypeScript"],
+      tech: ["React Js", "Tailwind Css", "TypeScript"],
       link: "https://popup-tours.vercel.app/",
     },
   ];

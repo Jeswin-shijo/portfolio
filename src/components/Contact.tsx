@@ -7,7 +7,11 @@ export default function Contact() {
       value: "jeswindonoo7@gmail.com",
       link: "mailto:jeswindonoo7@gmail.com",
     },
-    { label: "Phone", value: "+91 8925171697", link: "tel:+918925171697" },
+    {
+      label: "Phone",
+      value: "+91 8925171697",
+      link: "tel:+918925171697",
+    },
     {
       label: "GitHub",
       value: "github.com/Jeswin-shijo",
@@ -15,7 +19,7 @@ export default function Contact() {
     },
     {
       label: "LinkedIn",
-      value: "linkedin.com/in/jeswin-shijo-544a543a1",
+      value: "linkedin.com/in/jeswin-shijo",
       link: "https://www.linkedin.com/in/jeswin-shijo-544a543a1/",
     },
   ];
@@ -38,7 +42,7 @@ export default function Contact() {
         {contacts.map((contact, i) => (
           <motion.a
             href={contact.link}
-            target="_blank"
+            target={contact.link.startsWith("mailto") || contact.link.startsWith("tel") ? "_self" : "_blank"}
             rel="noreferrer"
             key={i}
             className="contact-card"

@@ -15,7 +15,10 @@ export default function About() {
         <h3 className="section-title-large">Passionate about building software that people actually enjoy using.</h3>
       </div>
       <p className="about-text">
-        Enthusiastic and detail-oriented Full Stack and Mobile Developer with experience in building end-to-end applications using React Native, React.js, TypeScript, and Node.js. Skilled in creating responsive UIs, designing robust backend architectures, integrating complex REST APIs, and managing databases to deliver performance-optimized, full-stack solutions.
+        I'm a Full Stack and Mobile Developer based in India, currently building production-grade web and mobile apps at SODISYS. 
+        I work across the full stack — from crafting responsive React interfaces to designing Node.js backends and shipping cross-platform mobile apps with React Native.
+        I care about the details: clean code, fast load times, and experiences that just feel right.
+        Outside of work, I'm always tinkering with side projects and exploring what's new in the JS ecosystem.
       </p>
     </motion.section>
   );

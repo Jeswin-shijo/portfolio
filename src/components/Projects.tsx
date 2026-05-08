@@ -14,6 +14,12 @@ export default function Projects() {
       tech: ["React Js", "Tailwind Css", "TypeScript"],
       link: "https://popup-tours.vercel.app/",
     },
+    {
+      title: "Sonik Music Player (Web & Mobile)",
+      desc: "Full-stack music streaming platform with web and mobile apps, featuring an admin dashboard for content management, user analytics, and playlist administration.",
+      tech: ["React Js", "React Native", "TypeScript", "Nest jsx", "My SQL"],
+      // link: "https://popup-tours.vercel.app/",
+    },
   ];
 
   const containerVariants = {

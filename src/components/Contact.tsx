@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import resumeUrl from "../assets/Jeswin_Shijo_Resume_FullStack.docx?url";
 
 export default function Contact() {
   const contacts = [
@@ -56,6 +57,22 @@ export default function Contact() {
           </motion.a>
         ))}
       </div>
+
+      <motion.div
+        className="contact-actions"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
+      >
+        <a
+          href={resumeUrl}
+          download="Jeswin_Shijo_Resume_FullStack.docx"
+          className="btn-primary"
+        >
+          Download CV
+        </a>
+      </motion.div>
 
       <div className="footer-credits">
         Designed and built with React by Jeswin Shijo.

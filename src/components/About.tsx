@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export default function About() {
   return (
     <motion.section 
-      id="about"
+      id="about-me"
       className="about-section"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}

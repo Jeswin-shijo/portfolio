@@ -3,7 +3,7 @@ import profileImage from "../assets/portfolio.png";
 
 export default function Hero() {
   return (
-    <section className="hero-section">
+    <section id="about" className="hero-section">
       <div className="hero-intro">
         <motion.div
           className="hero-profile-frame"

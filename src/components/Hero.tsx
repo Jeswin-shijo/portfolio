@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profileImage from "../assets/Profile.jpeg";
+import profileImage from "../assets/portfolio.png";
 
 export default function Hero() {
   return (
@@ -9,7 +9,8 @@ export default function Hero() {
           className="hero-profile-frame"
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ type: "spring", stiffness: 100, damping: 12 }}
+          whileHover={{ y: -6, scale: 1.04 }}
+          transition={{ type: "spring", stiffness: 220, damping: 16 }}
         >
           <img
             src={profileImage}

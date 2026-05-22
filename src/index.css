@@ -587,6 +587,34 @@ a.project-card {
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+.project-explore-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-main);
+  min-height: 160px;
+  border: 1.5px dashed rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.project-explore-label {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.project-explore-arrow {
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.project-explore-card:hover .project-explore-arrow {
+  transform: translateX(6px);
+}
+
 /* Skills */
 .skills-grid {
   display: grid;

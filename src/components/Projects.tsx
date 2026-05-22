@@ -60,47 +60,34 @@ export default function Projects() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
-        {projects.map((p, i) => {
-          const CardContent = (
-            <>
-              <h4 className="project-title">{p.title}</h4>
-              <p className="project-desc">{p.desc}</p>
-              <div className="project-tech">
-                {p.tech.map((t, j) => (
-                  <span key={j}>{t}</span>
-                ))}
-              </div>
-            </>
-          );
+        {projects.map((p, i) => (
+          <motion.div
+            key={i}
+            variants={itemVariants}
+            whileHover={{ scale: 1.05, rotateX: 2, rotateY: 2, zIndex: 10 }}
+            className="project-card"
+          >
+            <h4 className="project-title">{p.title}</h4>
+            <p className="project-desc">{p.desc}</p>
+            <div className="project-tech">
+              {p.tech.map((t, j) => (
+                <span key={j}>{t}</span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
 
-          return p.link ? (
-            <motion.a
-              key={i}
-              href={p.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, rotateX: 2, rotateY: 2, zIndex: 10 }}
-              className="project-card"
-              style={{
-                textDecoration: "none",
-                color: "inherit",
-                display: "block",
-              }}
-            >
-              {CardContent}
-            </motion.a>
-          ) : (
-            <motion.div
-              key={i}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, rotateX: 2, rotateY: 2, zIndex: 10 }}
-              className="project-card"
-            >
-              {CardContent}
-            </motion.div>
-          );
-        })}
+        <motion.a
+          href="https://showcase-ruddy-omega.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={itemVariants}
+          whileHover={{ scale: 1.05, rotateX: 2, rotateY: 2, zIndex: 10 }}
+          className="project-card project-explore-card"
+        >
+          <span className="project-explore-label">Explore All Projects</span>
+          <span className="project-explore-arrow">→</span>
+        </motion.a>
       </motion.div>
     </section>
   );
